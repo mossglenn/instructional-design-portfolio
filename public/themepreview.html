@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Theme Preview</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --color-background: hsl(255 25% 10%);
+        --color-foreground: hsl(259 20% 90%);
+        --color-border: hsl(259 15% 20%);
+        --color-input: hsl(259 25% 18%);
+        --color-ring: hsl(29 70% 50%);
+        --color-card: hsl(259 56% 10%);
+        --color-card-foreground: hsl(259 30% 90%);
+        --color-popover: hsl(259 60% 20%);
+        --color-popover-foreground: hsl(259 60% 10%);
+        --color-muted: hsl(259 30% 24%);
+        --color-muted-foreground: hsl(259 40% 80%);
+        --color-primary: hsl(259 60% 34%);
+        --color-primary-foreground: hsl(0 0% 95%);
+        --color-secondary: hsl(220 60% 34%);
+        --color-secondary-foreground: hsl(259 20% 90%);
+        --color-accent: hsl(89 60% 45%);
+        --color-accent-foreground: hsl(259 0% 0%);
+        --color-destructive: hsl(360 70% 45%);
+        --color-destructive-foreground: hsl(220 90% 90%);
+      }
+
+      body {
+        font-family: sans-serif;
+        background: var(--color-background);
+        color: var(--color-foreground);
+        padding: 2rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .swatch {
+        border: 1px solid var(--color-border);
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: var(--color-card);
+      }
+
+      .swatch-header {
+        padding: 0.5rem;
+        background: var(--color-muted);
+        color: var(--color-muted-foreground);
+        font-size: 0.9rem;
+      }
+
+      .swatch-box {
+        height: 64px;
+      }
+
+      .var-name {
+        padding: 0.5rem;
+        font-family: monospace;
+        font-size: 0.85rem;
+        word-break: break-word;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Variable Theme Preview</h1>
+    <div class="grid">
+      <!-- These lines are generated -->
+      <div class="swatch">
+        <div class="swatch-header">background</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-background)"
+        ></div>
+        <div class="var-name">--color-background</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-foreground)"
+        ></div>
+        <div class="var-name">--color-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">primary</div>
+        <div class="swatch-box" style="background: var(--color-primary)"></div>
+        <div class="var-name">--color-primary</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">primary-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-primary-foreground)"
+        ></div>
+        <div class="var-name">--color-primary-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">secondary</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-secondary)"
+        ></div>
+        <div class="var-name">--color-secondary</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">secondary-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-secondary-foreground)"
+        ></div>
+        <div class="var-name">--color-secondary-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">accent</div>
+        <div class="swatch-box" style="background: var(--color-accent)"></div>
+        <div class="var-name">--color-accent</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">accent-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-accent-foreground)"
+        ></div>
+        <div class="var-name">--color-accent-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">muted</div>
+        <div class="swatch-box" style="background: var(--color-muted)"></div>
+        <div class="var-name">--color-muted</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">muted-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-muted-foreground)"
+        ></div>
+        <div class="var-name">--color-muted-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">destructive</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-destructive)"
+        ></div>
+        <div class="var-name">--color-destructive</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">destructive-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-destructive-foreground)"
+        ></div>
+        <div class="var-name">--color-destructive-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">card</div>
+        <div class="swatch-box" style="background: var(--color-card)"></div>
+        <div class="var-name">--color-card</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">card-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-card-foreground)"
+        ></div>
+        <div class="var-name">--color-card-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">popover</div>
+        <div class="swatch-box" style="background: var(--color-popover)"></div>
+        <div class="var-name">--color-popover</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">popover-foreground</div>
+        <div
+          class="swatch-box"
+          style="background: var(--color-popover-foreground)"
+        ></div>
+        <div class="var-name">--color-popover-foreground</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">input</div>
+        <div class="swatch-box" style="background: var(--color-input)"></div>
+        <div class="var-name">--color-input</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">ring</div>
+        <div class="swatch-box" style="background: var(--color-ring)"></div>
+        <div class="var-name">--color-ring</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-header">border</div>
+        <div class="swatch-box" style="background: var(--color-border)"></div>
+        <div class="var-name">--color-border</div>
+      </div>
+    </div>
+  </body>
+</html>

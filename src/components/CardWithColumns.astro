@@ -1,0 +1,32 @@
+---
+interface Props {
+  class?: string;
+  style?: string;
+}
+const { class: customClass = '', style: customStyle = '' } = Astro.props;
+import classNames from 'classnames';
+---
+
+<section
+  class={classNames(
+    'card-with-columns bg-card mt-4 py-8 mx-2 mb-8 pb-12 m-auto',
+    customClass,
+  )}
+  style={customStyle}
+>
+  <div class="max-w-12 mx-8">
+    <slot name="icon" />
+  </div>
+  <h2 class="mx-8 text-4xl tracking-tight font-extrabold text-gray-900">
+    <slot name="title" />
+  </h2>
+  <div class="col-span-2 columns-2 gap-16 px-10">
+    <div
+      class="text-base bg-neutral-cool-100 -mx-6 px-6 py-6 mb-6 rounded-lg shadow-md border-1 border-neutral-cool-200"
+    >
+      <slot name="visible-content" />
+    </div>
+
+    <slot name="read-more" />
+  </div>
+</section>

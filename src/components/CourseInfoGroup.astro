@@ -1,0 +1,75 @@
+---
+import type { CourseMetadata, Field, FieldKey, GroupKey } from '@/types';
+import ExternalLink from '@components/ExternalLink.astro';
+import { emphasizeAllOfUsText } from '@/utilities';
+
+interface Props {
+  group: GroupKey;
+  fields: Field[];
+  course: CourseMetadata;
+}
+const { group, fields, course } = Astro.props;
+
+function renderValue(key: FieldKey, value: string): string {
+  if (typeof value !== 'string') return '';
+  switch (key) {
+    case 'title': {
+      const [fullTitle, subTitle] = value.split(':').map((v) => v.trim());
+      return `<span class="font-bold text-primary-default text-lg">${emphasizeAllOfUsText(fullTitle)}</span>${subTitle ? `<br /><span class="italic">${emphasizeAllOfUsText(subTitle)}</span>` : ''}`;
+    }
+    case 'myRole': {
+      return `<span class="text-primary-default text-base font-bold">${emphasizeAllOfUsText(value)}</span>`;
+    }
+    default:
+      return emphasizeAllOfUsText(value);
+  }
+}
+---
+
+<div class={`mb-6 group-${group}`}>
+  <dl
+    class="grid gap-y-2 gap-x-4 text-sm sm:[grid-template-columns:auto_1fr] items-center"
+  >
+    {
+      fields.map(({ key, label }) => {
+        const value = course[key];
+        if (!value) return null;
+
+        return (
+          <>
+            <dt class="font-xs font-semibold sm:text-right">{label}:</dt>
+            <dd class="mt-1 mb-4 sm:mt-0 sm:mb-0">
+              {Array.isArray(value) ? (
+                <ul class="list-disc list-outside pl-6">
+                  {value.map((item) => (
+                    <li class="pb-2">
+                      {typeof item === 'object' && item.url ? (
+                        <ExternalLink
+                          url={item.url}
+                          label={renderValue(key, item.content)}
+                        />
+                      ) : (
+                        <span set:html={renderValue(key, item.content)} />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : typeof value === 'object' && value.url ? (
+                <div>
+                  <ExternalLink
+                    url={value.url}
+                    label={renderValue(key, value.content)}
+                  />
+                </div>
+              ) : typeof value === 'object' ? (
+                <span set:html={renderValue(key, value.content)} />
+              ) : (
+                <span set:html={renderValue(key, value)} />
+              )}
+            </dd>
+          </>
+        );
+      })
+    }
+  </dl>
+</div>

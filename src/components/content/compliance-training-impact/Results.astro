@@ -1,0 +1,96 @@
+---
+import ScientistIcon from '@assets/scientist-icon-color-frames.svg';
+import AccomplishedIcon from '@assets/accomplished-color-flat.svg';
+import RetakeIcon from '@assets/retake-icon-swoosh.svg';
+import Result from '@components/DemoResult.astro';
+
+type Stat = {
+  icon: any;
+  value: string;
+  label: string;
+  description: string;
+};
+
+const learnerstat: Stat = {
+  icon: ScientistIcon,
+  value: '10K+',
+  label: 'Learners',
+  description:
+    'Since 2020, 21K+ researchers have been given access to the course as part of their application to access All of Us data. About half of all applicants have become engaged learners.',
+};
+const results: Stat[] = [
+  {
+    icon: ScientistIcon,
+    value: '10K+',
+    label: 'Learners',
+    description:
+      'Since 2020, 21K+ researchers have been given access to the course as part of their application to access All of Us data. About half of all applicants have become engaged learners.',
+  },
+  {
+    icon: AccomplishedIcon,
+    value: '98%',
+    label: 'Completion',
+    description:
+      'Of those who engaged with the course, almost all completed the course and passed the rigorous final assessment.',
+  },
+  {
+    icon: RetakeIcon,
+    value: 'Only 4',
+    label: 'Retakes (0.05%)',
+    description:
+      "Only 4 of the 9023 learners who completed the course between 2020 and 2024 were required to retake it due to policy violations: strong evidence of the course's lasting impact.",
+  },
+];
+---
+
+<!-- results -->
+<section
+  class="project-results pt-6 pb-12 px-4 mx-2 my-4 m-auto border rounded-lg shadow-sm bg-neutral-100"
+>
+  <h3 class="text-2xl font-extrabold tracking-wide text-neutral-900 pb-6 px-2">
+    Results
+  </h3>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <Result>
+      <ScientistIcon
+        slot="stat-icon"
+        class="w-10 h-10 text-neutral-200"
+        style="--icon-field-color: var(--color-primary-900); --icon-subject-color: var(--color-neutral-100);"
+      />
+      <span slot="stat-value">10K+</span>
+      <span slot="stat-label">Learners</span>
+      <span slot="stat-description">
+        Since 2020, 21K+ researchers have been given access to the course as
+        part of their application to access All of Us data. About half of all
+        applicants have become engaged learners.
+      </span>
+    </Result>
+    <Result>
+      <AccomplishedIcon
+        slot="stat-icon"
+        class="w-10 h-10 text-primary-800"
+        style="--icon-field-color: var(--color-neutral-100)"
+      />
+      <span slot="stat-value">98%</span>
+      <span slot="stat-label">Completion</span>
+      <span slot="stat-description">
+        Of those who engaged with the course, almost all completed the course
+        and passed the rigorous final assessment.
+      </span>
+    </Result>
+    <Result>
+      <RetakeIcon
+        slot="stat-icon"
+        class="w-10 h-10 text-primary-800"
+        style="--icon-field-color: var(--color-neutral-100); --icon-subject-color: var(--color-neutral-100); --icon-accent-color: var(--color-primary-800);"
+      />
+      <span slot="stat-value">Only 4</span>
+      <span slot="stat-label">Retakes (0.05%)</span>
+      <span slot="stat-description">
+        Only 4 of the 9023 learners who completed the course between 2020 and
+        2024 were required to retake it due to policy violations: strong
+        evidence of the course's lasting impact.
+      </span>
+    </Result>
+  </div>
+</section>

@@ -1,0 +1,89 @@
+---
+interface Props {
+  heading: string;
+  groupKeys: GroupKey[];
+  showKeys?: FieldKey[];
+  hideKeys?: FieldKey[];
+  course: CourseMetadata;
+}
+import type { 
+  CourseMetadata, 
+  GroupKey, 
+  Field, 
+  FieldKey, 
+  GroupEntry, 
+  Groups, 
+  CustomGroup 
+} from '@/types';
+
+import { resolveGroup } from '@/utilities';
+import CardWithReadMore from '@/components/CardWithReadMore.astro';
+import FolderAcademicIcon from '@assets/folder-academic-flat.svg';
+import CourseInfoGroup from '@/components/CourseInfoGroup.astro';
+import MortarBoardIcon from '@assets/mortarboard-icon-flat.svg';
+import PencilIcon from '@assets/pencil-icon-flat.svg';
+
+const { heading, groupKeys, course, showKeys, hideKeys } = Astro.props;
+
+const groups: Groups = groupKeys.map((g) =>
+  resolveGroup(g, showKeys, hideKeys),
+);
+---
+
+<!-- Course Card  -->
+<CardWithReadMore
+  openPromptText="See More Details"
+  closePromptText="Hide Details"
+  class="bg-neutral-cool-200 text-card-fg border-1 border-neutral-50 my-12 rounded-sm"
+>
+  <div slot="visible-content">
+    <div class="flex items-center border-b-1 border-neutral-400 my-4 pb-4 gap-2">
+      {
+        groups.length > 1 ? (
+          <FolderAcademicIcon
+            class="w-4 h-auto text-primary-50"
+            aria-hidden="true"
+          />
+        ) : groups[0].group === 'design' ? (
+          <PencilIcon
+            class="w-4 h-auto text-primary-50"
+            aria-hidden="true"
+          />
+        ) : (
+          <MortarBoardIcon
+            class="w-4 h-auto text-primary-50"
+            aria-hidden="true"
+          />
+        )
+      }
+
+      <h5 class="text-sm uppercase font-semibold tracking-tight  text-muted-foreground ">
+        {heading}
+      </h5>
+    </div>
+    <slot name="main-course-info" />
+    {
+      groups.map((grouped: GroupEntry) => (
+        <CourseInfoGroup
+          group={grouped.group}
+          fields={[...grouped.showFields]}
+          course={course}
+        />
+      ))
+    }
+  </div>
+
+  <div slot="read-more-content">
+    {
+      groups.map((grouped) => (
+      <hr class="my-6 border-t border-primary-100" />
+
+        <CourseInfoGroup
+          group={grouped.group}
+          fields={[...grouped.hideFields]}
+          course={course}
+        />
+      ))
+    }
+  </div>
+</CardWithReadMore>

@@ -1,0 +1,46 @@
+---
+import CardWithReadMore from '@/components/CardWithReadMore.astro';
+import CardWithColumns from '@/components/CardWithColumns.astro';
+const uniqueId = crypto.randomUUID().split('-')[0];
+const {
+  class:
+    customClass = 'bg-linear-to-b from-neutral-100 to-neutral-200 text-card-foreground rounded-md border border-card-border shadow-lg',
+  style: customStyle = '',
+} = Astro.props;
+---
+
+<div class="lg:hidden">
+  <CardWithReadMore class={customClass} style={customStyle}>
+    <div slot="visible-content">
+      <div class="w-12 h-auto mb-2">
+        <slot name="icon" />
+      </div>
+      <h5 class="mb-2 text-3xl text-primary-700 font-semibold tracking-tight">
+        <slot name="title" />
+      </h5>
+      <div class="mb-3 font-normal">
+        <slot name="content" />
+      </div>
+    </div>
+    <div slot="read-more-content">
+      <slot name="read-more" />
+    </div>
+  </CardWithReadMore>
+</div>
+
+<div class="hidden lg:block">
+  <CardWithColumns class={customClass} style={customStyle}>
+    <div slot="icon">
+      <slot name="icon" />
+    </div>
+    <div slot="title">
+      <slot name="title" />
+    </div>
+    <div slot="visible-content">
+      <slot name="content" />
+    </div>
+    <div slot="read-more">
+      <slot name="read-more" />
+    </div>
+  </CardWithColumns>
+</div>

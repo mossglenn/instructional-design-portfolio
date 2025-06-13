@@ -1,0 +1,61 @@
+---
+import type { CourseMetadata } from '@/types';
+import { RcrMetadata } from '@/data/projects/RcrMetadata.ts';
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/DemoHeader.astro';
+import PageSectionNav from '@components/DemoPageSectionNav.astro';
+import Hero from '@components/content/compliance-training-impact/Hero.astro';
+import Highlights from '@components/content/compliance-training-impact/Highlights.astro';
+import Tags from '@components/sections/compliance-training-impact/Tags.astro';
+import DesignChallenge from '@components/content/compliance-training-impact/DesignChallenge.astro';
+import DesignSolution from '@components/content/compliance-training-impact/DesignSolution.astro';
+import Results from '@components/content/compliance-training-impact/Results.astro';
+import ProjectDetails from '@components/content/compliance-training-impact/ProjectDetails.astro';
+import Footer from '@components/DemoFooter.astro';
+
+const course: CourseMetadata = RcrMetadata;
+
+const tags = [
+  'Compliance Training',
+  'Ethics',
+  'Scenario-Based Learning',
+  'Data Security',
+];
+---
+
+<Layout>
+  <Header />
+  <Hero />
+  <PageSectionNav
+    sections={[
+      {
+        id: 'highlights',
+        label: { short: 'Highlights', full: 'Project Highlights' },
+      },
+      { id: 'challenge', label: { short: 'Design', full: 'Design Thinking' } },
+      { id: 'results', label: { short: 'Results', full: 'Learning Results' } },
+      { id: 'details', label: { short: 'Details', full: 'Project Details' } },
+    ]}
+  />
+
+  <section id="highlights" class="nav-section scroll-mt-24">
+    <Highlights />
+  </section>
+  <!-- 
+  <Tags tags={tags} />
+-->
+  <div
+    id="challenge"
+    class="nav-section scroll-mt-24 grid grid-cols-1 md:grid-cols-2 pb-6 lg:grid-cols-1 items-stretch"
+  >
+    <DesignChallenge />
+    <DesignSolution />
+  </div>
+  <section id="results" class="nav-section scroll-mt-24">
+    <Results />
+  </section>
+  <section id="details" class="nav-section scroll-mt-24">
+    <ProjectDetails course={course} />
+  </section>
+  <Footer />
+</Layout>

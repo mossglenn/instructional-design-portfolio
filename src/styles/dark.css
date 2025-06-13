@@ -1,0 +1,135 @@
+  /* === Core Palette === */
+  --color-background: hsl(255 25% 10%);
+  --color-foreground: hsl(259 20% 90%);
+  --color-border: hsl(259 15% 31%);
+  --color-input: hsl(259 25% 18%);
+  --color-ring: hsl(29 70% 50%);
+
+  /* === Semantic Colors === */
+  --color-card: hsl(259 56% 10%);
+  --color-card-foreground: hsl(259 30% 90%);
+  --color-popover: hsl(259 60% 20%);
+  --color-popover-foreground: hsl(259 60% 10%);
+  --color-muted: hsl(259 30% 24%);
+  --color-muted-foreground: hsl(259 40% 80%);
+
+  --color-primary: hsl(259 60% 34%);
+  --color-primary-light: hsl(259 100% 73%);
+  --color-primary-foreground: hsl(0 0% 95%);
+  --color-secondary: hsl(220 60% 34%);
+  --color-secondary-foreground: hsl(259 20% 90%);
+  --color-accent: hsl(89 60% 45%);
+  --color-accent-light: hsl(89 90% 90%);
+  --color-accent-foreground: hsl(259 0% 0%);
+  --color-destructive: hsl(360 70% 45%);
+  --color-destructive-foreground: hsl(220 90% 90%);
+
+  /* === Component Aliases === */
+
+  /* Card */
+  --color-card-bg: var(--color-card);
+  --color-card-fg: var(--color-card-foreground);
+  --color-card-border: var(--color-border);
+
+  /* Button */
+  --color-btn-bg: var(--color-primary);
+  --color-btn-fg: var(--color-primary-foreground);
+  --color-btn-hover-bg: var(--color-primary-foreground);
+  --color-btn-hover-fg: var(--color-primary);
+
+  /* Badge */
+  --color-badge-bg: var(--color-accent);
+  --color-badge-fg: var(--color-accent-foreground);
+
+  /* Input */
+  --color-input-bg: var(--color-input);
+  --color-input-fg: var(--color-foreground);
+  --color-input-border: var(--color-border);
+  --color-input-placeholder: var(--color-muted-foreground);
+  --color-input-focus-ring: var(--color-ring);
+
+  /* Alert */
+  --color-alert-bg: var(--color-destructive);
+  --color-alert-fg: var(--color-destructive-foreground);
+  --color-alert-border: var(--color-border);
+
+  /* Navigation */
+  --color-nav-bg: var(--color-background);
+  --color-nav-fg: var(--color-foreground);
+  --color-nav-hover: var(--color-primary-light);
+
+  /* Popover */
+  --color-popover-bg: var(--color-popover);
+  --color-popover-fg: var(--color-popover-foreground);
+  --color-popover-border: var(--color-border);
+
+  /* === Dark Gradients === */
+  --gradient-midnight-violet: linear-gradient(
+    135deg,
+    var(--color-background),
+    var(--color-card),
+    var(--color-popover)
+  );
+  --gradient-deep-plum-indigo: linear-gradient(
+    90deg,
+    var(--color-popover),
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  --gradient-dim-border-fade: linear-gradient(
+    to bottom right,
+    var(--color-input),
+    var(--color-border)
+  );
+
+  /* === Light Gradients === */
+  --gradient-soft-accent-sky: linear-gradient(
+    45deg,
+    var(--color-accent-light),
+    var(--color-foreground)
+  );
+  --gradient-gentle-purple-fog: linear-gradient(
+    120deg,
+    var(--color-primary-light),
+    var(--color-card-foreground)
+  );
+  --gradient-bright-foreground: linear-gradient(
+    180deg,
+    var(--color-muted-foreground),
+    var(--color-primary-foreground)
+  );
+
+  /* === Mixed Contrast Gradients === */
+  --gradient-contrast-burst: linear-gradient(
+    to right,
+    var(--color-card),
+    var(--color-primary-light),
+    var(--color-accent)
+  );
+  --gradient-alert-stripe: linear-gradient(
+    90deg,
+    var(--color-destructive),
+    var(--color-ring),
+    var(--color-destructive-foreground)
+  );
+  --gradient-citrus-fade: linear-gradient(
+    to bottom,
+    var(--color-accent-light),
+    var(--color-ring),
+    var(--color-accent)
+  );
+}
+
+@layer base {
+  .highlight-card {
+    will-change: transform, opacity;
+  }
+
+  #portfolio-menu-tags li {
+    background-color: var(--color-secondary);
+    color: var(--color-foreground);
+    @apply px-2 py-1 text-xs text-center font-semibold rounded-full;
+  }
+  #portfolio-menu-tags li:hover {
+    color: var(--color-accent-light);
+  }

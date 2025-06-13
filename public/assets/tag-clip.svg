@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+    <g id="black">
+        <polygon points="0 69.62 0 100 35.89 100 35.89 100 0 69.62" fill="#000" />
+        <polygon points="0 0 0 30.38 35.89 0 0 0" fill="#000" />
+    </g>
+    <g id="white">
+        <polygon points="35.89 0 0 30.38 0 69.62 35.89 100 35.89 100 100 100 100 0 35.89 0"
+            fill="#fff" />
+    </g>
+</svg>

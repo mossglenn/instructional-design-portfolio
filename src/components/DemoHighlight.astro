@@ -1,0 +1,17 @@
+---
+
+---
+
+<div
+  class="flex flex-col w-full h-full mb-2 px-4 pt-2 pb-2 border-4 rounded-lg border-accent-800 bg-neutral-100 shadow-lg"
+>
+  <slot name="icon" />
+  <div class="text-center">
+    <h2 class="text-2xl font-extrabold leading-tight">
+      <slot name="highlight-title" />
+    </h2>
+    <div class="text-sm/5 font-medium mt-2 mx-auto">
+      <slot name="highlight-description" />
+    </div>
+  </div>
+</div>

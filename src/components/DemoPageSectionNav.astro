@@ -1,0 +1,112 @@
+---
+interface Props {
+  sections: Section[];
+}
+type Section = {
+  id: string;
+  label: string | { short: string; full: string };
+};
+const { sections = [] } = Astro.props;
+const idstrrings = sections.map((section) => section.id).join('-');
+---
+
+<nav
+  id="page-section-nav"
+  data-sections={idstrrings}
+  class="py-3 mx-2 text-xs lg:text-base font-semibold bg-linear-to-r from-neutral-cool-100/80 via-neutral-cool-100/50 to-neutral-cool-100/80 backdrop-blur sticky top-[var(--header-height)] z-10 px-2 shadow-sm border-2 border-neutral-600 rounded-md"
+>
+  <ul
+    class="flex flex-wrap justify-center gap-x-1 lg:gap-x-8 gap-y-2 text-xs md:text-sm font-medium text-muted-foreground"
+  >
+    {
+      sections.map(({ id, label }, index) => {
+        const isComposite = typeof label === 'object';
+        const shortLabel = isComposite ? label.short : label;
+        const fullLabel = isComposite ? label.full : label;
+        return (
+          <li id={`nav-${id}`} data-section={id}>
+            <a
+              href={`#${id}`}
+              class="px-3 py-1 rounded-md shadow-sm shadow-neutral-400 bg-neutral-100/100 text-neutral-600 transition-colors hover:text-accent-900 hover:border-accent-600 hover:border-b-1 hover:shadow-accent-500 hover:shadow-md  whitespace-nowrap"
+            >
+              {shortLabel && <span class="inline sm:hidden">{shortLabel}</span>}
+              {fullLabel && <span class="hidden sm:inline">{fullLabel}</span>}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <script is:inline>
+    const compareArrayes = (a, b) => {
+      if (a.length !== b.length) {
+        return false;
+      }
+      return (
+        a.every((item) => b.includes(item)) &&
+        b.every((item) => a.includes(item))
+      );
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const sectionId = entry.target.id;
+          const navItem = document.querySelector(`#nav-${sectionId}`);
+          const navLink = navItem?.querySelector('a');
+          if (navLink) {
+            if (entry.isIntersecting) {
+              navLink.classList.add(
+                'relative',
+                'text-primary-600',
+                'font-semibold',
+                'shadow-md',
+                'shadow-primary-600',
+                'border-primary-600',
+                'border-b-1',
+              );
+              navLink.classList.remove();
+            } else {
+              navLink.classList.remove(
+                'relative',
+                'text-primary-600',
+                'font-semibold',
+                'shadow-md',
+                'shadow-primary-600',
+                'border-primary-600',
+                'border-b-1',
+              );
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-50% 0px -50% 0px',
+        threshold: 0,
+      },
+    );
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const pageNav = document.getElementById('page-section-nav');
+      const idStrings = pageNav.dataset.sections.split('-');
+      const navSections = Array.from(
+        document.getElementsByClassName('nav-section'),
+      );
+      const navSectionIDs = navSections.map((section) => section.id);
+      if (!compareArrayes(idStrings, navSectionIDs)) {
+        console.warn(
+          'Mismatch between nav sections and observed sections. Ensure IDs match.',
+        );
+      } else if (idStrings.length === 0 || navSectionIDs.length === 0) {
+        console.warn(
+          'No sections found to observe. Ensure the section IDs match.',
+        );
+      } else {
+        navSections.forEach((section) => {
+          console.log('Observing:', section.id);
+          observer.observe(section);
+        });
+      }
+    });
+  </script>
+</nav>

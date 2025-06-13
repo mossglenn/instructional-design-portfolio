@@ -1,0 +1,23 @@
+---
+import ExternalLinkIcon from '@assets/external-link-icon.svg';
+interface Props {
+  url: string;
+  label: string | TrustedHTML;
+}
+const { url, label } = Astro.props;
+---
+
+<!-- ExternalLink.astro -->
+<span class="inline-flex group items-center gap-1">
+  <a
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="underline inline gap-1 decoration-link/50 group-hover:decoration-link group-hover:text-link"
+  >
+    <span set:html={label} />
+    <ExternalLinkIcon
+      class="w-3 h-3 ml-1 inline text-link/50 group-hover:text-link"
+    />
+  </a>
+</span>

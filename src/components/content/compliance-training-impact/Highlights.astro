@@ -1,0 +1,68 @@
+---
+import Highlight from '@components/DemoHighlight.astro';
+import ForkRoadIcon from '@assets/fork-road-flat.svg';
+import UserCenteredIcon from '@assets/user-centered-flat-clean.svg';
+import MinimalistIcon from '@assets/minimalist-icon-small.svg';
+---
+
+<!-- Highligts card  -->
+<div
+  class="block m-auto mx-2 my-4 px-4 py-4 rounded-lg shadow-md bg-card border border-card-border"
+>
+  <h3
+    class="text-2xl font-extrabold tracking-wide text-center text-primary-800 py-4 mb-6"
+  >
+    Project Highlights
+  </h3>
+
+  <div
+    class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch"
+  >
+    <Highlight>
+      <div slot="icon">
+        <ForkRoadIcon
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Real-world Scenarios</span
+      >
+      <span slot="highlight-description"
+        >Improves recall and application by providing a framework that helps
+        learners integrate their own values and experiences into new learning.</span
+      >
+    </Highlight>
+    <Highlight>
+      <div slot="icon">
+        <UserCenteredIcon
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Learner-Centered Design</span
+      >
+      <span slot="highlight-description"
+        >Aligns the course with learner goals and taps into intrinsic motivation
+        for deeper engagement.</span
+      >
+    </Highlight>
+
+    <Highlight>
+      <div slot="icon">
+        <MinimalistIcon
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Minimalist Construction</span
+      >
+      <span slot="highlight-description"
+        >Keeps style and delivery intentionally simple to ensure the system
+        stays maintainable and responsive to rapidly evolving needs.</span
+      >
+    </Highlight>
+  </div>
+</div>

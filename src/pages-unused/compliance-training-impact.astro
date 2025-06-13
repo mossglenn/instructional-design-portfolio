@@ -1,0 +1,263 @@
+---
+import HeaderMegaDropdown from '../components/HeaderMegaDropdown.astro';
+import ContentPortfolio from '../components/ContentPortfolio.astro';
+import Abstract from '../components/bits/Abstract.astro';
+import Title from '../components/bits/Title.astro';
+import HeroWithImage from '@/components/HeroWithImage.astro';
+import Tag from '@/components/bits/Tag.astro';
+import { Image } from 'astro:assets';
+import ScientistEthics from '../assets/stressed-scientist-ethics.jpeg';
+import CardWithReadMore from '../components/CardWithReadMore.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const heroInfo = {
+  actionButton: {
+    href: '#',
+    variant: 'primary',
+  },
+  moreButton: {
+    href: '#',
+    variant: 'secondary',
+  },
+};
+const heroImage = {
+  asset: ScientistEthics,
+  alt: 'Stressed scientist making a decision',
+};
+const tags = [
+  'Compliance Training',
+  'Ethics',
+  'Scenario-Based Learning',
+  'Data Security',
+];
+---
+
+<style>
+  .gradient-underline {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .gradient-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0px; /* Adjust if you want more overlap */
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(120deg, #d4e1fa, #e8cbf8);
+    z-index: -1;
+    transition: width 0.3s ease;
+  }
+
+  .gradient-underline:hover::after {
+    width: 105%;
+  }
+</style>
+
+<Layout>
+  <HeaderMegaDropdown />
+  <HeroWithImage heroInfo={heroInfo} heroImage={heroImage}>
+    <div slot="hero-heading" class="text-center lg:text-left">
+      Designing Compliance Training for Real Impact
+    </div>
+    <div slot="hero-subheading" class="text-center lg:text-left">
+      Most researchers see compliance training as just another bureaucratic
+      hurdle—something to check off a list before moving on.<br /><strong
+        >But what if training could do more?</strong
+      ><br />What if, instead of just enforcing rules, it could <span
+        class="gradient-underline">inspire researchers</span
+      > to uphold ethical data practices and protect participant trust?
+    </div>
+    <span slot="hero-action-button" class="inline-flex items-center">
+      Get started
+      <svg
+        class="w-5 h-5 ml-2 -mr-1"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          fill-rule="evenodd"
+          d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+          clip-rule="evenodd"></path></svg
+      >
+    </span>
+    <span slot="hero-more-button"> Speak to Sales </span>
+  </HeroWithImage>
+
+  <div class="p-4 bg-gray-800 my-6">
+    <h2 class="text-amber-300 text-2xl font-bold">Highlights</h2>
+
+    <div class="p-4 bg-blue-500 text-gray-100 rounded-lg my-6">
+      <h2 class="text-3xl font-extrabold leading-tight">
+        Real-world Scenarios
+      </h2>
+      <span class="text-primary-500 dark:text-primary-400"
+        >Improved researcher engagement and retention</span
+      >
+    </div>
+    <div class="p-4 bg-green-500 text-gray-100 rounded-lg my-6">
+      <h2 class="text-3xl font-extrabold leading-tight">Focus on Values</h2>
+      <span class="text-primary-500 dark:text-primary-400">
+        Applied ELSI instead of compliance checkboxes</span
+      >
+    </div>
+    <div class="p-4 bg-violet-500 text-gray-100 rounded-lg my-6">
+      <h2 class="text-3xl font-extrabold leading-tight">Modular Design</h2>
+      <span class="text-primary-500 dark:text-primary-400"
+        >Allows for continuous updates responding to evolving needs</span
+      >
+    </div>
+  </div>
+  <div class="flex flex-wrap gap-2 mt-4 justify-center">
+    {
+      tags.map((tag) => (
+        <Tag label={tag} href={`/filter?tag=${encodeURIComponent(tag)}`} />
+      ))
+    }
+  </div>
+  <div class="flex flex-col gap-8 px-4 py-8 mx-autolg:px-6 sm:py-16 lg:py-24">
+    <CardWithReadMore>
+      <div slot="title">Design Challenge</div>
+      <div slot="content">
+        How do we turn compliance training into an <strong
+          >engaging, thought-provoking experience</strong
+        > that challenges researchers to <strong
+          >think critically about ethical decision-making</strong
+        >—rather than just memorizing policy rules?
+      </div>
+      <div slot="read-more">
+        <p>
+          At the heart of the <i>All of Us</i> Research Program is a core belief:
+          participants and researchers are equal partners in discovery. To uphold
+          this principle, the program required researchers to fully understand their
+          role in protecting privacy and preventing unethical research activities.
+          As the program prepared to release its Controlled Tier dataset, an urgent
+          need emerged—before researchers could access sensitive participant data,
+          they had to demonstrate a clear understanding of their ethical responsibilities.
+          While traditional human-subject research training was available, many researchers
+          viewed these courses as bureaucratic obligations rather than meaningful
+          learning experiences.
+        </p>
+      </div>
+    </CardWithReadMore>
+    <CardWithReadMore>
+      <div slot="title">Instructional Design Approach</div>
+      <div slot="content">
+        Ethical lapses in research result from pressures, biases, and
+        justifications more than bad intentions. This training was designed to
+        shift a researcher's focus from checking off compliance-boxes to
+        maintaining strategies and guardrails that protect the integrity of
+        their work and the privacy of research participants.
+      </div>
+      <div slot="read-more">
+        <!-- item -->
+        <div class="my-4">
+          <div class="flex items-start gap-4">
+            <div
+              class="flex justify-center items-center w-10 h-10 px-2 rounded-full bg-blue-700"
+            >
+              <svg
+                class="w-6 h-6 text-gray-100"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 8h4V4m12 4h-4V4M4 16h4v4m12-4h-4v4"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="mb-2 text-xl font-bold">
+                Explore Real-World Justifications
+              </h3>
+              <p class="text-gray-500 dark:text-gray-400">
+                Explore the biases, pressures, and systemic factors that have
+                lead researchers to make unethical decisions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="my-4">
+          <div class="flex items-start gap-4">
+            <div
+              class="flex justify-center items-center w-10 h-10 px-2 rounded-full bg-blue-700"
+            >
+              <svg
+                class="w-6 h-6 text-gray-100"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="mb-2 text-xl font-bold">Scenario-Based Assessment</h3>
+              <p class="text-gray-500 dark:text-gray-400">
+                Used case studies and interactive decision-making activities to
+                challenge researchers to apply ethical reasoning in real-world
+                research situations.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- item -->
+        <div class="my-4">
+          <div class="flex items-start gap-4">
+            <div
+              class="flex justify-center items-center w-10 h-10 px-2 rounded-full bg-blue-700"
+            >
+              <svg
+                class="w-6 h-6 text-gray-100"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                ></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="mb-2 text-xl font-bold">
+                Leverage Expert Partnerships
+              </h3>
+              <p class="text-gray-500 dark:text-gray-400 list-disc">
+                Worked with <strong>NIH research integrity experts</strong> to align
+                training with federal policies and practices.<br />
+                Partnered with <strong
+                  >ELSI researchers from Sage Bionetworks</strong
+                > to describe values and meaning in biomedical research practices
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </CardWithReadMore>
+  </div>
+</Layout>
