@@ -1,4 +1,11 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import PageSectionNav from '@components/PageSectionNav.astro';
+import Hero from '@content/adaptive-learning-instruction/Hero.astro';
+import Highlights from '@content/adaptive-learning-instruction/Highlights.astro';
+import DesignNarrative from '@content/adaptive-learning-instruction/DesignNarrative.astro';
+import Results from '@content/adaptive-learning-instruction/Results.astro';
 const tags = [
   'Compliance Training',
   'Ethics',
@@ -6,3 +13,12 @@ const tags = [
   'Data Security',
 ];
 ---
+
+<Layout>
+  <Header />
+  <Hero />
+  <PageSectionNav sections={[]} />
+  <Highlights />
+  <DesignNarrative />
+  <Results />
+</Layout>

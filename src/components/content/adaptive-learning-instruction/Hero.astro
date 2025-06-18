@@ -1,36 +1,41 @@
 ---
 import { Image } from 'astro:assets';
-import RCRCoverImage from '@assets/portfolio/rcr-part-two-cover.png';
+import HandbookCover from '@assets/portfolio/handbook-2-cover.jpg';
 ---
 
 <div
   class="heading-container m-auto mx-2 sm:mx-6 md:mx-2 mt-8 mb-6 flex flex-col md:flex-row"
 >
   <div class="flex md:grow-1 flex-col px-2 justify-center md:items-center">
-    <h1 class="text-4xl md:text-5xl xl:text-6xl mb-6 text-foreground">
-      From <span class="font-black whitespace-nowrap">Red Tape</span><br />to <span
-        class="font-black whitespace-nowrap">Real Impact</span
-      >
-    </h1>
-    <h2
-      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal md:text-center"
+    <h1
+      class="text-4xl md:text-5xl md:text-center xl:text-6xl mb-6 text-foreground font-black"
     >
-      <strong>Compliance training</strong> focused on<br />
-      <span
-        class="rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-primary-300 to-primary-700 tracking-wide"
-        style=" box-decoration-break: clone"
-      >
-        supporting learner's aspirations</span
-      ><br />not on thwarting villian's plans.
-    </h2>
+      Personalizing Learning Experiences
+    </h1>
+    <div
+      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal md:text-center md:px-4 lg:max-w-2/3"
+    >
+      <h2>
+        Chapter <span
+          class="rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-primary-300 to-primary-700 tracking-wide"
+          style=" box-decoration-break: clone"
+          >co-author translating research</span
+        > on
+        <strong>adaptive learning technologies</strong> into principles of instructional
+        design for personalized learning.
+      </h2>
+      <p class="pt-4">
+        Chapter 24: <span class="italic"
+          >Instruction Based on Adaptive Learning Technologies</span
+        >
+      </p>
+    </div>
   </div>
-  <div
-    class="max-w-sm md:max-w-5/12 md:self-center md:mx-auto bg-linear-to-br from-primary-black via-primary-800 to-primary-black px-2 py-2 lg:px-4 lg:py-4 md:mr-2 lg:mr-4 shadow-lg rounded-lg"
-  >
+  <div class="max-w-sm md:max-w-5/12 md:self-center md:mx-auto lg:px-24">
     <Image
-      src={RCRCoverImage}
+      src={HandbookCover}
       alt="Cover image for the Responsible Conduct of Research Part 2 course"
-      class="w-full rounded-md shadow-lg mx-auto ring-1 ring-neutral-500"
+      class="w-full rounded-md shadow-lg mx-auto ring-2 ring-neutral-500"
       loading="lazy"
     />
   </div>
