@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import RCRCoverImage from '@assets/portfolio/rcr-part-two-cover.png';
+---
+
+<div
+  class="heading-container mt-8 mb-6 items-center flex flex-col md:flex-row max-w-screen-xl mx-auto"
+>
+  <div class="flex md:grow-1 flex-col px-2 justify-center items-center">
+    <h1 class="text-4xl md:text-5xl xl:text-6xl mb-6 text-foreground">
+      I don&apos;t build courses.
+    </h1>
+    <h2>
+      I design solutions that make a difference.
+      <span class="text-foreground-light">I help people grow.</span>
+    </h2>
+    <h3
+      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal text-center"
+    >
+      I lead cross-functional teams to help organizations translate goals into
+      effective learning experiences that improve how people think, work, and
+      grow.
+    </h3>
+  </div>
+  <div
+    class="max-w-sm md:max-w-5/12 self-center mx-auto bg-linear-to-br from-primary-black via-primary-800 to-primary-black px-2 py-2 lg:px-4 lg:py-4 md:mr-2 lg:mr-4 shadow-lg rounded-lg"
+  >
+    <Image
+      src={RCRCoverImage}
+      alt="Cover image for the Responsible Conduct of Research Part 2 course"
+      class="w-full rounded-md shadow-lg mx-auto ring-1 ring-neutral-500"
+      loading="lazy"
+    />
+  </div>
+</div>
