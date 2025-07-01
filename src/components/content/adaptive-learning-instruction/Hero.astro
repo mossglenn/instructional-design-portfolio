@@ -4,38 +4,48 @@ import HandbookCover from '@assets/portfolio/handbook-2-cover.jpg';
 ---
 
 <div
-  class="heading-container m-auto mx-2 sm:mx-6 md:mx-2 mt-8 mb-6 flex flex-col md:flex-row"
+  class="heading-container max-w-screen-xl mx-auto py-12 flex flex-col md:flex-row"
 >
-  <div class="flex md:grow-1 flex-col px-2 justify-center md:items-center">
+  <div class="flex md:grow-1 flex-col px-4 pb-12 justify-center items-center">
     <h1
-      class="text-4xl md:text-5xl md:text-center xl:text-6xl mb-6 text-foreground font-black"
+      class="text-4xl md:text-5xl text-center xl:text-6xl text-foreground font-black"
     >
-      Personalizing Learning Experiences
+      Personalizing<br />Learning Experiences
     </h1>
-    <div
-      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal md:text-center md:px-4 lg:max-w-2/3"
+    <h2
+      class="text-xl/7.5 xl:text-2xl/9 pt-8 text-foreground tracking-normal font-bold text-center lg:max-w-2/3"
     >
-      <h2>
-        Chapter <span
-          class="rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-primary-300 to-primary-700 tracking-wide"
+      <span
+        class="rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-primary-300 to-primary-700 tracking-wide"
+        style=" box-decoration-break: clone">Chapter Coauthor</span
+      >
+    </h2>
+    <div
+      class="text-xl lg:text-2xl font-bold pt-4 pb-8 text-neutral-700 text-pretty text-center"
+    >
+      Chapter 24:
+      <span class="italic"
+        >Instruction Based on<br />Adaptive Learning Technologies</span
+      >
+    </div>
+    <div
+      class="text-2xl lg:text-3xl mb-4 text-foreground tracking-normal text-center lg:max-w-2/3 text-pretty"
+    >
+      <h2 class="font-semibold">
+        Translating research on<br />
+        <span
+          class="rounded-md py-1 px-1 bg-linear-to-r from-secondary-400 to-secondary-700 font-black bg-clip-text text-transparent"
           style=" box-decoration-break: clone"
-          >co-author translating research</span
-        > on
-        <strong>adaptive learning technologies</strong> into principles of instructional
-        design for personalized learning.
+          >adaptive learning technologies</span
+        ><br /> into principles of instructional design for personalized learning.
       </h2>
-      <p class="pt-4">
-        Chapter 24: <span class="italic"
-          >Instruction Based on Adaptive Learning Technologies</span
-        >
-      </p>
     </div>
   </div>
-  <div class="max-w-sm md:max-w-5/12 md:self-center md:mx-auto lg:px-24">
+  <div class="max-w-xs md:max-w-5/12 self-center md:mx-auto lg:px-24">
     <Image
       src={HandbookCover}
       alt="Cover image for the Responsible Conduct of Research Part 2 course"
-      class="w-full rounded-md shadow-lg mx-auto ring-2 ring-neutral-500"
+      class="max-h-96 w-auto rounded-md shadow-lg mx-auto ring-2 ring-neutral-500"
       loading="lazy"
     />
   </div>

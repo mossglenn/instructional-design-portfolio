@@ -1,0 +1,71 @@
+---
+import Highlight from '@components/Highlight.astro';
+import ForkRoadIcon from '@assets/fork-road-flat.svg';
+import UserCenteredIcon from '@assets/user-centered-flat-clean.svg';
+import MinimalistIcon from '@assets/minimalist-icon-small.svg';
+import Xray from '@assets/xray.svg';
+import MotivationStar from '@assets/motivation-star.svg';
+import Brain from '@assets/brain.svg';
+---
+
+<!-- Highligts card  -->
+<div class="block pt-12 pb-14 lg:pb-18 px-4 shadow-md bg-card">
+  <h3
+    class="tracking-narrow text-center mb-12 lg:text-4xl lg:mb-16 text-4xl tracking-tight font-extrabold text-neutral-900"
+  >
+    Project Highlights
+  </h3>
+
+  <div
+    class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch max-w-screen-xl mx-auto"
+  >
+    <Highlight>
+      <div slot="icon">
+        <MotivationStar
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Enhanced Motivation</span
+      >
+      <span slot="highlight-description"
+        >Gamification enhances the motivation of learners during lenthy, complex
+        practice by providing an entertaining story and midgame feedback.</span
+      >
+    </Highlight>
+    <Highlight>
+      <div slot="icon">
+        <Xray
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-secondary-600)"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Diagnostic Interactivity</span
+      >
+      <span slot="highlight-description"
+        >The game looks for indicators that the learner is acting under a common
+        misconception, then immediately provides feedback to check the diagnosis
+        and provide corrective information.
+      </span>
+    </Highlight>
+
+    <Highlight>
+      <div slot="icon">
+        <Brain
+          class="w-12 h-12 mx-auto -mt-8 mb-2"
+          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+        />
+      </div>
+      <span slot="highlight-title" class="text-primary-700"
+        >Reduced Cognitive Load</span
+      >
+      <span slot="highlight-description"
+        >A structured game scenario reduces cognitive overhead when learning a
+        complex subject by allowing the learner to focus on pieces of the
+        material&mdash;making learning more efficient.
+      </span>
+    </Highlight>
+  </div>
+</div>

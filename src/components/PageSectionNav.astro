@@ -13,10 +13,10 @@ const idstrrings = sections.map((section) => section.id).join('-');
 <nav
   id="page-section-nav"
   data-sections={idstrrings}
-  class="py-3 mx-2 text-xs lg:text-base font-semibold bg-linear-to-r from-neutral-cool-100/80 via-neutral-cool-100/50 to-neutral-cool-100/80 backdrop-blur sticky top-[var(--header-height)] z-10 px-2 shadow-sm border-2 border-neutral-600 rounded-md"
+  class="mx-auto py-4 text-sm lg:text-base font-semibold bg-linear-to-r from-neutral-cool-200/80 via-neutral-cool-100/50 to-neutral-cool-200/80 backdrop-blur sticky top-[var(--header-height)] z-10 px-2 shadow-sm border-y-1 border-neutral-600"
 >
   <ul
-    class="flex flex-wrap justify-center gap-x-1 lg:gap-x-8 gap-y-2 text-xs md:text-sm font-medium text-muted-foreground"
+    class="flex flex-wrap max-w-screen-xl mx-auto justify-center gap-x-1 lg:gap-x-8 gap-y-2 text-sm md:text-sm font-medium text-muted-foreground"
   >
     {
       sections.map(({ id, label }, index) => {

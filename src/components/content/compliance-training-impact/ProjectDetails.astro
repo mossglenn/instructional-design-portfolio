@@ -12,53 +12,55 @@ import ExternalLink from '@components/ExternalLink.astro';
 const { course } = Astro.props;
 ---
 
-<!-- project details -->
-<CourseCard
-  course={course}
-  groupKeys={['course', 'design']}
-  heading="Course Details"
->
-  <div
-    slot="main-course-info"
-    class="flex flex-col lg:flex-row-reverse lg:justify-between gap-8"
+<section class="bg-neutral-cool-200">
+  <!-- project details -->
+  <CourseCard
+    course={course}
+    groupKeys={['course', 'design']}
+    heading="Course Details"
   >
-    <div class="flex flex-col sm:flex-row gap-4">
-      <Image
-        src={RcrCtCover}
-        alt="Responsible Conduct of Research Controlled Tier course cover"
-        class="rounded-lg max-w-56"
-      />
-      <Image
-        src={RcrCover}
-        alt="Responsible Conduct of Research course cover"
-        class="rounded-lg max-w-56"
-      />
-    </div>
-    <div class="shrink">
-      <dl
-        class="grid gap-y-4 gap-x-4 text-sm [grid-template-columns:auto_1fr] items-center"
-      >
-        <dt class="sm:text-right">Title:</dt>
-        <dd class="text-foreground text-xl font-semibold">
-          Responsible Conduct of Research
-        </dd>
+    <div
+      slot="main-course-info"
+      class="flex flex-col lg:flex-row-reverse lg:justify-between gap-8"
+    >
+      <div class="flex flex-col sm:flex-row gap-4 mx-auto">
+        <Image
+          src={RcrCtCover}
+          alt="Responsible Conduct of Research Controlled Tier course cover"
+          class="rounded-lg max-w-56"
+        />
+        <Image
+          src={RcrCover}
+          alt="Responsible Conduct of Research course cover"
+          class="rounded-lg max-w-56"
+        />
+      </div>
+      <div class="shrink">
+        <dl
+          class="grid gap-y-4 gap-x-4 text-sm [grid-template-columns:auto_1fr] items-center"
+        >
+          <dt class="sm:text-right">Title:</dt>
+          <dd class="text-foreground text-xl font-semibold">
+            Responsible Conduct of Research
+          </dd>
 
-        <dt class="sm:text-right">Owner:</dt>
-        <dd class="italic text-sm">
-          <ExternalLink
-            url="https:www.researchallofus.org"
-            label="All of Us Research Program, National Institutes of Health (NIH)"
-          />
-        </dd>
-        <dt class="sm:text-right">My Role:</dt>
-        <dd>
-          <span
-            class="inline-block bg-linear-to-br from-primary-400 to-primary-700 text-neutral-200 px-3 py-1 rounded-lg text-sm font-semibold"
-          >
-            Instructional Design Lead
-          </span>
-        </dd>
-      </dl>
+          <dt class="sm:text-right">Owner:</dt>
+          <dd class="italic text-sm">
+            <ExternalLink
+              url="https:www.researchallofus.org"
+              label="All of Us Research Program, National Institutes of Health (NIH)"
+            />
+          </dd>
+          <dt class="sm:text-right">My Role:</dt>
+          <dd>
+            <span
+              class="inline-block bg-linear-to-br from-primary-400 to-primary-700 text-neutral-200 px-3 py-1 rounded-lg text-sm font-semibold"
+            >
+              Instructional Design Lead
+            </span>
+          </dd>
+        </dl>
+      </div>
     </div>
-  </div>
-</CourseCard>
+  </CourseCard>
+</section>

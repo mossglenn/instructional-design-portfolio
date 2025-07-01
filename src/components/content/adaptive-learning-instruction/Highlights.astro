@@ -3,70 +3,74 @@ import Highlight from '@components/Highlight.astro';
 import ForkRoadIcon from '@assets/fork-road-flat.svg';
 import UserCenteredIcon from '@assets/user-centered-flat-clean.svg';
 import MinimalistIcon from '@assets/minimalist-icon-small.svg';
+import StopHand from '@assets/stop-hand.svg';
+import Loop from '@assets/loop-circle.svg';
+import Bridge from '@assets/bridge.svg';
 ---
 
 <!-- Highligts card  -->
-<div
-  class="block m-auto mx-2 my-4 px-4 py-4 rounded-lg shadow-md bg-card border border-card-border"
->
-  <h3
-    class="text-2xl font-extrabold tracking-wide text-center text-primary-800 py-4 mb-6"
-  >
-    Contribution Highlights
-  </h3>
+<div class="block pt-12 pb-14 lg:pb-18 px-4 shadow-md bg-card">
+  <div class="max-w-screen-xl mx-auto">
+    <h3
+      class="tracking-narrow text-center mb-12 lg:text-4xl lg:mb-16 text-4xl tracking-tight font-extrabold text-neutral-900"
+    >
+      Contribution Highlights
+    </h3>
 
-  <div
-    class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch"
-  >
-    <Highlight>
-      <div slot="icon">
-        <ForkRoadIcon
-          class="w-12 h-12 mx-auto -mt-8 mb-2"
-          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
-        />
-      </div>
-      <span slot="highlight-title" class="text-primary-700"
-        >Bridging Research and Practice</span
-      >
-      <span slot="highlight-description"
-        >Explored how <span class="font-bold"
-          >cognitive science, instructional design, and AI-driven learning
-          technologies</span
-        > can work together to create effective, personalized learning experiences.
-      </span>
-    </Highlight>
-    <Highlight>
-      <div slot="icon">
-        <UserCenteredIcon
-          class="w-12 h-12 mx-auto -mt-8 mb-2"
-          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
-        />
-      </div>
-      <span slot="highlight-title" class="text-primary-700"
-        >Design Loop Thinking</span
-      >
-      <span slot="highlight-description"
-        >Discussed how instructional designers can <span class="font-bold"
-          >think about inner and outer response loops</span
-        > to create multiple levels of adaptivity.
-      </span>
-    </Highlight>
+    <div
+      class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch"
+    >
+      <Highlight>
+        <div slot="icon">
+          <Bridge
+            class="w-12 h-12 mx-auto -mt-8 mb-2"
+            style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+          />
+        </div>
+        <span slot="highlight-title" class="text-primary-700"
+          >Bridging Research and Practice</span
+        >
+        <span slot="highlight-description"
+          >Explored how <span class="font-bold"
+            >cognitive science, instructional design, and AI-driven learning
+            technologies</span
+          > can work together to create effective, personalized learning experiences.
+        </span>
+      </Highlight>
+      <Highlight>
+        <div slot="icon">
+          <Loop
+            class="w-12 h-12 mx-auto -mt-8 mb-2"
+            style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+          />
+        </div>
+        <span slot="highlight-title" class="text-primary-700"
+          >Design Loop Thinking</span
+        >
+        <span slot="highlight-description"
+          >Discussed how instructional designers can <span class="font-bold"
+            >think about inner and outer response loops</span
+          > to create multiple levels of adaptivity.
+        </span>
+      </Highlight>
 
-    <Highlight>
-      <div slot="icon">
-        <MinimalistIcon
-          class="w-12 h-12 mx-auto -mt-8 mb-2"
-          style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
-        />
-      </div>
-      <span slot="highlight-title" class="text-primary-700"
-        >What Not to Adapt To</span
-      >
-      <span slot="highlight-description"
-        >Addressed the debunked idea of <span class="font-bold"
-          >learning styles and learning preferences</span
-        > as a basis for adaptation&mdash;and what charactaristics will be more effective.
-      </span>
-    </Highlight>
+      <Highlight>
+        <div slot="icon">
+          <StopHand
+            class="w-12 h-12 mx-auto -mt-8 mb-2"
+            style="--icon-subject-color: var(--color-primary-800); --icon-field-color: var(--color-accent-300);"
+          />
+        </div>
+        <span slot="highlight-title" class="text-primary-700"
+          >What Not to Adapt To</span
+        >
+        <span slot="highlight-description"
+          >Addressed the debunked idea of <span class="font-bold"
+            >learning styles and learning preferences</span
+          > as a basis for adaptation&mdash;and what charactaristics will be more
+          effective.
+        </span>
+      </Highlight>
+    </div>
   </div>
 </div>

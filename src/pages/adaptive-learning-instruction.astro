@@ -6,19 +6,33 @@ import Hero from '@content/adaptive-learning-instruction/Hero.astro';
 import Highlights from '@content/adaptive-learning-instruction/Highlights.astro';
 import DesignNarrative from '@content/adaptive-learning-instruction/DesignNarrative.astro';
 import Results from '@content/adaptive-learning-instruction/Results.astro';
-const tags = [
-  'Compliance Training',
-  'Ethics',
-  'Scenario-Based Learning',
-  'Data Security',
-];
+import Footer from '@components/Footer.astro';
 ---
 
 <Layout>
   <Header />
   <Hero />
-  <PageSectionNav sections={[]} />
-  <Highlights />
-  <DesignNarrative />
-  <Results />
+  <PageSectionNav
+    sections={[
+      {
+        id: 'highlights',
+        label: { short: 'Highlights', full: 'Project Highlights' },
+      },
+      {
+        id: 'narrative',
+        label: { short: 'Contribution', full: 'Chapter Contribution' },
+      },
+      { id: 'results', label: { short: 'Results', full: 'Results' } },
+    ]}
+  />
+  <section id="highlights" class="nav-section scroll-mt-24">
+    <Highlights />
+  </section>
+  <section id="narrative" class="nav-section scroll-mt-24">
+    <DesignNarrative />
+  </section>
+  <section id="results" class="nav-section scroll-mt-24">
+    <Results />
+  </section>
+  <Footer />
 </Layout>

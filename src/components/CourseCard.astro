@@ -34,30 +34,35 @@ const groups: Groups = groupKeys.map((g) =>
 <CardWithReadMore
   openPromptText="See More Details"
   closePromptText="Hide Details"
-  class="bg-neutral-cool-200 text-card-fg border-1 border-neutral-50 my-12 rounded-sm"
+  class="bg-neutral-cool-200 text-card-fg max-w-screen-xl mx-auto"
 >
   <div slot="visible-content">
-    <div class="flex items-center border-b-1 border-neutral-400 my-4 pb-4 gap-2">
+    <div class="flex items-center border-b-1 border-neutral-400 py-4 mb-8 gap-2">
       {
         groups.length > 1 ? (
           <FolderAcademicIcon
-            class="w-4 h-auto text-primary-50"
+            class="w-6 h-auto text-primary-50"
+            style={`--icon-field-color: var(--color-muted-foreground); --icon-subject-color: var(--color-neutral-cool-200);`}
             aria-hidden="true"
           />
         ) : groups[0].group === 'design' ? (
           <PencilIcon
             class="w-4 h-auto text-primary-50"
+            style={`--icon-field-color: var(--color-muted-foreground); --icon-subject-color: var(--color-neutral-cool-200);`}
+
             aria-hidden="true"
           />
         ) : (
           <MortarBoardIcon
             class="w-4 h-auto text-primary-50"
+            style={`--icon-field-color: var(--color-muted-foreground); --icon-subject-color: var(--color-neutral-cool-200);`}
+
             aria-hidden="true"
           />
         )
       }
 
-      <h5 class="text-sm uppercase font-semibold tracking-tight  text-muted-foreground ">
+      <h5 class="text-lg uppercase font-extrabold tracking-tight text-muted-foreground ">
         {heading}
       </h5>
     </div>

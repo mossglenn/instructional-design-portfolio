@@ -1,0 +1,85 @@
+---
+import { clsx } from 'clsx';
+import type { ImageMetadata } from 'astro';
+interface Props {
+  image: ImageMetadata;
+  alt: string;
+  figureClassName?: string;
+  buttonClassName?: string;
+  imageClassName?: string;
+  captionClassName?: string;
+  captionPosition?: 'top' | 'bottom';
+}
+import { Image } from 'astro:assets';
+
+const {
+  image,
+  alt,
+  figureClassName = '',
+  buttonClassName = '',
+  imageClassName = '',
+  captionClassName = '',
+  captionPosition = 'bottom',
+} = Astro.props;
+
+const finalFigureClass = clsx(
+  'break-inside-avoid rounded-lg shadow-lg p-2',
+  figureClassName,
+);
+const finalButtonClass = clsx(
+  'block w-full cursor-zoom-in rounded-lg group',
+  buttonClassName,
+);
+const finalImageClass = clsx(
+  'w-full mx-auto rounded-lg hover:ring-2 hover:ring-accent-400',
+  imageClassName,
+);
+const finalCaptionClass = clsx(
+  'text-neutral-700 text-pretty text-sm mx-auto',
+  captionPosition === 'top' ? 'pt-0 pb-3' : 'pt-2 pb-0',
+  captionClassName,
+);
+---
+
+<figure class={clsx(finalFigureClass, 'group')}>
+  {
+    captionPosition === 'top' && (
+      <figcaption class={finalCaptionClass}>
+        <slot name="caption" />
+      </figcaption>
+    )
+  }
+  <button type="button" class={finalButtonClass} data-zoom-trigger>
+    <div class="relative">
+      <Image src={image} alt={alt} class={finalImageClass} />
+      <div
+        class="absolute bottom-1 left-1 bg-neutral-300/50 text-neutral-900 text-xs p-1 rounded hidden [@media(hover:none)]:block"
+      >
+        Tap to zoom
+      </div>
+      <div
+        class="absolute bottom-1 right-1 bg-neutral-300/50 p-1 rounded shadow-sm transition-opacity opacity-0 group-hover:opacity-100 pointer-events-none"
+      >
+        <svg
+          class="w-4 h-4 text-neutral-900"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"></path>
+        </svg>
+      </div>
+    </div>
+  </button>
+  {
+    captionPosition === 'bottom' && (
+      <figcaption class={finalCaptionClass}>
+        <slot name="caption" />
+      </figcaption>
+    )
+  }
+</figure>

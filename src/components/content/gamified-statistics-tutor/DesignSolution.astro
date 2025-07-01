@@ -1,0 +1,471 @@
+---
+import { Image } from 'astro:assets';
+import RcrUnintentionalHarm from '@assets/portfolio/rcr-can-cause-harm.png';
+import ContentSection from '@/components/ContentSection.astro';
+import DesignSolutionIcon from '@assets/design-solution-flat.svg';
+import Rocket from '@assets/rocket-transparent.svg';
+import EscapeRoomCover from '@assets/portfolio/escape-room/escape-room-1.png';
+import ImageFigure from '@/components/ImageFigure.astro';
+import EscapeRoomIncorrectHint from '@assets/portfolio/escape-room/escape-room-13.png';
+import EscapeRoomHint from '@assets/portfolio/escape-room/escape-room-5.png';
+import ZooMap from '@assets/portfolio/zoo-treasure/zoo-treasure-2.jpg';
+import CorrectFeedback from '@assets/portfolio/zoo-treasure/zoo-correct-feedback.png';
+import IncorrectFeedback from '@assets/portfolio/escape-room/escape-room-incorrect-feedback.png';
+import MisconceptionFeedback from '@assets/portfolio/zoo-treasure/zoo-misconception-feedback.png';
+import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdown.png';
+---
+
+<ContentSection class="bg-neutral-50">
+  <DesignSolutionIcon
+    slot="icon"
+    style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-tertiary-500);"
+  />
+  <div slot="title" class="pb-8">Instructional Design Approach</div>
+  <div slot="content">
+    <p class="mb-4">
+      To go beyond merely digitizing practice probem sets and address the
+      challenges inherent in practice problem sets, <span
+        class="rounded-md py-0.5 px-1 text-foreground-light bg-linear-to-r from-tertiary-500 to-tertiary-800 tracking-wide"
+        style=" box-decoration-break: clone"
+        >I designed interactive, gamified statistics tutors</span
+      > as part of the ICRE’s online <span class="italic">Biostatistics</span> course.
+    </p>
+    <div
+      class="flex items-stretch gap-8 mb-4 font-semibold text-primary-700 -ml-4 lg:mx-8 text-lg pl-4 py-4 shadow-md rounded-md bg-card-bg"
+    >
+      <div>
+        An interactive system immersed the student in an entertaining scenario
+        with a personalized learning path adapting to the student in real-time.
+      </div>
+      <div
+        class="bg-tertiary-200 self-stretch rounded-l-full text-card-bg pl-2 pr-2 md:pl-4 md:pr-3 text-5xl flex items-center justify-center shadow-md shadow-tertiary-600/50"
+      >
+        <Rocket
+          class="h-12"
+          style="--icon-subject-color: var(--color-card-bg);"
+        />
+      </div>
+    </div>
+    <div>
+      <h3 class="font-bold text-tertiary-800 text-lg my-2">Escape Room</h3>
+    </div>
+    <div class="flex flex-wrap md:flex-row-reverse md:flex-nowrap gap-2">
+      <ImageFigure
+        image={EscapeRoomIncorrectHint}
+        alt="Escape Room Instructions"
+        figureClassName="md:w-1/2 bg-card"
+        imageClassName="hover:ring-4 ring-accent-500"
+      >
+        <div slot="caption">
+          <span class="font-bold">Checking Common Misconceptions:</span> When a learner’s
+          response reveals a predefined misconception, the system delivers targeted
+          feedback to correct it.
+        </div>
+      </ImageFigure>
+      <div class="md:w-1/2">
+        <p>
+          One problem set placed students in a locked room with a numbered
+          keypad securing the exit. The unlock code was hidden within a
+          conditional probability problem. Learners had to correctly solve the
+          problem to escape. If they struggled, the tutor provided step-by-step
+          hints and feedback, guiding them toward the correct solution.
+        </p>
+      </div>
+    </div>
+    <div>
+      <h3 class="font-bold text-tertiary-800 text-lg my-2">
+        Treasure Hunt Adventure
+      </h3>
+    </div>
+    <div class="flex flex-wrap md:flex-row-reverse md:flex-nowrap gap-2">
+      <ImageFigure
+        image={ZooMap}
+        alt="Escape Room Instructions"
+        figureClassName="md:w-1/2 bg-card"
+        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
+      >
+        <div slot="caption">
+          <span class="font-bold">Step by Step:</span> Frustration is reduced when
+          learners are sure their understanding of each step is correct before moving
+          on to the next step.
+        </div>
+      </ImageFigure>
+      <div class="md:w-1/2">
+        <p>
+          Another problem set framed probability problems as a treasure hunt,
+          where solving calculations revealed map coordinates for the next clue.
+          The game guided learners through increasingly complex probability
+          problems, allowing them to track progress and make real-time
+          corrections.
+        </p>
+      </div>
+    </div>
+    <p class="mb-4"></p>
+  </div>
+  <div slot="read-more">
+    <div class="break-inside-avoid">
+      <h3 class="font-bold text-tertiary-800 text-lg my-2">My Role</h3>
+      <div
+        class="flex items-center gap-3 mb-3 text-neutral-700 pr-4 lg:pr-12 text-pretty"
+      >
+        <svg
+          class="w-6 h-6 text-neutral-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.05005 2c-.55229 0-1 .44772-1 1s.44771 1 1 1h1v3.31532c-2.69858 1.16334-5 3.63038-5 6.88468 0 4.3349 3.60924 7.8 7.99995 7.8 4.3908 0 8-3.4651 8-7.8 0-3.2543-2.3014-5.72134-5-6.88468V4h1c.5523 0 1-.44772 1-1s-.4477-1-1-1H8.05005ZM11.05 8V4h2v4c0 .42712.2713.8071.6753.9458 2.3906.82083 4.2201 2.7442 4.3204 5.0542H6.05438c.10031-2.31 1.92977-4.23337 4.32042-5.0542.404-.1387.6752-.51868.6752-.9458Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <div>
+          <span class="font-bold text-neutral-900">Designed and developed</span>
+          an interactive, SCORM-compliant learning system
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 mb-3 text-neutral-700 pr-4 lg:pr-12 text-pretty"
+      >
+        <svg
+          class="w-6 h-6 text-neutral-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.05005 2c-.55229 0-1 .44772-1 1s.44771 1 1 1h1v3.31532c-2.69858 1.16334-5 3.63038-5 6.88468 0 4.3349 3.60924 7.8 7.99995 7.8 4.3908 0 8-3.4651 8-7.8 0-3.2543-2.3014-5.72134-5-6.88468V4h1c.5523 0 1-.44772 1-1s-.4477-1-1-1H8.05005ZM11.05 8V4h2v4c0 .42712.2713.8071.6753.9458 2.3906.82083 4.2201 2.7442 4.3204 5.0542H6.05438c.10031-2.31 1.92977-4.23337 4.32042-5.0542.404-.1387.6752-.51868.6752-.9458Z"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        <div>
+          Implemented <span class="font-bold text-neutral-900"
+            >real-time, adaptive feedback</span
+          > based on learner inputs
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 mb-3 text-neutral-700 pr-4 lg:pr-12 text-pretty"
+      >
+        <svg
+          class="w-6 h-6 text-neutral-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.05005 2c-.55229 0-1 .44772-1 1s.44771 1 1 1h1v3.31532c-2.69858 1.16334-5 3.63038-5 6.88468 0 4.3349 3.60924 7.8 7.99995 7.8 4.3908 0 8-3.4651 8-7.8 0-3.2543-2.3014-5.72134-5-6.88468V4h1c.5523 0 1-.44772 1-1s-.4477-1-1-1H8.05005ZM11.05 8V4h2v4c0 .42712.2713.8071.6753.9458 2.3906.82083 4.2201 2.7442 4.3204 5.0542H6.05438c.10031-2.31 1.92977-4.23337 4.32042-5.0542.404-.1387.6752-.51868.6752-.9458Z"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        <div>
+          Integrated <span class="font-bold text-neutral-900"
+            >gamification elements</span
+          > to improve engagement and motivation
+        </div>
+      </div>
+
+      <div
+        class="flex items-center gap-3 mb-3 text-neutral-700 pr-4 lg:pr-12 text-pretty"
+      >
+        <svg
+          class="w-6 h-6 text-neutral-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.05005 2c-.55229 0-1 .44772-1 1s.44771 1 1 1h1v3.31532c-2.69858 1.16334-5 3.63038-5 6.88468 0 4.3349 3.60924 7.8 7.99995 7.8 4.3908 0 8-3.4651 8-7.8 0-3.2543-2.3014-5.72134-5-6.88468V4h1c.5523 0 1-.44772 1-1s-.4477-1-1-1H8.05005ZM11.05 8V4h2v4c0 .42712.2713.8071.6753.9458 2.3906.82083 4.2201 2.7442 4.3204 5.0542H6.05438c.10031-2.31 1.92977-4.23337 4.32042-5.0542.404-.1387.6752-.51868.6752-.9458Z"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        <div>
+          Aligned instructional strategies with <span
+            class="font-bold text-neutral-900">research-backed principles</span
+          > of learning
+        </div>
+      </div>
+      <div
+        class="flex items-center gap-3 mb-3 text-neutral-700 pr-4 lg:pr-12 text-pretty"
+      >
+        <svg
+          class="w-6 h-6 text-neutral-600"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            fill="currentColor"
+            fill-rule="evenodd"
+            d="M8.05005 2c-.55229 0-1 .44772-1 1s.44771 1 1 1h1v3.31532c-2.69858 1.16334-5 3.63038-5 6.88468 0 4.3349 3.60924 7.8 7.99995 7.8 4.3908 0 8-3.4651 8-7.8 0-3.2543-2.3014-5.72134-5-6.88468V4h1c.5523 0 1-.44772 1-1s-.4477-1-1-1H8.05005ZM11.05 8V4h2v4c0 .42712.2713.8071.6753.9458 2.3906.82083 4.2201 2.7442 4.3204 5.0542H6.05438c.10031-2.31 1.92977-4.23337 4.32042-5.0542.404-.1387.6752-.51868.6752-.9458Z"
+            clip-rule="evenodd"></path>
+        </svg>
+
+        <div>
+          Worked with SMEs to break problem sets into <span
+            class="font-bold text-neutral-00"
+            >knowledge component-based steps
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="break-inside-avoid lg:mb-20">
+      <h3 class="font-bold text-tertiary-800 text-lg my-2">
+        Targeted Instruction for Efficient Learning
+      </h3>
+      <p class="mb-1">
+        A key challenge in probability problem-solving is the potential for
+        multiple failure points across dozens of steps. This system prevented
+        unnecessary frustration by:
+      </p>
+      <p
+        class="flex items-center gap-3 mb-3 font-bold text-neutral-700 pr-4 lg:pr-12 text-balance"
+      >
+        <svg
+          class="w-5 h-5 lg:w-6 lg:h-6 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+        </svg>
+        Identifying specific mistakes so learners didn’t have to review concepts
+        they already understood.
+      </p>
+      <p
+        class="flex items-center gap-3 mb-3 font-bold text-neutral-700 pr-4 lg:pr-12 text-balance"
+      >
+        <svg
+          class="w-5 h-5 lg:w-6 lg:h-6 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+        </svg>
+        Allowing students to “escape” the problem set as soon as they demonstrated
+        mastery.
+      </p>
+      <p
+        class="flex items-center gap-3 mb-3 font-bold text-neutral-700 pr-4 lg:pr-12 text-balance"
+      >
+        <svg
+          class="w-5 h-5 lg:w-6 lg:h-6 shrink-0"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path>
+        </svg>
+        Adapting the depth of instruction based on the complexity of the learner’s
+        error.
+      </p>
+    </div>
+    <div>
+      <h3 class="font-bold text-tertiary-800 text-lg my-2">
+        Personalized, Adaptive Feedback
+      </h3>
+      <p>
+        The SCORM-compliant tutor analyzed every learner input and provided
+        customized feedback based on response patterns like these:
+      </p>
+    </div>
+    <div class="grid grid-cols1 md:grid-cols-2 gap-2 mb-2">
+      <ImageFigure
+        image={CorrectFeedback}
+        alt="Escape Room correct feedback"
+        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
+        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
+        captionClassName="text-lg"
+        captionPosition="bottom"
+      >
+        <div
+          slot="caption"
+          class="text-base text-wrap-normal whitespace-normal flex flex-row flex-nowrap gap-4 items-center"
+        >
+          <div>
+            <svg
+              class="w-10 h-10 text-primary-900"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 9h5m3 0h2M7 12h2m3 0h5M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.616a1 1 0 0 0-.67.257l-2.88 2.592A.5.5 0 0 1 8 18.477V17a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            If a <span class="font-bold text-tertiary-600 uppercase"
+              >correct answer</span
+            > was given, the feedback explained why it was correct.
+          </div>
+        </div>
+      </ImageFigure>
+      <ImageFigure
+        image={IncorrectFeedback}
+        alt="incorrect feedback explains why it is incorrect"
+        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
+        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
+        captionPosition="bottom"
+      >
+        <div
+          slot="caption"
+          class="text-base text-wrap-normal whitespace-normal flex flex-row flex-nowrap gap-4 items-center"
+        >
+          <div>
+            <svg
+              class="w-10 h-10 text-primary-900"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 9h5m3 0h2M7 12h2m3 0h5M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.616a1 1 0 0 0-.67.257l-2.88 2.592A.5.5 0 0 1 8 18.477V17a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            If a <span class="font-bold text-tertiary-600 uppercase"
+              >incorrect answer</span
+            > was given, the feedback explained why it was incorrect.
+          </div>
+        </div>
+      </ImageFigure>
+      <ImageFigure
+        image={MisconceptionFeedback}
+        alt="Escape Room Instructions"
+        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
+        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
+        captionPosition="top"
+      >
+        <div
+          slot="caption"
+          class="text-base text-wrap-normal whitespace-normal flex flex-row flex-nowrap gap-4 items-center"
+        >
+          <div>
+            <svg
+              class="w-10 h-10 text-primary-900"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 9h5m3 0h2M7 12h2m3 0h5M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.616a1 1 0 0 0-.67.257l-2.88 2.592A.5.5 0 0 1 8 18.477V17a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            If the system detected <span
+              class="font-bold text-tertiary-600 uppercase"
+              >recurring mistakes</span
+            > the feedback addressed likely misconceptions causing errors.
+          </div>
+        </div>
+      </ImageFigure>
+      <ImageFigure
+        image={BreakdownFeedback}
+        alt="Escape Room Instructions"
+        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
+        captionPosition="top"
+      >
+        <div
+          slot="caption"
+          class="text-base text-wrap-normal whitespace-normal flex flex-row flex-nowrap gap-4 items-center"
+        >
+          <div>
+            <svg
+              class="w-10 h-10 text-primary-900"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M7 9h5m3 0h2M7 12h2m3 0h5M5 5h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-6.616a1 1 0 0 0-.67.257l-2.88 2.592A.5.5 0 0 1 8 18.477V17a1 1 0 0 0-1-1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            When <span class="font-bold text-tertiary-600 uppercase"
+              >stuck on a complex problem</span
+            > it was deconstructed it into a series of simple steps.
+          </div>
+        </div>
+      </ImageFigure>
+    </div>
+  </div>
+</ContentSection>
