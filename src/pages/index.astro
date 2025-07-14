@@ -3,12 +3,23 @@ import Layout from '../layouts/Layout.astro';
 import Header from '@components/Header.astro';
 import Hero from '@content/home/Hero.astro';
 import Content from '@content/home/Content.astro';
+import ProjectOne from '@/components/content/home/ProjectOne.astro';
+import ProjectTwo from '@/components/content/home/ProjectTwo.astro';
+import ContentOne from '@/components/content/home/ContentOne.astro';
 import Footer from '@components/Footer.astro';
 ---
 
 <Layout>
   <Header />
   <Hero />
-  <Content />
+  <div class="bg-neutral-200">
+    <div
+      class="@container flex flex-col md:flex-row-reverse items-stretch gap-4 max-w-screen-xl mx-auto"
+    >
+      <ProjectOne />
+      <ContentOne />
+    </div>
+  </div>
+  <ProjectTwo />
   <Footer />
 </Layout>

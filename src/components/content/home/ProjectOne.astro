@@ -1,0 +1,183 @@
+---
+import DesignIcon from '@assets/design-icon-wide.svg';
+import ProjectOneCarousel from '@/components/content/home/ProjectOneCarousel.astro';
+import CardWithReadMore from '@/components/CardWithReadMore.astro';
+---
+
+<section
+  class="project-one px-4 md:py-4 md:max-w-[390px] shrink-0 bg-background md:bg-neutral-200"
+>
+  <div
+    class="container p-6 mb-8 bg-card border border-card-border rounded-lg shadow-sm max-w-screen-xl mx-auto"
+  >
+    <h3
+      class="w-max font-bold text-sm tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-tertiary-700 via-tertiary-700 via-75% to-tertiary-400"
+    >
+      <span class="text-[1.2em]">P</span>ROJECT <span class="text-[1.2em]"
+        >H</span
+      >IGHLIGHT
+    </h3>
+    <h2 class="font-black font-display text-4xl mb-4">
+      Gamified Learning with Real-Time Personalization
+    </h2>
+    <div class="flex flex-col gap-12">
+      <div class="flex flex-col gap-4 justify-between">
+        <h4 class="font-light text-lg">
+          See how gamification and personalization transform challenging
+          subjects into engaging and accessible learning experiences.
+        </h4>
+        <ProjectOneCarousel />
+        <div>
+          <div class="flex flex-col gap-10">
+            <div class="shrink-0">
+              <div class="flex items-center gap-2 mb-4">
+                <svg
+                  class="w-4 h-4 text-primary-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  ></path>
+                </svg>
+
+                <h4 class="text-primary-700 font-bold">
+                  Adaptive Learning Paths
+                </h4>
+              </div>
+
+              <div class="flex items-center gap-2 mb-4">
+                <svg
+                  class="w-4 h-4 text-primary-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  ></path>
+                </svg>
+
+                <h4 class="text-primary-700 font-bold">
+                  Personalized Feedback
+                </h4>
+              </div>
+
+              <div class="flex items-center gap-2 mb-4">
+                <svg
+                  class="w-4 h-4 text-primary-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  ></path>
+                </svg>
+
+                <h4 class="text-primary-700 font-bold">Enhanced Motivation</h4>
+              </div>
+
+              <div class="flex items-center gap-2 mb-4">
+                <svg
+                  class="w-4 h-4 text-primary-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  ></path>
+                </svg>
+
+                <h4 class="text-primary-700 font-bold">
+                  Diagnostic Interactivity
+                </h4>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-4 h-4 text-primary-500"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"
+                  ></path>
+                </svg>
+
+                <h4 class="text-primary-700 font-bold">
+                  Reduced Cognitive Load
+                </h4>
+              </div>
+            </div>
+            <div class="block lg:hidden">
+              <CardWithReadMore>
+                <div slot="read-more-content">
+                  <div class="text-sm">
+                    When learning complex, multi-step content, a single mistake
+                    can send students down the wrong path with no way to
+                    recover. Traditional problem sets offer no immediate help,
+                    leaving learners stuck and frustrated. This project
+                    introduced an adaptive, game-based tutor that identified
+                    misconceptions in real time, provided targeted hints, and
+                    adjusted feedback based on student needs to ensurw students
+                    stayed engaged while developing true mastery of statistical
+                    problem-solving.
+                  </div>
+                </div>
+              </CardWithReadMore>
+            </div>
+            <div class="text-sm hidden lg:block">
+              When learning complex, multi-step content, a single mistake can
+              send students down the wrong path with no way to recover.
+              Traditional problem sets offer no immediate help, leaving learners
+              stuck and frustrated. This project introduced an adaptive,
+              game-based tutor that identified misconceptions in real time,
+              provided targeted hints, and adjusted feedback based on student
+              needs to ensurw students stayed engaged while developing true
+              mastery of statistical problem-solving.
+            </div>
+          </div>
+          <a
+            href="#"
+            class="group w-full md:w-max button-explore-project bg-primary-500 shadow-md px-2 py-2 my-8 rounded-lg transition text-neutral-100 border-b-2 border-neutral-300 hover:text-accent-300 hover:border-accent-600 hover:shadow-md hover:shadow-accent-300 inline-flex items-center gap-3"
+          >
+            <span class="font-semibold">Explore this Project</span>
+            <svg
+              class="w-4 h-4 rtl:rotate-180 group-hover:text-accent-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

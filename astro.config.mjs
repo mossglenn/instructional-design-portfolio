@@ -6,6 +6,8 @@ import flowbite from 'flowbite';
 import react from '@astrojs/react';
 import path from 'path';
 
+import showTailwindcssBreakpoint from 'astro-show-tailwindcss-breakpoint';
+
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
@@ -25,5 +27,5 @@ export default defineConfig({
       },
     },
   },
-  integrations: [react()],
+  integrations: [react(), showTailwindcssBreakpoint()],
 });
