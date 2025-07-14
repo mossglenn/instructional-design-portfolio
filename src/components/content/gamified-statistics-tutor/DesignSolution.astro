@@ -31,7 +31,7 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       > as part of the ICRE’s online <span class="italic">Biostatistics</span> course.
     </p>
     <div
-      class="flex items-stretch gap-8 mb-4 font-semibold text-primary-700 -ml-4 lg:mx-8 text-lg pl-4 py-4 shadow-md rounded-md bg-card-bg"
+      class="flex items-stretch gap-8 mb-4 md:mb-8 font-semibold text-primary-700 -ml-4 lg:mx-8 text-lg pl-4 py-4 shadow-md rounded-md bg-card-bg"
     >
       <div>
         An interactive system immersed the student in an entertaining scenario
@@ -46,58 +46,71 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
         />
       </div>
     </div>
-    <div>
-      <h3 class="font-bold text-tertiary-800 text-lg my-2">Escape Room</h3>
-    </div>
-    <div class="flex flex-wrap md:flex-row-reverse md:flex-nowrap gap-2">
-      <ImageFigure
-        figureImage={EscapeRoomIncorrectHint}
-        alt="Escape Room Instructions"
-        figureClassName="md:w-1/2 bg-card"
-        imageClassName="hover:ring-4 ring-accent-500"
+    <div class="border border-neutral-700 rounded-lg p-4 mb-6">
+      <div>
+        <h3 class="font-bold text-tertiary-800 text-lg mb-4">
+          Scenario 1: Escape Room
+        </h3>
+      </div>
+      <div
+        class="flex flex-col md:flex-row-reverse md:flex-nowrap md:mb-8 gap-2"
       >
-        <div slot="caption">
-          <span class="font-bold">Checking Common Misconceptions:</span> When a learner’s
-          response reveals a predefined misconception, the system delivers targeted
-          feedback to correct it.
+        <div class="md:basis-2/3">
+          <ImageFigure
+            figureImage={EscapeRoomIncorrectHint}
+            alt="Escape Room Instructions"
+            containerClassName=" bg-card"
+            captionPosition="bottom"
+          >
+            <div slot="caption">
+              <span class="font-bold">Checking Common Misconceptions:</span> When
+              a learner’s response reveals a predefined misconception, the system
+              delivers targeted feedback to correct it.
+            </div>
+          </ImageFigure>
         </div>
-      </ImageFigure>
-      <div class="md:w-1/2">
-        <p>
-          One problem set placed students in a locked room with a numbered
-          keypad securing the exit. The unlock code was hidden within a
-          conditional probability problem. Learners had to correctly solve the
-          problem to escape. If they struggled, the tutor provided step-by-step
-          hints and feedback, guiding them toward the correct solution.
-        </p>
+        <div class="mt-4 md:mt-0 md:mr-6 md:basis-1/3 shrink-0">
+          <p>
+            One problem set placed students in a locked room with a numbered
+            keypad securing the exit. The unlock code was hidden within a
+            conditional probability problem. Learners had to correctly solve the
+            problem to escape. If they struggled, the tutor provided
+            step-by-step hints and feedback, guiding them toward the correct
+            solution.
+          </p>
+        </div>
       </div>
     </div>
-    <div>
-      <h3 class="font-bold text-tertiary-800 text-lg my-2">
-        Treasure Hunt Adventure
-      </h3>
-    </div>
-    <div class="flex flex-wrap md:flex-row-reverse md:flex-nowrap gap-2">
-      <ImageFigure
-        figureImage={ZooMap}
-        alt="Escape Room Instructions"
-        figureClassName="md:w-1/2 bg-card"
-        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
-      >
-        <div slot="caption">
-          <span class="font-bold">Step by Step:</span> Frustration is reduced when
-          learners are sure their understanding of each step is correct before moving
-          on to the next step.
+    <div class="border border-neutral-700 rounded-lg p-4 mb-6">
+      <div>
+        <h3 class="font-bold text-tertiary-800 text-lg my-2 md:mt-6">
+          Scenario 2: Treasure Hunt Adventure
+        </h3>
+      </div>
+      <div class="flex flex-col md:flex-row md:flex-nowrap gap-2">
+        <div class="md:basis-2/3">
+          <ImageFigure
+            figureImage={ZooMap}
+            alt="Escape Room Instructions"
+            containerClassName=" bg-card"
+            captionPosition="bottom"
+          >
+            <div slot="caption">
+              <span class="font-bold">Step by Step:</span> Frustration is reduced
+              when learners are sure their understanding of each step is correct
+              before moving on to the next step.
+            </div>
+          </ImageFigure>
         </div>
-      </ImageFigure>
-      <div class="md:w-1/2">
-        <p>
-          Another problem set framed probability problems as a treasure hunt,
-          where solving calculations revealed map coordinates for the next clue.
-          The game guided learners through increasingly complex probability
-          problems, allowing them to track progress and make real-time
-          corrections.
-        </p>
+        <div class="mt-4 md:mt-0 md:basis-1/3 shrink-0 md:ml-6">
+          <p>
+            Another problem set framed probability problems as a treasure hunt,
+            where solving calculations revealed map coordinates for the next
+            clue. The game guided learners through increasingly complex
+            probability problems, allowing them to track progress and make
+            real-time corrections.
+          </p>
+        </div>
       </div>
     </div>
     <p class="mb-4"></p>
@@ -231,8 +244,8 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
         </div>
       </div>
     </div>
-    <div class="break-inside-avoid lg:mb-20">
-      <h3 class="font-bold text-tertiary-800 text-lg my-2">
+    <div class="break-inside-avoid">
+      <h3 class="font-bold text-tertiary-800 text-lg mb-2 mt-8">
         Targeted Instruction for Efficient Learning
       </h3>
       <p class="mb-1">
@@ -308,7 +321,7 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       </p>
     </div>
     <div>
-      <h3 class="font-bold text-tertiary-800 text-lg my-2">
+      <h3 class="font-bold text-tertiary-800 text-lg mb-2 mt-8">
         Personalized, Adaptive Feedback
       </h3>
       <p>
@@ -320,8 +333,6 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       <ImageFigure
         figureImage={CorrectFeedback}
         alt="Escape Room correct feedback"
-        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
-        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
         captionClassName="text-lg"
         captionPosition="bottom"
       >
@@ -358,8 +369,6 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       <ImageFigure
         figureImage={IncorrectFeedback}
         alt="incorrect feedback explains why it is incorrect"
-        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
-        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
         captionPosition="bottom"
       >
         <div
@@ -395,8 +404,6 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       <ImageFigure
         figureImage={MisconceptionFeedback}
         alt="Escape Room Instructions"
-        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
-        imageClassName="ring-2 ring-neutral-900 hover:ring-4 hover:ring-accent-500"
         captionPosition="top"
       >
         <div
@@ -433,7 +440,6 @@ import BreakdownFeedback from '@assets/portfolio/escape-room/escape-room-breakdo
       <ImageFigure
         figureImage={BreakdownFeedback}
         alt="Escape Room Instructions"
-        figureClassName="basis-full md:basis-1/2 border-4 border-primary-900"
         captionPosition="top"
       >
         <div
