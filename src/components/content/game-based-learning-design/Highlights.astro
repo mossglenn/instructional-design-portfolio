@@ -1,0 +1,73 @@
+---
+import Highlight from '@components/Highlight.astro';
+import TranslatorIcon from '@assets/translator-icon.svg';
+import StackingRingsIcon from '@assets/stacking-rings.svg';
+import BinaryDataIcon from '@assets/binary-data-icon.svg';
+import ForkRoadIcon from '@assets/fork-road-flat.svg';
+import UserCenteredIcon from '@assets/user-centered-flat-clean.svg';
+import MinimalistIcon from '@assets/minimalist-icon-small.svg';
+---
+
+<!-- Highligts card  -->
+<div class="block pt-12 pb-14 lg:pb-18 px-4 shadow-md bg-card">
+    <h3
+        class="tracking-narrow text-center mb-12 lg:text-4xl lg:mb-16 text-4xl tracking-tight font-extrabold text-neutral-900"
+    >
+        Project Highlights
+    </h3>
+
+    <div
+        class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch max-w-screen-xl mx-auto"
+    >
+        <Highlight>
+            <div slot="icon">
+                <TranslatorIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-primary-800);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Translator Between Experts</span
+            >
+            <span slot="highlight-description"
+                >Ensured games were both fun and instructionally sound by
+                helping experts in learning science or entertainment technology
+                understand each other's priorities, constaints, and mindsets.
+            </span>
+        </Highlight>
+        <Highlight>
+            <div slot="icon">
+                <StackingRingsIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Level Design</span
+            >
+            <span slot="highlight-description"
+                >Levels used research-backed sequences of misconceptions held
+                when learning the subject of each game, creating a structured
+                series of experiences that fast-track players to discovery.
+            </span>
+        </Highlight>
+
+        <Highlight>
+            <div slot="icon">
+                <BinaryDataIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-subject-color: var(--color-primary-800); --icon-field-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Designing from Data</span
+            >
+            <span slot="highlight-description"
+                >Game activity logs provided streams of data that were used to
+                advance our understanding of how learning happens through play,
+                to improve learning outcomes and efficiency, and enrich the
+                gaming experience.
+            </span>
+        </Highlight>
+    </div>
+</div>

@@ -24,6 +24,7 @@ export default defineConfig({
         '@public': path.resolve('./public'),
         '@styles': path.resolve('./src/styles'),
         '@assets': path.resolve('./src/assets'),
+        '@utilities': path.resolve('./src/utilities'),
       },
     },
   },
