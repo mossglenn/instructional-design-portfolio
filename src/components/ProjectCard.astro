@@ -1,5 +1,4 @@
 ---
-// components/ProjectCard.astro
 import type { Project } from '@/types/project';
 import { Image } from 'astro:assets';
 import ExpandingButton from '@/components/ExpandingButton.astro';
@@ -17,11 +16,15 @@ const { ...project } = Astro.props;
 
     <div class="aspect-square w-full overflow-hidden relative z-0">
         <a href={project.link}>
-            <Image
-                src={project.featuredImage}
-                alt="Test Image"
-                class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover/card:scale-115"
-            />
+            {
+                project.featuredImage && (
+                    <Image
+                        src={project.featuredImage}
+                        alt={project.title ? project.title : 'Project Image'}
+                        class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover/card:scale-115"
+                    />
+                )
+            }
         </a>
     </div>
 
@@ -30,13 +33,26 @@ const { ...project } = Astro.props;
     <div
         class="px-4 pt-4 pb-2 h-[16rem] min-[24rem]:h-[14rem] min-[44rem]:h-[16rem] min-[46rem]:h-[14rem] flex flex-col justify-between bg-neutral-100 relative z-10 transition-transform duration-300 ease-in-out group-[.expanded]/card:-translate-y-[13.5rem]"
     >
-        <h2 class="text-xl font-semibold text-neutral-800 leading-tight">
-            {project.title}
+        <h2 class="text-2xl font-bold text-neutral-800 leading-tight">
+            {
+                project.display.headlineHTML
+                    ? project.display.headlineHTML
+                    : project.title
+            }
         </h2>
-        <p
+        <h4 class="text-lg pt-4 text-neutral-800 leading-tight">
+            {
+                project.display.subheadingHTML
+                    ? project.display.subheadingHTML
+                    : ''
+            }
+        </h4>
+        <!--  <p
             class="text-base text-neutral-600 line-clamp-5 break-words"
-            set:html={project.display.hookHTML}
-        />
+            set:html={project.display.hookHTML
+                ? project.display.hookHTML
+                : 'Read more about this project.'}
+        /> -->
         <div></div>
     </div>
 

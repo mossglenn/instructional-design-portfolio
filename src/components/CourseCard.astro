@@ -4,10 +4,10 @@ interface Props {
   groupKeys: GroupKey[];
   showKeys?: FieldKey[];
   hideKeys?: FieldKey[];
-  course: CourseMetadata;
+  project: Project;
 }
 import type { 
-  CourseMetadata, 
+  Project, 
   GroupKey, 
   Field, 
   FieldKey, 
@@ -23,7 +23,7 @@ import CourseInfoGroup from '@/components/CourseInfoGroup.astro';
 import MortarBoardIcon from '@assets/mortarboard-icon-flat.svg';
 import PencilIcon from '@assets/pencil-icon-flat.svg';
 
-const { heading, groupKeys, course, showKeys, hideKeys } = Astro.props;
+const { heading, groupKeys, project, showKeys, hideKeys } = Astro.props;
 
 const groups: Groups = groupKeys.map((g) =>
   resolveGroup(g, showKeys, hideKeys),
@@ -72,7 +72,7 @@ const groups: Groups = groupKeys.map((g) =>
         <CourseInfoGroup
           group={grouped.group}
           fields={[...grouped.showFields]}
-          course={course}
+          project={project}
         />
       ))
     }
@@ -86,7 +86,7 @@ const groups: Groups = groupKeys.map((g) =>
         <CourseInfoGroup
           group={grouped.group}
           fields={[...grouped.hideFields]}
-          course={course}
+          project={project}
         />
       ))
     }

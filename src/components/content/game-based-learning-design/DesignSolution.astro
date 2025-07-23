@@ -1,0 +1,234 @@
+---
+import { Image } from 'astro:assets';
+import ImageFigure from '@/components/ImageFigure.astro';
+import ContentSection from '@/components/ContentSection.astro';
+import DesignSolutionIcon from '@assets/design-solution-flat.svg';
+import RumbleBlocks from '@assets/rumbleblocks-cropped.png';
+import BeanstalkMin from '@assets/beanstalk-minimal.png';
+import RumbleblocksMin from '@assets/rumbleblocks-minimal.png';
+import TeeterTotterMin from '@assets/teeter-totter-go-minimal.png';
+import LevelDesign from '@assets/portfolio/engage/balance-level-design.png';
+import LogBookDesign from '@assets/portfolio/engage/logbookdesign.png';
+import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png';
+---
+
+<ContentSection class="bg-neutral-50">
+    <DesignSolutionIcon
+        slot="icon"
+        style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-tertiary-500);"
+    />
+    <div slot="title" class="pb-8">Instructional Design Solutions</div>
+    <div slot="content">
+        <p class="mb-4">
+            Educational games provide an opportunity to engage learners,
+            reinforce scientific concepts, and promote discovery-based learning.
+            As part of the interdisciplanary ENAGE team, I designed and
+            developed games that use instructional strategies, interactive
+            problem-solving, and scaffolded learning mechanics to teach
+            scientific principles and critical thinking skills.
+        </p>
+
+        <div
+            class="grid grid-cols-2 bg-neutral-200 border border-neutral-400 mb-8 shadow-sm rounded-lg"
+        >
+            <ImageFigure
+                figureImage={RumbleBlocks}
+                alt="A screenshot of the Rumble Blocks game, showing a level where the player must build a platform for a flying saucer."
+                captionPosition="right"
+                containerClassName="shadow-none"
+                captionClassName="p-0 m-0 h-0"
+            />
+            <div class="pl-4 pt-4 text-sm row-span-3 md:row-span-1">
+                <span class="font-bold">Three ENGAGE Project Games:</span> Three
+                complete games were developed by the team to teach principles of
+                balance and stability as well as collaborative scientific inquiry.
+                In-classroom tests showed the games had significant effects on social-emotional
+                learn and subject learning.
+            </div>
+            <ImageFigure
+                figureImage={BeanstalkMin}
+                alt="A screenshot of the Beanstalk game, showing a level where the player must build a beanstalk to reach a cloud."
+                captionPosition="right"
+                containerClassName="shadow-none"
+            />
+            <ImageFigure
+                figureImage={TeeterTotterMin}
+                alt="A screenshot of the Teeter-Totter-Go game, showing a level where the player must balance a long to cross a river."
+                captionPosition="right"
+                containerClassName="shadow-none"
+            />
+        </div>
+
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">My Role</h4>
+        <p class="mb-4">
+            In addition to contributing to the design of individual games, <span
+                class="font-bold"
+                >one of my most import constributions was bridging the gap
+                between disciplines in the team.</span
+            > The ENGAGE project was a collaboration between two Carnegie Mellon
+            University departments: The Human-Computer Interaction Institute (HCII)
+            contributed experts in the learning sciences (including cognitive psychologists,
+            intelligent systems researchers, and instructional designers), and the
+            Entertainment Technology Center (ETC) contributed experts in computer
+            game development (including computer scientists, UX researchers, artists,
+            and coders).
+        </p>
+    </div>
+    <div slot="read-more">
+        <p class="mb-4">
+            I served as an intermediary to "translate" each groups priorities,
+            constaints, and mindsets. I enhance collaboration by:
+        </p>
+        <ul class="mb-8">
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <svg
+                    class="w-6 h-6 text-tertiary-800 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        d="M8.4 6.763c-.251.1-.383.196-.422.235L6.564 5.584l2.737-2.737c1.113-1.113 3.053-1.097 4.337.187l1.159 1.159a1 1 0 0 1 1.39.022l4.105 4.105a1 1 0 0 1 .023 1.39l1.345 1.346a1 1 0 0 1 0 1.415l-2.052 2.052a1 1 0 0 1-1.414 0l-1.346-1.346a1 1 0 0 1-1.323.039L11.29 8.983a1 1 0 0 1 .04-1.324l-.849-.848c-.18-.18-.606-.322-1.258-.25a3.271 3.271 0 0 0-.824.202Zm1.519 3.675L3.828 16.53a1 1 0 0 0 0 1.414l2.736 2.737a1 1 0 0 0 1.414 0l6.091-6.091-4.15-4.15Z"
+                    ></path>
+                </svg>
+                <div>
+                    Building a shared understanding of the project's goals and
+                    processes
+                </div>
+            </li>
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <svg
+                    class="w-6 h-6 text-tertiary-800 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M4 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h1v2a1 1 0 0 0 1.707.707L9.414 13H15a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Z"
+                        clip-rule="evenodd"></path>
+                    <path
+                        fill-rule="evenodd"
+                        d="M8.023 17.215c.033-.03.066-.062.098-.094L10.243 15H15a3 3 0 0 0 3-3V8h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1v2a1 1 0 0 1-1.707.707L14.586 18H9a1 1 0 0 1-.977-.785Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+
+                <div>
+                    Communicating learning goals and aligning evidence-based
+                    learning strategies with game mechanics.
+                </div>
+            </li>
+
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <svg
+                    class="w-6 h-6 text-tertiary-800 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M4.998 7.78C6.729 6.345 9.198 5 12 5c2.802 0 5.27 1.345 7.002 2.78a12.713 12.713 0 0 1 2.096 2.183c.253.344.465.682.618.997.14.286.284.658.284 1.04s-.145.754-.284 1.04a6.6 6.6 0 0 1-.618.997 12.712 12.712 0 0 1-2.096 2.183C17.271 17.655 14.802 19 12 19c-2.802 0-5.27-1.345-7.002-2.78a12.712 12.712 0 0 1-2.096-2.183 6.6 6.6 0 0 1-.618-.997C2.144 12.754 2 12.382 2 12s.145-.754.284-1.04c.153-.315.365-.653.618-.997A12.714 12.714 0 0 1 4.998 7.78ZM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+
+                Ensuring everyone understood each other’s priorities,
+                constraints, and mindset.
+            </li>
+            <li class="flex flex-row items-center gap-2">
+                <svg
+                    class="w-6 h-6 text-tertiary-800 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M14.516 6.743c-.41-.368-.443-1-.077-1.41a.99.99 0 0 1 1.405-.078l5.487 4.948.007.006A2.047 2.047 0 0 1 22 11.721a2.06 2.06 0 0 1-.662 1.51l-5.584 5.09a.99.99 0 0 1-1.404-.07 1.003 1.003 0 0 1 .068-1.412l5.578-5.082a.05.05 0 0 0 .015-.036.051.051 0 0 0-.015-.036l-5.48-4.942Zm-6.543 9.199v-.42a4.168 4.168 0 0 0-2.715 2.415c-.154.382-.44.695-.806.88a1.683 1.683 0 0 1-2.167-.571 1.705 1.705 0 0 1-.279-1.092V15.88c0-3.77 2.526-7.039 5.967-7.573V7.57a1.957 1.957 0 0 1 .993-1.838 1.931 1.931 0 0 1 2.153.184l5.08 4.248a.646.646 0 0 1 .012.011l.011.01a2.098 2.098 0 0 1 .703 1.57 2.108 2.108 0 0 1-.726 1.59l-5.08 4.25a1.933 1.933 0 0 1-2.929-.614 1.957 1.957 0 0 1-.217-1.04Z"
+                        clip-rule="evenodd"></path>
+                </svg>
+
+                Everyone worked toward the same instructional and engagement
+                goals.
+            </li>
+        </ul>
+        <ImageFigure
+            figureImage={LevelDesign}
+            alt="A table describing how each naive rule used to preduct the action of a balanced beam."
+            captionPosition="right"
+            containerClassName="bg-neutral-300 mb-8 max-w-xs mx-auto"
+            captionClassName="px-3 mt-4"
+        >
+            <div slot="caption">
+                <span class="font-bold"
+                    >Level Design for Structured Inquiry</span
+                > Young learners go through a specific progression of theories (or
+                "rules") when figuring out how balance works. I mapped a set of progressive
+                levels to align game mechanics with each theory.
+            </div>
+        </ImageFigure>
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+            Level Design: Structured Inquiry
+        </h4>
+        <p class="mb-4">
+            I designed levels for each game using existing literature on the
+            progession of theories (or “rules”) young learners go through when
+            discovering each scientific principle. The table above illustrates
+            the progressive rules about how to predict which side of a balance
+            beam will go down. Mission 1 begins with only levels that follow the
+            first rule (“The side with the most tokens will go down”) but ends
+            with a level that “breaks” that rule and confuses the player. Young
+            learners then turn to the second attempt at a rule (“The side with
+            the tokens furthest from the center will go down”) until the last
+            level breaks that rule. That cycle continues until the full
+            principle is discovered.
+        </p>
+        <p class="mb-4">
+            The game is designed to follow that <span
+                class="text-primary-500 font-bold"
+                >natural pattern of progressive discovery</span
+            >, but to condense what might take hours of unstructured play with a
+            balance toy into an efficient game that not only teaches principles
+            of balance, but the use of a structred process of scientific inquiry
+            to answer questions.
+        </p>
+        <ImageFigure
+            figureImage={LogBookDesign}
+            figureImage2={TTGhypothesis}
+            alt="A flowchart illustrating how the observation log book interaction should work behind the scenes."
+            captionPosition="bottom"
+            containerClassName="bg-neutral-300 mb-8  mx-auto"
+            captionClassName="px-3 mt-4"
+        >
+            <div slot="caption">
+                <span class="font-bold">Log Book Game Mechanic Design:</span> I created
+                this flowchart to guide game developers in building the Log Book
+                mechanic in Teeter-Totter Go (code named "Torque-It"). When a new
+                hypothesis is needed, the game uses the log book to lead players
+                through the collaborative inquiry process.
+            </div>
+        </ImageFigure>
+        <p class="mb-4">
+            For Teeter-Totter Go, I created a flowchart to guide the
+            entertainment technology team in building a new log book mechanic to
+            lead players through the collaborative inquiry process. Players
+            enter the log book when they need a new hypothesis in the game. The
+            log book helps them review past observations and use that evidence
+            to construct an argument for a new hypothesis. When the two players
+            agree on a new hypothesis, they return to the main game area and see
+            if this new hypothesis helps them make progress.
+        </p>
+    </div>
+</ContentSection>

@@ -10,6 +10,7 @@ export type ProjectTypeSlug =
   | 'online-modules'
   | 'webinare'
   | 'workshop'
+  | 'text'
   | 'other';
 
 export type ProjectDeliverySlug =
@@ -29,6 +30,8 @@ export type ProjectSubjectSlug =
   | 'leadership-and-management'
   | 'data-science'
   | 'technology'
+  | 'adaptive-learning'
+  | 'learning-sciences'
   | 'other';
 
 export type ProjectFormatSlug =
@@ -55,6 +58,7 @@ export type RoleSlug =
   | 'team-leader'
   | 'instructional-designer'
   | 'developer'
+  | 'subject-matter-expert'
   | 'other';
 
 export type AccessibilitySlug = 'aa' | 'aaa' | 'none';
@@ -74,14 +78,14 @@ export type Project = {
   link: string;
 
   /*
-   * featured image url--used only in project cards at the moment
+   * featured image file name--used only in project cards at the moment
    */
   featuredImagePath?: string;
 
   /*
    * featured image url--used only in project cards at the moment
    */
-  featuredImage: ImageMetadata;
+  featuredImage?: ImageMetadata;
 
   /*
    * portfolio project title; titles with colons may be split into title and subtitle

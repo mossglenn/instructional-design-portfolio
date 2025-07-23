@@ -5,153 +5,158 @@ let isOpen = false;
 ---
 
 <header
-  class="sticky top-0 h-[var(--header-height)] z-50 bg-background/80 backdrop-blur border-b-2 border-primary-800 bg-[url('/assets/tech-diag-300-600w.png')]"
+    class="sticky top-0 h-[var(--header-height)] z-50 bg-background/80 backdrop-blur border-b-2 border-primary-800 bg-[url('/assets/tech-diag-300-600w.png')]"
 >
-  <nav class="px-4 lg:px-6 py-3 text-neutral-800">
-    <div
-      class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
-    >
-      <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <Image
-          src={NeuronIconLight}
-          alt="Neuron Logo"
-          class="h-6 sm:h-8"
-          width={24}
-          height={24}
-        />
-        <span class="text-2xl font-semibold text-primary-800">AmosGlenn</span>
-      </a>
+    <nav class="px-4 lg:px-6 py-3 text-neutral-800">
+        <div
+            class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        >
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-2">
+                <Image
+                    src={NeuronIconLight}
+                    alt="Neuron Logo"
+                    class="h-6 sm:h-8"
+                    width={24}
+                    height={24}
+                />
+                <span class="text-2xl font-semibold text-primary-800"
+                    >AmosGlenn</span
+                >
+            </a>
 
-      <!-- Desktop Nav -->
-      <ul class="hidden sm:flex space-x-8 text-sm font-medium">
-        <!-- Home -->
-        <li>
-          <a
-            href="/"
-            class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
+            <!-- Desktop Nav -->
+            <ul class="hidden sm:flex space-x-8 text-sm font-medium">
+                <!-- Home -->
+                <li>
+                    <a
+                        href="/"
+                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m5 0h-6m6 0a2 2 0 002-2V9a2 2 0 00-.586-1.414l-7-7a2 2 0 00-2.828 0l-7 7A2 2 0 002 9v9a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+
+                <!-- About -->
+                <li>
+                    <a
+                        href="/contact"
+                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4zM12 14c-3.33 0-8 1.67-8 5v1h16v-1c0-3.33-4.67-5-8-5z"
+                            ></path>
+                        </svg>
+                        Contact
+                    </a>
+                </li>
+
+                <!-- Portfolio -->
+                <li>
+                    <a
+                        href="/portfolio"
+                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M3 7h18M3 12h18M3 17h18"></path>
+                        </svg>
+                        <span>Portfolio</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Mobile Menu -->
+            <div
+                id="mobile-menu"
+                class="fixed top-[64px] right-0 left-auto z-40 sm:hidden transform translate-x-full transition-transform duration-300 ease-in-out w-52 border-l-1 border-y-1 border-neutral-300 bg-neutral-100/95 pl-2 py-2 rounded-l-lg space-y-4 shadow-md"
             >
-              <path
-                d="M3 12l2-2m0 0l7-7 7 7m-9 2v8m4-8v8m5 0h-6m6 0a2 2 0 002-2V9a2 2 0 00-.586-1.414l-7-7a2 2 0 00-2.828 0l-7 7A2 2 0 002 9v9a2 2 0 002 2z"
-              ></path>
-            </svg>
-            Home
-          </a>
-        </li>
+                <a
+                    href="/"
+                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
+                    >Home</a
+                >
+                <a
+                    href="/about"
+                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
+                    >About</a
+                >
+                <a
+                    href="/portfolio"
+                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
+                    >Portfolio</a
+                >
+            </div>
+            <!-- Mobile Hamburger -->
+            <div class="sm:hidden justify-items-end">
+                <button
+                    id="mobile-menu-toggle"
+                    aria-controls="mobile-menu"
+                    aria-expanded="false"
+                    class="text-gray-700 hover:text-primary focus:outline-none"
+                >
+                    <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
 
-        <!-- About -->
-        <li>
-          <a
-            href="/about"
-            class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4S8 5.79 8 8s1.79 4 4 4zM12 14c-3.33 0-8 1.67-8 5v1h16v-1c0-3.33-4.67-5-8-5z"
-              ></path>
-            </svg>
-            About
-          </a>
-        </li>
+        <script is:inline>
+            const toggle = document.getElementById('mobile-menu-toggle');
+            const menu = document.getElementById('mobile-menu');
 
-        <!-- Portfolio -->
-        <li>
-          <a
-            href="/portfolio"
-            class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path d="M3 7h18M3 12h18M3 17h18"></path>
-            </svg>
-            <span>Portfolio</span>
-          </a>
-        </li>
-      </ul>
+            if (toggle && menu) {
+                toggle.addEventListener('click', () => {
+                    const isExpanded =
+                        toggle.getAttribute('aria-expanded') === 'true';
+                    toggle.setAttribute('aria-expanded', String(!isExpanded));
 
-      <!-- Mobile Menu -->
-      <div
-        id="mobile-menu"
-        class="fixed top-[64px] right-0 left-auto z-40 sm:hidden transform translate-x-full transition-transform duration-300 ease-in-out w-52 border-l-1 border-y-1 border-neutral-300 bg-neutral-100/95 pl-2 py-2 rounded-l-lg space-y-4 shadow-md"
-      >
-        <a
-          href="/"
-          class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
-          >Home</a
-        >
-        <a
-          href="/about"
-          class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
-          >About</a
-        >
-        <a
-          href="/portfolio"
-          class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
-          >Portfolio</a
-        >
-      </div>
-      <!-- Mobile Hamburger -->
-      <div class="sm:hidden justify-items-end">
-        <button
-          id="mobile-menu-toggle"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          class="text-gray-700 hover:text-primary focus:outline-none"
-        >
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
+                    menu.classList.toggle('translate-x-full');
+                    menu.classList.toggle('translate-x-0');
 
-    <script is:inline>
-      const toggle = document.getElementById('mobile-menu-toggle');
-      const menu = document.getElementById('mobile-menu');
-
-      if (toggle && menu) {
-        toggle.addEventListener('click', () => {
-          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-          toggle.setAttribute('aria-expanded', String(!isExpanded));
-
-          menu.classList.toggle('translate-x-full');
-          menu.classList.toggle('translate-x-0');
-
-          const icon = toggle.querySelector('path');
-          if (icon) {
-            icon.setAttribute(
-              'd',
-              isExpanded ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12',
-            );
-          }
-        });
-      }
-    </script>
-  </nav>
+                    const icon = toggle.querySelector('path');
+                    if (icon) {
+                        icon.setAttribute(
+                            'd',
+                            isExpanded
+                                ? 'M4 6h16M4 12h16M4 18h16'
+                                : 'M6 18L18 6M6 6l12 12'
+                        );
+                    }
+                });
+            }
+        </script>
+    </nav>
 </header>

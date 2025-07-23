@@ -10,4 +10,38 @@ import Results from '@content/game-based-learning-design/Results.astro';
 import Footer from '@components/Footer.astro';
 ---
 
-<Layout> <Header /><Hero /><Highlights /></Layout><Footer />
+<Layout>
+    <Header /><Hero />
+    <PageSectionNav
+        sections={[
+            {
+                id: 'highlights',
+                label: { short: 'Highlights', full: 'Project Highlights' },
+            },
+            {
+                id: 'design-challenge',
+                label: { short: 'Challenge', full: 'Design Challenge' },
+            },
+            {
+                id: 'design-solution',
+                label: { short: 'Solution', full: 'Design Solutions' },
+            },
+            {
+                id: 'results',
+                label: { short: 'Games', full: 'The Games' },
+            },
+        ]}
+    />
+    <section id="highlights" class="nav-section scroll-mt-24">
+        <Highlights />
+    </section>
+    <section id="design-challenge" class="nav-section scroll-mt-24">
+        <DesignChallenge />
+    </section>
+    <section id="design-solution" class="nav-section scroll-mt-24">
+        <DesignSolution />
+    </section>
+    <section id="results" class="nav-section scroll-mt-24">
+        <Results />
+    </section>
+</Layout><Footer />

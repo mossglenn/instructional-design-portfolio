@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import ImageFigure from '@/components/ImageFigure.astro';
+
+import ExternalLink from '@/components/ExternalLink.astro';
+import Result from '@components/Result.astro';
+import RumbleBlocks from '@assets/rumbleblocks-cropped.png';
+import RumbleBlocksFalling from '@assets/portfolio/engage/rumbleblocks-falling.png';
+import Beanstalk from '@assets/portfolio/engage/beanstalk-advanced.png';
+import TTGDifferentAnswer from '@assets/portfolio/engage/ttg-different-answer.png';
+import TTGTestAnswers from '@assets/portfolio/engage/ttg-test-idea.png';
+---
+
+<!-- results -->
+<section
+    class="project-results py-12 lg:pb-18 px-4 shadow-sm bg-neutral-cool-200"
+>
+    <div class="max-w-screen-xl mx-auto">
+        <h2
+            class="text-4xl tracking-tight font-extrabold text-neutral-900 mb-8"
+        >
+            The Games
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- column 1 -->
+            <div>
+                <h4 class="text-2xl mb-4 font-bold">Rumble Blocks</h4>
+
+                <ImageFigure
+                    figureImage={RumbleBlocks}
+                    alt="A screenshot of a game set in an alien world. A flying saucer sits on top of a launchpad constructed by the player."
+                    captionPosition="bottom"
+                    containerClassName="bg-neutral-300 mb-8"
+                    captionClassName="px-3"
+                >
+                    <div slot="caption">
+                        <span class="font-bold">Rumble Blocks:</span> Players build
+                        a platform for a flying saucer that must withstand the dramatic
+                        shaking that happens when the ship attempts to launch.
+                    </div>
+                </ImageFigure>
+                <p class="mb-4">
+                    Rumble Blocks is a physics-based game where learners
+                    experiment building with shapes while helping an alien build
+                    a launch platform for a spaceship.
+                </p>
+                <p class="mb-4 text-primary-500 font-bold">
+                    I designed progressively challenging levels that facilitated
+                    the learner’s own “discovery” of engineering principles like
+                    stability and weight distribution.
+                </p>
+                <p class="mb-4">
+                    Afterwards, younger learners could not always articulate
+                    these principles, but could use them effectively.
+                </p>
+                <ImageFigure
+                    figureImage={RumbleBlocksFalling}
+                    alt="A screenshot the flying saucer falling off the launch platform from all the shaking."
+                    captionPosition="bottom"
+                    ><div slot="caption">
+                        <span class="font-bold">Shaking and Falling:</span> Once
+                        the launch platform is constructed, powering up the platform
+                        causes the whole environment to shake. If the flying saucer
+                        falls off, the player must restart the level.
+                    </div>
+                </ImageFigure>
+            </div>
+
+            <!-- column 2 -->
+            <div>
+                <h4 class="text-2xl mb-4 font-bold">Beanstalk</h4>
+                <ImageFigure
+                    figureImage={Beanstalk}
+                    alt="A screenshot of a game taking place on a wooden beam balanced on top of a beanstalk growing into the sky. The player uses a water pitcher to flow flowers at differrent spots along the mean to keep it balanced."
+                    captionPosition="bottom"
+                    containerClassName="bg-neutral-300 mb-8"
+                    captionClassName="px-3"
+                    imageClassName="border border-neutral-500"
+                >
+                    <div slot="caption">
+                        <span class="font-bold">Beanstalk:</span> Player act to keep
+                        the beam balanced as the beanstalk grows higher. NPC birds
+                        collaborate with the player in making predictions, remembering
+                        observation from past levels, and offering suggestions for
+                        getting unstuck.
+                    </div>
+                </ImageFigure>
+
+                <p class="mb-4">
+                    Beanstalk is a physics-based game that helps young learners
+                    discover the laws of balance through interactive
+                    problem-solving in collaboration with nonplayer character
+                    (NPC) talking birds. The player must correctly predict which
+                    way the plank on top of the beanstalk will tip as flowers,
+                    bugs, and other “tokens” appear on the plank.
+                </p>
+                <p class="mb-4 text-primary-500 font-bold">
+                    In addition to level design, I designed the NPCs
+                    interactions with the learner to provide scaffolded
+                    assistance to struggling players&mdash;on top of
+                    entertaining the player with banter. I then collaborated
+                    with members of the entertainment technology team to ensure
+                    gameplay reinforced the learning principles as well as the
+                    collaborative mechanics.
+                </p>
+            </div>
+            <!-- column 3 -->
+            <div>
+                <h4 class="text-2xl mb-4 font-bold">Teeter-Totter Go</h4>
+                <ImageFigure
+                    figureImage={TTGDifferentAnswer}
+                    alt="A screenshot of a game developed by the ENGAGE project. The player is asked to reflect on a short story about a child who accidentally breaks a toy."
+                    captionPosition="bottom"
+                    containerClassName="bg-neutral-300 mb-8"
+                    captionClassName="px-3"
+                    imageClassName="border border-neutral-500"
+                >
+                    <div slot="caption">
+                        <span class="font-bold">Teeter-Totter Go:</span> Two player
+                        must collaborate to balance and tilt various objects to bridge
+                        gaps in the path. Communication and scientific inquiry are
+                        keys to success.
+                    </div>
+                </ImageFigure>
+
+                <p class="mb-4">
+                    Teeter-Totter Go is a physics-based game that helps young
+                    learners discover the laws of balance, but also requires
+                    collaboration between two live players (not NPCs).
+                </p>
+                <p class="mb-4 text-primary-500 font-bold">
+                    I designed a collaborative inquiry mechanic for the game
+                    (see below). When the players' current method of creating
+                    balance and tilting stop working, the game shifts to
+                    notebook interface where players record their obsevations,
+                    compare those observation to the current hypothesis, and
+                    form a new hypothesis.
+                </p>
+                <ImageFigure
+                    figureImage={TTGTestAnswers}
+                    alt="A screenshot of the Teeter-Totter Go hypothesis testing activity. Players set up balances to see if their predictions are correct."
+                    captionPosition="bottom"
+                >
+                    <div slot="caption">
+                        <span class="font-bold"
+                            >Collaborative Inquiry Mechanic:</span
+                        > Players set up balances to see if their predictions are
+                        correct. Their observations are recorded in a notebook.
+                    </div>
+                </ImageFigure>
+            </div>
+        </div>
+    </div>
+</section>
