@@ -1,6 +1,5 @@
 ---
 import type { Project } from '@/types';
-import { ProjectRCR } from '@/data/projects/rcr';
 import Layout from '../layouts/Layout.astro';
 import Header from '@components/Header.astro';
 import PageSectionNav from '@components/PageSectionNav.astro';
@@ -11,8 +10,6 @@ import DesignSolution from '@components/content/digital-literacy-microlearning/D
 import Results from '@components/content/digital-literacy-microlearning/Results.astro';
 import ProjectDetails from '@components/content/digital-literacy-microlearning/ProjectDetails.astro';
 import Footer from '@components/Footer.astro';
-
-const projectRcr: Project = ProjectRCR;
 
 const tags = [
     'Compliance Training',
@@ -60,8 +57,6 @@ const tags = [
     <section id="results" class="nav-section scroll-mt-24">
         <Results />
     </section>
-    <!--     <section id="details" class="nav-section scroll-mt-24">
-        <ProjectDetails project={projectRcr} />
-    </section> -->
+
     <Footer />
 </Layout>
