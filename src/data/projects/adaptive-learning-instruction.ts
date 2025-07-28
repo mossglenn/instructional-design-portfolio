@@ -1,5 +1,5 @@
 import type { Project } from '@/types/project';
-import HandBookCover from '@assets/featured/handbook-featured.png';
+import HandBookCover from '@assets/featured/handbook-iso.png';
 
 /**
  * Project metadata for: My Project Name
@@ -8,6 +8,7 @@ import HandBookCover from '@assets/featured/handbook-featured.png';
 const ProjectHandbook: Project = {
   id: 'handbook',
   link: 'adaptive-learning-instruction',
+  order: 'c',
   featuredImagePath: 'handbook-2-cover.png',
   featuredImage: HandBookCover,
   title: ' Instruction Based on Adaptive Learning Technologies',
@@ -34,6 +35,7 @@ const ProjectHandbook: Project = {
       " Recent advances in adaptive learning sciences (such as machine learning, natural language processing, and Bayesian knowledge tracing) are transforming a designer's ability to personalize instruction. For this reason a new chapter was added to the second edition of The Handbook on Learning and Instruction discussing the current state of the science and how practitioners can apply it effectively .",
   },
   metadata: {
+    category: ['research'],
     roles: ['subject-matter-expert'],
     type: ['text'],
     delivery: ['print'],

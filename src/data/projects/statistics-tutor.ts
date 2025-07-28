@@ -1,5 +1,5 @@
 import type { Project } from '@/types/project';
-import StatisticsTutorFeatured from '@assets/featured/problemsets-mockup-floating.png';
+import StatisticsTutorFeatured from '@assets/featured/statistics-problem-sets-iso.png';
 /**
  * Project metadata for: My Project Name
  * Used in the Course Details table and other structured components.
@@ -7,6 +7,7 @@ import StatisticsTutorFeatured from '@assets/featured/problemsets-mockup-floatin
 const ProjectStatisticsTutor: Project = {
   id: 'statistics-tutor',
   link: 'gamified-statistics-tutor',
+  order: 'd',
   featuredImagePath: 'problemsets-mockup-floating.png',
   featuredImage: StatisticsTutorFeatured,
   title: 'Gamified Statistics Tutor',
@@ -32,6 +33,7 @@ const ProjectStatisticsTutor: Project = {
       'designed an interactive, gamified statistics tutor that immersed the student in an entertaining scenario and provided personalized help when they needed it and at the level they needed. The system focused each student’s time and energy on the sections they were still learning.',
   },
   metadata: {
+    category: ['adaptive'],
     type: ['online-modules'],
     delivery: ['scorm'],
     format: ['self-paced-online'],

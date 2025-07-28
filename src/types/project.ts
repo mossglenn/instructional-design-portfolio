@@ -5,6 +5,15 @@ export type TextBlock = {
   url?: string | null;
 };
 
+export type ProjectCategory =
+  | 'ai'
+  | 'adaptive'
+  | 'games'
+  | 'compliance'
+  | 'research'
+  | 'digital'
+  | 'scalable';
+
 export type ProjectTypeSlug =
   | 'multi-course-curriculum'
   | 'online-modules'
@@ -76,6 +85,11 @@ export type Project = {
    * project url that can contain SEO-friendly slug
    */
   link: string;
+
+  /*
+   * project order in the portfolio; sorted alphabetically
+   */
+  order?: string;
 
   /*
    * featured image file name--used only in project cards at the moment
@@ -167,6 +181,11 @@ export type Project = {
      * array of tags used for filtering projects
      */
     tags?: string[];
+
+    /*
+     * array of categories used for filtering projects
+     */
+    category?: ProjectCategory[];
 
     /*
      * array of roles played in the project

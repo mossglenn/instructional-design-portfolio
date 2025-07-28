@@ -1,5 +1,5 @@
 import type { Project } from '@/types/project';
-import EngageFeatured from '@assets/featured/engage-featured.png';
+import EngageFeatured from '@assets/featured/engage-iso.png';
 /**
  * Project metadata for: My Project Name
  * Used in the Course Details table and other structured components.
@@ -7,6 +7,7 @@ import EngageFeatured from '@assets/featured/engage-featured.png';
 const ProjectEngage: Project = {
   id: 'engage',
   link: 'game-based-learning-design',
+  order: 'f',
   featuredImagePath: 'problemsets-mockup-floating.png',
   featuredImage: EngageFeatured,
   title: 'Game-Based Learning Design',
@@ -25,6 +26,8 @@ const ProjectEngage: Project = {
     leaderHTML:
       'As part of the interdisciplanary ENAGE team, I designed and developed games for young learners that use instructional strategies, interactive problem-solving, and scaffolded learning mechanics to teach STEM subjects plus scientific inquiry and critical thinking skills.',
   },
-  metadata: {},
+  metadata: {
+    category: ['games'],
+  },
 };
 export default ProjectEngage;

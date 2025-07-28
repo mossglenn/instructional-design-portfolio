@@ -1,5 +1,5 @@
 import type { Project } from '@/types/project';
-import RCRFeatured from '@assets/featured/rcr-featured.png';
+import RCRFeatured from '@assets/featured/rcr-iso.png';
 
 /**
  * Project metadata for: My Project Name
@@ -8,6 +8,7 @@ import RCRFeatured from '@assets/featured/rcr-featured.png';
 const ProjectRCR: Project = {
   id: 'rcr',
   link: 'compliance-training-impact',
+  order: 'bb',
   featuredImagePath: 'rcr-wings-featured.png',
   featuredImage: RCRFeatured,
   title: 'Responsible Conduct of Research',
@@ -47,6 +48,7 @@ const ProjectRCR: Project = {
       'Key concepts of research ethics and policies as well as clarifying how All of Us applies these concepts in the effort to catalyze positive change in research. Part 1: Registered Tier Data<br />Part 2 Controlled Tier Data<br />A curriculum of two cumulative courses with five modules each. Courses lead to certification for access to a data tier.',
   },
   metadata: {
+    category: ['compliance'],
     type: ['multi-course-curriculum'],
     delivery: ['xapi'],
     format: ['self-paced-online'],

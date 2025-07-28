@@ -283,6 +283,7 @@
     var(--color-accent)
   );
 
+
   /* === FONTS === */
   --font-display: 'Barlow', sans-serif;
   --font-display-semicondensed: 'Barlow Semi Condensed', sans-serif;
@@ -521,4 +522,34 @@
   .animate-bob {
     animation: bobbing 6s ease-in-out infinite;
   }
+
+
+  /* -- project card backgrounds -- */
+  .bg-gradient-ai {
+  @apply from-indigo-600 to-purple-500 bg-gradient-to-r;
+}
+.bg-gradient-data {
+  @apply bg-linear-to-t/oklab from-secondary-300 to-secondary-200;
+}
+.bg-gradient-ai {
+  @apply bg-linear-to-t/oklab from-accent-800 to-tertiary-700;
+}
+.bg-gradient-digital {
+  @apply bg-linear-to-t/oklab from-secondary-400 to-secondary-200;
+}
+.bg-gradient-compliance {
+  @apply bg-linear-to-t/oklab from-primary-600 to-primary-200;
+}
+.bg-gradient-research {
+  @apply bg-linear-to-t/oklab from-tertiary-600 to-tertiary-300;
+}
+.bg-gradient-games {
+  @apply bg-linear-to-t/oklab from-accent-600 to-accent-300;
+}
+.bg-gradient-adaptive {
+  @apply bg-linear-to-t/oklab from-primary-600 to-secondary-300;
+}
+.bg-gradient-project {
+  @apply bg-linear-to-t/oklab from-secondary-600 to-secondary-400;
+}
 }

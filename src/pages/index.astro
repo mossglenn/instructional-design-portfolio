@@ -9,17 +9,17 @@ import ContentOne from '@/components/content/home/ContentOne.astro';
 import Footer from '@components/Footer.astro';
 ---
 
-<Layout>
-  <Header />
-  <Hero />
-  <div class="bg-neutral-200">
-    <div
-      class="@container flex flex-col md:flex-row-reverse items-stretch gap-4 max-w-screen-xl mx-auto"
-    >
-      <ProjectOne />
-      <ContentOne />
+<Layout title="Amos Glenn - Home">
+    <Header />
+    <Hero />
+    <div class="bg-neutral-200">
+        <div
+            class="@container flex flex-col md:flex-row-reverse items-stretch gap-4 max-w-screen-xl mx-auto"
+        >
+            <ProjectOne />
+            <ContentOne />
+        </div>
     </div>
-  </div>
-  <ProjectTwo />
-  <Footer />
+    <ProjectTwo />
+    <Footer />
 </Layout>
