@@ -1,0 +1,243 @@
+---
+import { Image } from 'astro:assets';
+import AgyleCycle from '@assets/portfolio/agile-genetics/agile-cycle.png';
+import ImageFigure from '@/components/ImageFigure.astro';
+import CardWithReadMore from '@/components/CardWithReadMore.astro';
+import NumberCircleOne from '@assets/one-circle.svg';
+import NumberCircleTwo from '@assets/two-circle.svg';
+import NumberCircleThree from '@assets/three-circle.svg';
+import NumberCircleFour from '@assets/four-circle.svg';
+import GeneticsChart from '@assets/portfolio/agile-genetics/chart-perspective-cropped.png';
+---
+
+<section class="project-two">
+  <div
+    class="project-card p-6 mb-8
+    bg-card
+    border
+    border-card-border
+    rounded-lg
+    shadow-sm px-4 mx-auto my-8 max-w-screen-xl"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+      <div>
+        <h3
+          class="w-max font-bold text-sm tracking-tighter text-transparent bg-clip-text bg-linear-to-r from-tertiary-700 via-tertiary-700 via-75% to-tertiary-400"
+        >
+          <span class="text-[1.2em]">P</span>ROJECT <span class="text-[1.2em]"
+            >H</span
+          >IGHLIGHT
+        </h3>
+        <h2 class="font-black font-display text-4xl mb-4">
+          Agile-Inspired Development for Rapid Program Scaling
+        </h2>
+        <h4 class="font-light text-neutral-600 text-lg">
+          See how an iterative workflow powers rapid, need-driven, and scalable
+          learning development.
+        </h4>
+        <div class="hidden lg:block pt-8 text-sm">
+          <p class="mb-4">
+            When training staff on a large and complex topic&mdash;genetics, in
+            this case&mdash;completing a full analysis before development (as in
+            the ADDIE model) would delay delivery indefinitely. Because staff in
+            a national research program needed to field genetics questions
+            immediately, I created and led designers, stakeholders, and learners
+            a new agile-inspired workflow: we identified a few essential
+            learning objectives, launched an MVP training, and refined it using
+            real-world feedback and analytics. This approach let us scale
+            genetics education rapidly and effectively—focusing on the knowledge
+            and skills staff needed most.
+          </p>
+          <p>
+            Using this agile workflow, we launched the first learning activities
+            in just a few weeks. Testing and feedback guided improvements to
+            existing content and expantion to cover more of the needs and
+            objectives. Within a year, we saw a significant improvement in the
+            staff's overall ability to achive the program's goals in this area.
+          </p>
+          <div class="my-8">
+            <a
+              href="#"
+              class="group w-full md:w-max button-explore-project bg-primary-500 shadow-md px-2 py-2 rounded-lg transition text-neutral-100 border-b-2 border-neutral-300 hover:text-accent-300 hover:border-accent-600 hover:shadow-md hover:shadow-accent-300"
+            >
+              <span class="font-semibold inline-flex items-center gap-2">
+                Explore this Project
+                <svg
+                  class="w-4 h-4 rtl:rotate-180 group-hover:text-accent-300"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 10"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mb-8 lg:mb-0">
+        <ImageFigure
+          figureImage={AgyleCycle}
+          alt="Agile Cycle"
+          containerClassName="border border-neutral-200 p-4"
+          buttonClassName="max-w-md"
+          captionPosition="bottom"
+        >
+          <div slot="caption">
+            <div class="font-bold pb-2">Rapid Development Workflow:</div>
+            <div style="--icon-subject-color: var(--color-neutral-700);">
+              <NumberCircleOne
+                class="inline w-4 h-4 align-text-bottom mr-0.5"
+                role="img"
+                aria-label="Step 1"
+              /><span class="font-semibold">Booster Stage:</span> gather objectives
+              from experts, stakeholders, and learners. <NumberCircleTwo
+                class="inline w-4 h-4 align-text-bottom mr-0.5"
+                role="img"
+                aria-label="Step 2"
+              /><span class="font-semibold">Design Stage:</span> build a minimum
+              viable product for the most critical objectives. <span
+                class="font-semibold"
+                ><NumberCircleThree
+                  class="inline w-4 h-4 align-text-bottom mr-0.5"
+                  role="img"
+                  aria-label="Step 3"
+                />Access Stage:</span
+              > publish materials, collect feedback and analytics.
+              <span class="font-semibold"
+                ><NumberCircleFour
+                  class="inline w-4 h-4 align-text-bottom mr-0.5"
+                  role="img"
+                  aria-label="Step 4"
+                />Analysis Stage:</span
+              > use data to refine or expand&mdash;<span class="italic"
+                >Loop back to Booster Stage</span
+              > if the next steps are unclear.
+            </div>
+          </div>
+        </ImageFigure>
+      </div>
+      <div class="lg:hidden">
+        <p class="mb-4">
+          When training staff on a large and complex topic&mdash;genetics, in
+          this case&mdash;completing a full analysis before development (as in
+          the ADDIE model) would delay delivery indefinitely. Because staff in a
+          national research program needed to field genetics questions
+          immediately, I created and led designers, stakeholders, and learners a
+          new agile-inspired workflow: we identified a few essential learning
+          objectives, launched an MVP training, and refined it using real-world
+          feedback and analytics. This approach let us scale genetics education
+          rapidly and effectively—focusing on the knowledge and skills staff
+          needed most.
+        </p>
+        <p>
+          Using this agile workflow, we launched the first learning activities
+          in just a few weeks. Testing and feedback guided improvements to
+          existing content and expansion to cover more of the needs and
+          objectives. Within a year, we saw a significant improvement in the
+          staff's overall ability to achieve the program's goals in this area.
+        </p>
+        <div class="my-8">
+          <a
+            href="#"
+            class="group w-full md:w-max button-explore-project bg-primary-500 shadow-md px-2 py-2 rounded-lg transition text-neutral-100 border-b-2 border-neutral-300 hover:text-accent-300 hover:border-accent-600 hover:shadow-md hover:shadow-accent-300"
+          >
+            <span class="font-semibold inline-flex items-center gap-2">
+              Explore this Project
+              <svg
+                class="w-4 h-4 rtl:rotate-180 group-hover:text-accent-300"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"></path>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--
+      <div class="col-span-3">
+        <div
+          class="flex flex-col lg:flex-row gap-4 border border-neutral-200 p-4"
+        >
+          <div class="basis-1/2">
+            <ImageFigure
+              figureImage={GeneticsChart}
+              alt="Genetics Chart"
+              buttonClassName="max-w-xs"
+              captionPosition="right"
+            />
+          </div>
+
+          <div class="basis-1/2">
+            <div>
+              <span class="font-bold">Genetics Training Success:</span>
+              One year after the first Booster Stage, a nation-wide survey of staff
+              found:
+            </div>
+            <div class="py-2">
+              <svg
+                class="w-4 h-4 inline text-[#68ad14]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4.5V19a1 1 0 0 0 1 1h15M7 14l4-4 4 4 5-5m0 0h-3.207M20 9v3.207"
+                ></path>
+              </svg>
+
+              An 11% increase in staff who felt <span class="font-bold"
+                >confident discussing genetics</span
+              >
+            </div>
+            <div>
+              <svg
+                class="w-4 h-4 inline text-[#A17A01]"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 4.5V19a1 1 0 0 0 1 1h15M7 10l4 4 4-4 5 5m0 0h-3.207M20 15v-3.207"
+                ></path>
+              </svg>
+              A 19% decrease in genetics-related questions that staff found <span
+                class="font-bold">difficult to answer in the field</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+ -->
+</section>

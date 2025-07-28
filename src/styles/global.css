@@ -283,6 +283,71 @@
     var(--color-accent)
   );
 
+
+  /* === FONTS === */
+  --font-display: 'Barlow', sans-serif;
+  --font-display-semicondensed: 'Barlow Semi Condensed', sans-serif;
+
+  /* === ANIMATIONS === */
+  @keyframes draw-line {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  --animate-fade-in: fade-in 1s ease-in 2s forwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  --animate-reveal-text-background: reveal-text-background 0.7s ease-in 1.5s
+    forwards;
+  @keyframes reveal-text-background {
+    from {
+      color: var(--color-primary-900);
+    }
+    to {
+      color: rgb(0 0 0 / 0%);
+    }
+  }
+
+  --animate-fade-in-up: fade-in-up 1.5s ease-out 2.5s both;
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-wipe-reveal: wipe-reveal 0.7s ease-out 2s both;
+
+  @keyframes wipe-reveal {
+    0% {
+      clip-path: inset(100% 0 0 0);
+      transform: translateY(-1em);
+    }
+    10% {
+      clip-path: inset(100% 0 0 0);
+    }
+    100% {
+      clip-path: inset(0% 0 0 0);
+      transform: translateY(0);
+    }
+  }
+
   --header-height: 3.5rem;
 }
 
@@ -303,4 +368,188 @@
   #portfolio-menu-tags li:hover {
     color: var(--color-accent-light);
   }
+}
+
+@layer utilities {
+  .button-explore-project {
+    --icon-field-color: var(--color-neutral-200);
+    --icon-subject-color: var(--color-secondary-600);
+    --icon-accent-color: var(--color-tertiary-600);
+  }
+
+  .button-explore-project:hover {
+    --icon-field-color: var(--color-accent-300);
+    --icon-subject-color: var(--color-secondary-600);
+    --icon-accent-color: var(--color-tertiary-600);
+  }
+
+  .underline-animate::after {
+    z-index: 1;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0.15em; /* adjust to fine-tune underline position */
+    width: 100%;
+    height: 3px; /* thickness of the underline */
+    background-color: hsl(var(--color-accent-500)); /* your accent color */
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underline-grow 0.6s ease-out 2s forwards;
+  }
+
+  @keyframes text-decoration-to-accent-500 {
+    from {
+      text-decoration-color: transparent;
+    }
+    to {
+      text-decoration-color: var(--color-accent-500);
+    }
+  }
+
+  .tooltip-arrow::after {
+    content: '';
+    position: absolute;
+    top: -6px; /* above the tooltip */
+    left: 1.5rem; /* tweak for horizontal alignment */
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #171717; /* match tooltip background */
+    z-index: 0; /* ensure it's layered properly */
+    pointer-events: none; /* let events pass through */
+  }
+  .you-speech-arrow::after {
+    content: '';
+    position: absolute;
+    top: -6px; /* above the tooltip */
+    left: 1.5rem; /* tweak for horizontal alignment */
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--color-secondary-600); /* match tooltip background */
+    z-index: 0; /* ensure it's layered properly */
+    pointer-events: none; /* let events pass through */
+  }
+
+  .final-fade-in {
+    opacity: 1;
+  }
+  .final-reveal-text-background {
+    color: rgb(0 0 0 / 0%);
+  }
+  .final-fade-in-up {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .final-wipe-reveal {
+    clip-path: inset(0% 0 0 0);
+    transform: translateY(0);
+  }
+
+  .imessage {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    /* max-width: 75%; */
+    padding: 0.5rem 0.875rem;
+    position: relative;
+    word-wrap: break-word;
+  }
+
+  .imessage::before,
+  .imessage::after {
+    bottom: -0.1rem;
+    content: '';
+    height: 1rem;
+    position: absolute;
+  }
+
+  .from-me {
+    align-self: flex-end;
+    background-color: var(--color-primary-200);
+    color: #fff;
+  }
+
+  .from-me::before {
+    border-bottom-left-radius: 0.8rem 0.7rem;
+    border-right: 1rem solid #248bf5;
+    right: -0.35rem;
+    transform: translate(0, -0.1rem);
+  }
+
+  .from-me::after {
+    background-color: #fff;
+    border-bottom-left-radius: 0.5rem;
+    right: -40px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+  }
+
+  .from-them {
+    align-items: flex-start;
+    background-color: var(--color-neutral-400);
+    color: var(--color-primary-500);
+  }
+
+  .from-them:before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid var(--color-neutral-400);
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+  }
+
+  .from-them::after {
+    background-color: var(--color-background);
+    border-bottom-right-radius: 0.5rem;
+    left: 20px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+  }
+
+  @keyframes bobbing {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(0.6rem); /* or any small value */
+    }
+  }
+
+  .animate-bob {
+    animation: bobbing 6s ease-in-out infinite;
+  }
+
+
+  /* -- project card backgrounds -- */
+  .bg-gradient-ai {
+  @apply from-indigo-600 to-purple-500 bg-gradient-to-r;
+}
+.bg-gradient-data {
+  @apply bg-linear-to-t/oklab from-secondary-300 to-secondary-200;
+}
+.bg-gradient-ai {
+  @apply bg-linear-to-t/oklab from-accent-800 to-tertiary-700;
+}
+.bg-gradient-digital {
+  @apply bg-linear-to-t/oklab from-secondary-400 to-secondary-200;
+}
+.bg-gradient-compliance {
+  @apply bg-linear-to-t/oklab from-primary-600 to-primary-200;
+}
+.bg-gradient-research {
+  @apply bg-linear-to-t/oklab from-tertiary-600 to-tertiary-300;
+}
+.bg-gradient-games {
+  @apply bg-linear-to-t/oklab from-accent-600 to-accent-300;
+}
+.bg-gradient-adaptive {
+  @apply bg-linear-to-t/oklab from-primary-600 to-secondary-300;
+}
+.bg-gradient-project {
+  @apply bg-linear-to-t/oklab from-secondary-600 to-secondary-400;
+}
 }

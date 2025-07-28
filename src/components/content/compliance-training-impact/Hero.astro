@@ -1,19 +1,20 @@
 ---
 import { Image } from 'astro:assets';
 import RCRCoverImage from '@assets/portfolio/rcr-part-two-cover.png';
+import RcrHeroImage from '@assets/portfolio/rcr-wings-coll.png';
 ---
 
 <div
-  class="heading-container m-auto mx-2 sm:mx-6 md:mx-2 mt-8 mb-6 flex flex-col md:flex-row"
+  class="heading-container mt-8 mb-6 items-center flex flex-col md:flex-row max-w-screen-xl mx-auto"
 >
-  <div class="flex md:grow-1 flex-col px-2 justify-center md:items-center">
+  <div class="flex md:grow-1 flex-col px-2 justify-center items-center">
     <h1 class="text-4xl md:text-5xl xl:text-6xl mb-6 text-foreground">
       From <span class="font-black whitespace-nowrap">Red Tape</span><br />to <span
         class="font-black whitespace-nowrap">Real Impact</span
       >
     </h1>
     <h2
-      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal md:text-center"
+      class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal text-center"
     >
       <strong>Compliance training</strong> focused on<br />
       <span
@@ -25,10 +26,10 @@ import RCRCoverImage from '@assets/portfolio/rcr-part-two-cover.png';
     </h2>
   </div>
   <div
-    class="max-w-sm md:max-w-5/12 md:self-center md:mx-auto bg-linear-to-br from-primary-black via-primary-800 to-primary-black px-2 py-2 lg:px-4 lg:py-4 md:mr-2 lg:mr-4 shadow-lg rounded-lg"
+    class="max-w-sm md:max-w-5/12 self-center mx-auto bg-linear-to-br from-primary-black via-primary-800 to-primary-black px-1 py-1 lg:px-1 lg:py-1 md:mr-2 lg:mr-4 shadow-lg rounded-lg"
   >
     <Image
-      src={RCRCoverImage}
+      src={RcrHeroImage}
       alt="Cover image for the Responsible Conduct of Research Part 2 course"
       class="w-full rounded-md shadow-lg mx-auto ring-1 ring-neutral-500"
       loading="lazy"

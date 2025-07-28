@@ -1,0 +1,62 @@
+---
+import type { Project } from '@/types';
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import PageSectionNav from '@components/PageSectionNav.astro';
+import Hero from '@components/content/digital-literacy-microlearning/Hero.astro';
+import Highlights from '@content/digital-literacy-microlearning/Highlights.astro';
+import DesignChallenge from '@components/content/digital-literacy-microlearning/DesignChallenge.astro';
+import DesignSolution from '@components/content/digital-literacy-microlearning/DesignSolution.astro';
+import Results from '@components/content/digital-literacy-microlearning/Results.astro';
+import ProjectDetails from '@components/content/digital-literacy-microlearning/ProjectDetails.astro';
+import Footer from '@components/Footer.astro';
+
+const tags = [
+    'Compliance Training',
+    'Ethics',
+    'Scenario-Based Learning',
+    'Data Security',
+];
+---
+
+<Layout>
+    <Header />
+    <Hero />
+    <PageSectionNav
+        sections={[
+            {
+                id: 'highlights',
+                label: { short: 'Highlights', full: 'Project Highlights' },
+            },
+            {
+                id: 'challenge',
+                label: { short: 'Design', full: 'Design Thinking' },
+            },
+            {
+                id: 'results',
+                label: { short: 'Results', full: 'Learning Results' },
+            },
+            /*            {
+                id: 'details',
+                label: { short: 'Details', full: 'Course Details' },
+            }, */
+        ]}
+    />
+
+    <section id="highlights" class="nav-section scroll-mt-24">
+        <Highlights />
+    </section>
+
+    <div
+        id="challenge"
+        class="nav-section scroll-mt-24 grid grid-cols-1 md:grid-cols-2 pb-6 lg:grid-cols-1 items-stretch"
+    >
+        <DesignChallenge />
+        <DesignSolution />
+    </div>
+    <section id="results" class="nav-section scroll-mt-24">
+        <Results />
+    </section>
+
+    <Footer />
+</Layout>

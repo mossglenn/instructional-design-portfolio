@@ -1,77 +1,46 @@
-import type { CourseMetadata } from '@/types/course';
+import type { Project } from '@/types/project';
+import HandBookCover from '@assets/featured/handbook-iso.png';
 
 /**
  * Project metadata for: My Project Name
  * Used in the Course Details table and other structured components.
  */
-export const myProjectMetadata: CourseMetadata = {
-  title: {
-    content: 'My Project Title',
-    url: '/projects/my-project-id', // optional
-  },
-
-  summary: {
-    content: 'Brief summary of the course purpose and learning goals.',
-  },
-
-  owner: {
-    content: 'Sponsoring Organization or Department',
-  },
-
+const ProjectHandbook: Project = {
+  id: 'handbook',
+  link: 'adaptive-learning-instruction',
+  order: 'c',
+  featuredImagePath: 'handbook-2-cover.png',
+  featuredImage: HandBookCover,
+  title: ' Instruction Based on Adaptive Learning Technologies',
   partners: [
-    { content: 'Partner One' },
-    { content: 'Partner Two', url: 'https://example.com' },
+    {
+      content:
+        'Carnegie Mellon University, Human-Computer Interaction Institute',
+      url: 'https://www.hcii.cmu.edu/',
+    },
   ],
-
-  audience: {
-    content: 'Who this course is for (e.g., Researchers, Frontline Staff)',
+  releaseDate: '2016',
+  display: {
+    headlineHTML: 'Personalizing Learning Experiences',
+    subheadingHTML:
+      'Co-author of Chapter 24: Instruction Based on Adaptive Learning Technologies',
+    hookHTML:
+      'Which learner charactaristics should we adapt to? Wwhich loops are effective at adapting to available data?',
+    leaderHTML:
+      "Recent advances in adaptive learning sciences are transforming a designer's ability to personalize instruction. In this chapter I discuss:<br /><span class='italic'>•Which learner charactaristics should we adapt to?<br />•Which loops are effective at adapting to available data?'</span>",
+    audience:
+      'graduate students, researchers, and practitioners interested in an evidence-based approach to learning and instruction',
+    myRole: 'Coauthor',
+    summaryHTML:
+      " Recent advances in adaptive learning sciences (such as machine learning, natural language processing, and Bayesian knowledge tracing) are transforming a designer's ability to personalize instruction. For this reason a new chapter was added to the second edition of The Handbook on Learning and Instruction discussing the current state of the science and how practitioners can apply it effectively .",
   },
-
-  releaseDate: {
-    content: 'June 2024',
-  },
-
-  myRole: {
-    content: 'Brief description of your design/development role',
-  },
-
-  designStrategy: {
-    content: 'e.g., Agile collaboration, learner interviews, rapid prototyping',
-  },
-
-  structure: {
-    content: 'How content is organized (e.g., 3 modules with assessments)',
-  },
-
-  timeline: {
-    content: 'Optional — used for visualizing key milestones',
-  },
-
-  analytics: {
-    content: 'Optional — e.g., embedded xAPI tracking, pre/post testing',
-  },
-
-  type: {
-    content: 'e.g., Online Course, Interactive Training, Microlearning Series',
-  },
-
-  delivery: {
-    content: 'e.g., xAPI, SCORM, Web App',
-  },
-
-  subject: {
-    content: 'e.g., Compliance, Data Security, STEM Education',
-  },
-
-  format: {
-    content: 'e.g., Self-paced Online, Facilitated Workshop, Blended',
-  },
-
-  tools: {
-    content: 'e.g., Articulate Storyline, Illustrator, ChatGPT',
-  },
-
-  accessibility: {
-    content: 'e.g., WCAG 2.1 AA — supports screen readers, captions, etc.',
+  metadata: {
+    category: ['research'],
+    roles: ['subject-matter-expert'],
+    type: ['text'],
+    delivery: ['print'],
+    subject: ['adaptive-learning', 'learning-sciences'],
   },
 };
+
+export default ProjectHandbook;

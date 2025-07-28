@@ -1,0 +1,155 @@
+---
+import { Image } from 'astro:assets';
+import RcrUnintentionalHarm from '@assets/portfolio/rcr-can-cause-harm.png';
+import ContentSection from '@/components/ContentSection.astro';
+import DesignSolutionIcon from '@assets/design-solution-flat.svg';
+---
+
+<ContentSection class="bg-neutral-50">
+  <DesignSolutionIcon
+    slot="icon"
+    style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-tertiary-500);"
+  />
+  <div slot="title" class="pb-8">Instructional Design Approach</div>
+  <div slot="content" class="break-inside-avoid">
+    Ethical lapses in research result from pressures, biases, and justifications
+    more than bad intentions. This training was designed to
+    <span class="text-tertiary-800 font-bold">shift a researcher's focus</span> from
+    checking off compliance-boxes to maintaining strategies and guardrails that protect
+    the integrity of their work and the privacy of research participants.
+  </div>
+  <div slot="read-more">
+    <figure class="break-inside-avoid">
+      <Image
+        src={RcrUnintentionalHarm}
+        alt="Course Content in Player"
+        class="w-full mx-auto mt-8 rounded-lg shadow-lg"
+      />
+      <figcaption
+        class="text-neutral-700 text-center text-balance text-sm py-2 mx-auto px-1 lg:px-4"
+      >
+        Screenshot from <span class="italic"
+          >Responsible Conduct of Research</span
+        >: <span class="font-light"
+          >Good intentions are assumed and ethical rules are discussed in the
+          context of unintented harms
+        </span>
+      </figcaption>
+    </figure>
+    <!-- item -->
+    <div class="my-4 break-inside-avoid">
+      <div class="flex items-start gap-4">
+        <div
+          class="flex justify-center items-center w-10 h-10 px-2 rounded-full text-primary-800"
+        >
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 8h4V4m12 4h-4V4M4 16h4v4m12-4h-4v4"></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-2 text-xl font-bold text-tertiary-800">
+            Explore Real-World Justifications
+          </h3>
+          <p>
+            Explore the <span class="font-bold"
+              >biases, pressures, and systemic factors</span
+            > that have lead researchers to make unethical decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- item -->
+    <div class="my-4 break-inside-avoid">
+      <div class="flex items-start gap-4">
+        <div
+          class="flex justify-center items-center w-10 h-10 px-2 rounded-full text-primary-800"
+        >
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-2 text-xl font-bold text-tertiary-800">
+            Scenario-Based Assessment
+          </h3>
+          <p>
+            Used <span class="font-bold"
+              >case studies and interactive decision-making activities</span
+            > to challenge researchers to apply ethical reasoning in real-world research
+            situations.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- item -->
+    <div class="my-4 break-inside-avoid">
+      <div class="flex items-start gap-4">
+        <div
+          class="flex justify-center items-center w-10 h-10 px-2 rounded-full text-primary-800"
+        >
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m7.171 12.906-2.153 6.411 2.672-.89 1.568 2.34 1.825-5.183m5.73-2.678 2.154 6.411-2.673-.89-1.568 2.34-1.825-5.183M9.165 4.3c.58.068 1.153-.17 1.515-.628a1.681 1.681 0 0 1 2.64 0 1.68 1.68 0 0 0 1.515.628 1.681 1.681 0 0 1 1.866 1.866c-.068.58.17 1.154.628 1.516a1.681 1.681 0 0 1 0 2.639 1.682 1.682 0 0 0-.628 1.515 1.681 1.681 0 0 1-1.866 1.866 1.681 1.681 0 0 0-1.516.628 1.681 1.681 0 0 1-2.639 0 1.681 1.681 0 0 0-1.515-.628 1.681 1.681 0 0 1-1.867-1.866 1.681 1.681 0 0 0-.627-1.515 1.681 1.681 0 0 1 0-2.64c.458-.361.696-.935.627-1.515A1.681 1.681 0 0 1 9.165 4.3ZM14 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <h3 class="mb-2 text-xl font-bold text-tertiary-800">
+            Leverage Expert Partnerships
+          </h3>
+          <ul class="list-disc">
+            <li class="mb-2">
+              Worked with <span class="font-bold"
+                >NIH research integrity experts</span
+              > to align training with federal policies and practices.
+            </li>
+            <li>
+              Partnered with <span class="font-bold"
+                >ELSI researchers from Sage Bionetworks</span
+              > to describe values and meaning in biomedical research practices
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</ContentSection>

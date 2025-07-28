@@ -1,0 +1,56 @@
+---
+import clsx from 'clsx';
+import Corner from '@assets/corner-border.svg';
+
+interface Props {
+    text: string;
+    href: string;
+    anchorClassNames?: string;
+    spanClassNames?: string;
+    cornerOffset?: string; // e.g., '0.5rem'
+}
+
+const {
+    text,
+    href,
+    anchorClassNames: anchorClass = '',
+    spanClassNames: spanClass = '',
+    cornerOffset = '0.5rem',
+} = Astro.props;
+---
+
+<div
+    class="w-max"
+    style={`--corner-shift: ${cornerOffset}; --corner-shift-hover: calc(${cornerOffset} * 1.3); --corner-pad: calc(${cornerOffset} * 1.3);`}
+>
+    <a
+        href={href}
+        class={clsx(
+            'group relative inline-block w-max rounded-lg transition-all duration-100 text-primary-600',
+            anchorClass
+        )}
+    >
+        <!-- Corners -->
+        <Corner
+            class="absolute top-0 left-0 w-4 h-4 -rotate-90 translate-x-[calc(var(--corner-shift)*-1)] translate-y-[calc(var(--corner-shift)*-1)] group-hover:translate-x-[calc(var(--corner-shift-hover)*-1)] group-hover:translate-y-[calc(var(--corner-shift-hover)*-1)] transition-transform duration-100"
+        />
+        <Corner
+            class="absolute top-0 right-0 w-4 h-4 rotate-0 translate-x-[var(--corner-shift)] translate-y-[calc(var(--corner-shift)*-1)] group-hover:translate-x-[var(--corner-shift-hover)] group-hover:translate-y-[calc(var(--corner-shift-hover)*-1)] transition-transform duration-100"
+        />
+        <Corner
+            class="absolute bottom-0 right-0 w-4 h-4 rotate-90 translate-x-[var(--corner-shift)] translate-y-[var(--corner-shift)] group-hover:translate-x-[var(--corner-shift-hover)] group-hover:translate-y-[var(--corner-shift-hover)] transition-transform duration-100"
+        />
+        <Corner
+            class="absolute bottom-0 left-0 w-4 h-4 rotate-180 translate-x-[calc(var(--corner-shift)*-1)] translate-y-[var(--corner-shift)] group-hover:translate-x-[calc(var(--corner-shift-hover)*-1)] group-hover:translate-y-[var(--corner-shift-hover)] transition-transform duration-100"
+        />
+
+        <!-- Button Text -->
+        <span
+            class={clsx(
+                'relative z-10 block text-center bg-primary-500 text-neutral-200 hover:text-accent-100 text-lg font-bold rounded-md px-4 py-2 transition-all duration-300 shadow-[0em_0em_1.25em_0.35em_transparent] hover:shadow-accent-500 hover:brightness-110',
+                spanClass
+            )}
+            set:html={text}
+        />
+    </a>
+</div>

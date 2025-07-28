@@ -1,0 +1,157 @@
+---
+import { Image } from 'astro:assets';
+import EngageFeatured from '@assets/featured/engage-featured.png';
+import AgileFeatured from '@assets/featured/agile-cycle-featured.png';
+import StatisticsGamesFeatured from '@assets/featured/problemsets-mockup-floating.png';
+
+const heroImages = [EngageFeatured, AgileFeatured, StatisticsGamesFeatured];
+---
+
+<style>
+    .hero-carousel-container {
+        position: relative;
+        width: 100%;
+        /* background: black; */
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-carousel-slide {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 1.5s ease-in-out;
+        opacity: 0;
+        z-index: 0;
+        pointer-events: none;
+        background-color: var(--color-neutral-500);
+    }
+
+    .hero-carousel-slide.active {
+        opacity: 1;
+        z-index: 1;
+        pointer-events: auto;
+    }
+
+    .hero-carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .hero-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #aaa;
+        border-radius: 9999px;
+        transition: background-color 0.3s;
+    }
+
+    .hero-dot.active {
+        background-color: var(--color-primary-700);
+    }
+</style>
+
+<div class="w-full h-auto flex-grow">
+    <div
+        class="hero-carousel-container rounded-xl"
+        id="hero-carousel"
+        style="aspect-ratio: 1 / 1;"
+    >
+        {
+            heroImages.map((src, idx) => (
+                <div
+                    class={`hero-carousel-slide${idx === 0 ? ' active' : ''}`}
+                    data-hero-index={idx}
+                >
+                    <Image
+                        src={src}
+                        alt={`Slide ${idx + 1}`}
+                        class="w-full h-auto max-h-full object-contain cursor-pointer rounded-xl bg-neutral-500"
+                    />
+                </div>
+            ))
+        }
+    </div>
+    <div class="hero-carousel-dots">
+        {
+            heroImages.map((_, idx) => (
+                <div
+                    class={`hero-dot${idx === 0 ? ' active' : ''}`}
+                    data-hero-dot-index={idx}
+                />
+            ))
+        }
+    </div>
+</div>
+
+<script type="module">
+    let heroCurrent = 0;
+    let heroIntervalId = null;
+    let hasShownFirstSlide = false;
+    console.log('Hero Carousel script loaded');
+    const heroSlides = () => document.querySelectorAll('.hero-carousel-slide');
+    console.log(`Found ${heroSlides().length} hero-slides`);
+
+    const updateHeroDots = (index) => {
+        document.querySelectorAll('.hero-dot').forEach((herodot, i) => {
+            herodot.classList.toggle('active', i === index);
+        });
+    };
+
+    const heroShowSlide = (index) => {
+        console.log(`Showing hero slide ${index}`);
+        const slides = heroSlides();
+        slides.forEach((slide, i) => {
+            slide.style.transition = 'opacity 1.5s ease-in-out';
+            slide.style.opacity = i === index ? '1' : '0';
+            slide.style.zIndex = i === index ? '1' : '0';
+            slide.style.pointerEvents = i === index ? 'auto' : 'none';
+        });
+        updateHeroDots(index);
+    };
+
+    // First, show slide 1 quickly after 1 seconds
+    setTimeout(() => {
+        heroNextSlide();
+        hasShownFirstSlide = true;
+        heroIntervalId = setInterval(heroNextSlide, 5000); // Use longer delay after that
+    }, 1000); // short initial delay
+
+    function heroNextSlide() {
+        heroCurrent =
+            heroCurrent + 1 >= heroSlides().length ? 0 : heroCurrent + 1;
+        heroShowSlide(heroCurrent);
+    }
+
+    function heroRestartInterval(delay = 6000) {
+        clearInterval(heroIntervalId);
+        heroIntervalId = setTimeout(() => {
+            heroIntervalId = setInterval(heroNextSlide, 6000); // use longer interval here
+        }, delay);
+    }
+    // Dot navigation click
+    document.querySelectorAll('.hero-dot').forEach((herodot) => {
+        herodot.addEventListener('click', (e) => {
+            const heroDotIdx = Number(
+                herodot.getAttribute('data-hero-dot-index')
+            );
+            heroCurrent = heroDotIdx;
+            heroShowSlide(heroCurrent);
+            heroRestartInterval();
+        });
+    });
+
+    document.querySelectorAll('.hero-carousel-slide').forEach((heroSlide) => {
+        heroSlide.addEventListener('click', () => {
+            const img = heroSlide.querySelector('img');
+        });
+    });
+</script>

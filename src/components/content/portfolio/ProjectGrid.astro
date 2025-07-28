@@ -1,0 +1,25 @@
+---
+import type { ImageMetadata } from 'astro';
+import type { Project } from '@/types/project';
+import ProjectCard from '@/components/ProjectCard.astro';
+
+export interface Props {
+    projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="w-full">
+    <div
+        class="grid grid-cols-1 min-[44rem]:grid-cols-2 min-[71rem]:grid-cols-3 gap-6"
+    >
+        {
+            projects.map((project) => (
+                <div class="">
+                    <ProjectCard {...project} />
+                </div>
+            ))
+        }
+    </div>
+</section>

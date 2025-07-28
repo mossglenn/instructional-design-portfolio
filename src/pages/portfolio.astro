@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import ProjectGrid from '@/components/content/portfolio/ProjectGrid.astro';
+import Footer from '@components/Footer.astro';
+import { loadAllProjects } from '@/data/projects/loadAllProjects.ts';
+
+const allProjects = await loadAllProjects();
+---
+
+<Layout>
+    <Header />
+    <section class="max-w-screen-xl mx-auto my-8 px-4 lg:px-6">
+        <h1 class="text-3xl font-bold text-neutral-800 mb-6">Portfolio</h1>
+        <p class="text-lg text-neutral-600 mb-4">
+            Explore my work across various projects, showcasing my skills in
+            instructional design, eLearning development, and project management.
+        </p>
+        <div class="border-x-1 border-neutral-200">
+            <ProjectGrid projects={allProjects} />
+        </div>
+    </section>
+
+    <Footer />
+</Layout>

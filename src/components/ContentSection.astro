@@ -4,7 +4,7 @@ import CardWithColumns from '@/components/CardWithColumns.astro';
 const uniqueId = crypto.randomUUID().split('-')[0];
 const {
   class:
-    customClass = 'bg-linear-to-b from-neutral-100 to-neutral-200 text-card-foreground rounded-md border border-card-border shadow-lg',
+    customClass = 'bg-linear-to-r from-neutral-100 to-neutral-200 text-card-foreground shadow-lg',
   style: customStyle = '',
 } = Astro.props;
 ---
@@ -15,9 +15,9 @@ const {
       <div class="w-12 h-auto mb-2">
         <slot name="icon" />
       </div>
-      <h5 class="mb-2 text-3xl text-primary-700 font-semibold tracking-tight">
+      <h2 class="text-4xl tracking-tight font-extrabold text-neutral-900">
         <slot name="title" />
-      </h5>
+      </h2>
       <div class="mb-3 font-normal">
         <slot name="content" />
       </div>

@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import PageSectionNav from '@components/PageSectionNav.astro';
+import Hero from '@content/gamified-statistics-tutor/Hero.astro';
+import Highlights from '@content/gamified-statistics-tutor/Highlights.astro';
+import DesignChallenge from '@content/gamified-statistics-tutor/DesignChallenge.astro';
+import DesignSolution from '@content/gamified-statistics-tutor/DesignSolution.astro';
+import Results from '@content/gamified-statistics-tutor/Results.astro';
+import Footer from '@components/Footer.astro';
+---
+
+<Layout>
+  <Header />
+  <Hero />
+  <PageSectionNav
+    sections={[
+      {
+        id: 'highlights',
+        label: { short: 'Highlights', full: 'Project Highlights' },
+      },
+      {
+        id: 'challenge',
+        label: { short: 'Challenge', full: 'Design Challenge' },
+      },
+      { id: 'solution', label: { short: 'Solution', full: 'Design Solution' } },
+      {
+        id: 'results',
+        label: { short: 'Try It', full: 'Try It Yourself' },
+      },
+    ]}
+  />
+  <section id="highlights" class="nav-section scroll-mt-24">
+    <Highlights />
+  </section>
+  <section id="challenge" class="nav-section scroll-mt-24">
+    <DesignChallenge />
+  </section>
+  <section id="solution" class="nav-section scroll-mt-24">
+    <DesignSolution />
+  </section>
+  <Results />
+  <section id="results" class="nav-section scroll-mt-24"></section>
+
+  <Footer />
+</Layout>

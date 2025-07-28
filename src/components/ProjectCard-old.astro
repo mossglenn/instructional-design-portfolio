@@ -1,0 +1,109 @@
+---
+// components/ProjectCard.astro
+import type { Project } from '@/types/project';
+
+import { Image } from 'astro:assets';
+import ExpandingButton from '@/components/ExpandingButton.astro';
+
+export interface Props extends Project {}
+
+const { ...project } = Astro.props;
+---
+
+<article
+    class="project-card group/card flex flex-col h-full bg-neutral-100 border border-neutral-200 rounded-xl overflow-hidden shadow-sm transition hover:shadow-md"
+>
+    <div class="project-card-image overflow-hidden transition-all duration-300">
+        <a href={project.link}>
+            <Image
+                src={project.featuredImage}
+                alt="Test Image"
+                class="object-cover transition-transform duration-300 group-hover/card:scale-115"
+            />
+        </a>
+    </div>
+
+    <div
+        class="z-10 flex flex-col flex-grow justify-between p-4 gap-2 bg-neutral-100"
+    >
+        <h2 class="text-lg font-semibold leading-tight text-neutral-800">
+            {project.title}
+        </h2>
+        <p
+            class="text-sm text-neutral-600"
+            set:html={project.display.hookHTML}
+        />
+
+        {
+            project.display.leaderHTML && (
+                <div class="mt-2">
+                    <button
+                        class="project-card-toggle text-sm text-orange-700 hover:underline"
+                        type="button"
+                    >
+                        More details
+                    </button>
+                    <div class="project-card-details transition-all duration-300 overflow-hidden max-h-0">
+                        <p
+                            class="mt-1 text-sm text-neutral-600"
+                            set:html={project.display.leaderHTML}
+                        />
+                    </div>
+                </div>
+            )
+        }
+        <div class="mt-auto pt-2">
+            <ExpandingButton
+                text="View Project"
+                href={project.link}
+                anchorClassNames="[--corner-color:theme(colors.accent.500)] "
+                spanClassNames="bg-secondary-500 hover:shadow-secondary-500 hover:text-secondary-50 hover:brightness-50"
+            />
+        </div>
+    </div>
+</article>
+
+<script type="module">
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.project-card-toggle').forEach((button) => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.project-card');
+                const details = card?.querySelector('.project-card-details');
+
+                if (card && details) {
+                    const isExpanded = card.classList.contains('expanded');
+
+                    if (isExpanded) {
+                        // Collapse: set height explicitly first, then transition to 0
+                        details.style.maxHeight = details.scrollHeight + 'px';
+                        // Force reflow
+                        void details.offsetHeight;
+                        details.style.maxHeight = '0px';
+                        card.classList.remove('expanded');
+                    } else {
+                        // Expand
+                        details.style.maxHeight = details.scrollHeight + 'px';
+                        card.classList.add('expanded');
+                    }
+                }
+            });
+        });
+    });
+</script>
+
+<style>
+    .project-card .project-card-image {
+        max-height: 18rem; /* Default image height */
+        transition: max-height 300ms ease;
+    }
+
+    .project-card.expanded .project-card-image {
+        max-height: 10rem; /* Shrinks when expanded */
+    }
+
+    .project-card .project-card-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>

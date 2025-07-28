@@ -1,0 +1,122 @@
+---
+import clsx from 'clsx';
+import type { Project } from '@/types/project';
+import { Image } from 'astro:assets';
+import ExpandingButton from '@/components/ExpandingButton.astro';
+
+export interface Props extends Project {}
+
+const { ...project } = Astro.props;
+const imageClassNames = clsx(
+    'aspect-square w-full overflow-hidden relative z-0',
+    project.metadata.category?.[0]
+        ? `bg-gradient-${project.metadata.category?.[0]}`
+        : 'bg-gradient-project'
+);
+---
+
+<article
+    id={`project-card-${project.id}`}
+    class="relative project-card group/card h-[40rem] w-[20rem] min-[24rem]:w-[22rem] min-[44rem]:w-[20rem] min-[46rem]:w-[22rem] mx-auto bg-neutral-100 border border-neutral-300 rounded-xl overflow-hidden shadow-sm transition hover:shadow-md"
+>
+    <!-- image Section -->
+
+    <div
+        class={`aspect-square w-full overflow-hidden relative z-0 bg-gradient-${project.metadata.category?.[0] ? project.metadata.category?.[0] : 'project'}`}
+    >
+        {
+            project.link === 'coming-soon' ? (
+                project.featuredImage && (
+                    <Image
+                        src={project.featuredImage}
+                        alt={project.title ? project.title : 'Project Image'}
+                        class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover/card:scale-115"
+                    />
+                )
+            ) : (
+                <a href={project.link}>
+                    {project.featuredImage && (
+                        <Image
+                            src={project.featuredImage}
+                            alt={
+                                project.title ? project.title : 'Project Image'
+                            }
+                            class="w-full h-full object-cover transition-transform duration-300 ease-in-out group-hover/card:scale-115"
+                        />
+                    )}
+                </a>
+            )
+        }
+    </div>
+    <!-- Text Section -->
+
+    <div
+        class="px-4 pt-4 pb-2 h-[16rem] min-[24rem]:h-[14rem] min-[44rem]:h-[16rem] min-[46rem]:h-[14rem] flex flex-col justify-between bg-neutral-100 relative z-10 transition-transform duration-300 ease-in-out group-[.expanded]/card:-translate-y-[13.5rem]"
+    >
+        <h2 class="text-2xl font-bold text-neutral-800 leading-tight">
+            {
+                project.display.headlineHTML
+                    ? project.display.headlineHTML
+                    : project.title
+            }
+        </h2>
+        <h4 class="text-lg pt-4 text-neutral-800 leading-tight">
+            {
+                project.display.subheadingHTML
+                    ? project.display.subheadingHTML
+                    : ''
+            }
+        </h4>
+        <!--  <p
+            class="text-base text-neutral-600 line-clamp-5 break-words"
+            set:html={project.display.hookHTML
+                ? project.display.hookHTML
+                : 'Read more about this project.'}
+        /> -->
+        <div></div>
+    </div>
+
+    <!-- button Section -->
+
+    <div class="px-4 h-[4rem] flex justify-between relative z-20">
+        {
+            project.display.leaderHTML && (
+                <button
+                    id={`project-card-toggle-${project.id}`}
+                    class="project-card-toggle -mt-1 -ml-2 px-2 py-1 text-sm rounded-md text-orange-500 self-start hover:ring hover:ring-orange-700"
+                    type="button"
+                >
+                    More details
+                </button>
+            )
+        }
+
+        {
+            project.link === 'coming-soon' ? (
+                <div class="flex items-center justify-center text-sm h-max w-max font-semibold text-neutral-800 border border-neutral-800 px-4 py-2 rounded-md">
+                    Coming Soon
+                </div>
+            ) : (
+                <ExpandingButton
+                    text="View Project"
+                    href={project.link}
+                    anchorClassNames="[--corner-color:theme(colors.accent.500)]"
+                />
+            )
+        }
+    </div>
+
+    <!-- Details Panel -->
+    {
+        project.display.leaderHTML && (
+            <div class="project-card-details absolute top-[22rem] left-0 h-[13rem] mx-2 rounded-b-xl bg-neutral-600 z-0 p-4 opacity-0 pointer-events-none transition-all duration-300 group-[.expanded]/card:opacity-100 group-[.expanded]/card:pointer-events-auto">
+                <p
+                    class="text-sm text-neutral-100 line-clamp-9 break-words overflow-hidden"
+                    set:html={project.display.leaderHTML}
+                />
+            </div>
+        )
+    }
+</article>
+
+<script src="@utilities/project-card-toggle.ts"></script>
