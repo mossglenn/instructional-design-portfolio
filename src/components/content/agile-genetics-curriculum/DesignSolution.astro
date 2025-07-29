@@ -1,0 +1,217 @@
+---
+import { Image } from 'astro:assets';
+import ImageFigure from '@/components/ImageFigure.astro';
+import ContentSection from '@/components/ContentSection.astro';
+import DesignSolutionIcon from '@assets/design-solution-flat.svg';
+import AgyleCycle from '@assets/portfolio/agile-genetics/agile-cycle.png';
+import NumberCircleOne from '@assets/one-circle.svg';
+import NumberCircleTwo from '@assets/two-circle.svg';
+import NumberCircleThree from '@assets/three-circle.svg';
+import NumberCircleFour from '@assets/four-circle.svg';
+import LeanCoffee from '@assets/portfolio/agile-genetics/leancoffee.png';
+---
+
+<ContentSection class="bg-neutral-50">
+    <DesignSolutionIcon
+        slot="icon"
+        style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-tertiary-500);"
+    />
+    <div slot="title" class="pb-8">Instructional Design Solutions</div>
+    <div slot="content">
+        <p class="mb-4">
+            Rather than following a traditional waterfall model (e.g., ADDIE)
+            that could delay training delivery for many months, I used an
+            agile-inspired approach to deliver a minimimul-viable product in
+            just weeks, then iteratively improved the curriculum using learner
+            feedback to ensure development remaind needs-driven.
+        </p>
+        <div class="mb-8 lg:mb-0">
+            <ImageFigure
+                figureImage={AgyleCycle}
+                alt="Agile Cycle"
+                containerClassName="border border-neutral-200 p-4"
+                buttonClassName="max-w-md"
+                captionPosition="bottom"
+            >
+                <div slot="caption">
+                    <div class="font-bold pb-2">
+                        Rapid Development Workflow:
+                    </div>
+                    <div
+                        style="--icon-subject-color: var(--color-neutral-700);"
+                    >
+                        <NumberCircleOne
+                            class="inline w-4 h-4 align-text-bottom mr-0.5"
+                            role="img"
+                            aria-label="Step 1"
+                        /><span class="font-semibold">Booster Stage:</span> gather
+                        objectives from experts, stakeholders, and learners.
+                        <NumberCircleTwo
+                            class="inline w-4 h-4 align-text-bottom mr-0.5"
+                            role="img"
+                            aria-label="Step 2"
+                        /><span class="font-semibold">Design Stage:</span> build
+                        a minimum viable product for the most critical objectives.
+                        <span class="font-semibold"
+                            ><NumberCircleThree
+                                class="inline w-4 h-4 align-text-bottom mr-0.5"
+                                role="img"
+                                aria-label="Step 3"
+                            />Access Stage:</span
+                        > publish materials, collect feedback and analytics.
+                        <span class="font-semibold"
+                            ><NumberCircleFour
+                                class="inline w-4 h-4 align-text-bottom mr-0.5"
+                                role="img"
+                                aria-label="Step 4"
+                            />Analysis Stage:</span
+                        > use data to refine or expand&mdash;<span
+                            class="italic">Loop back to Booster Stage</span
+                        > if the next steps are unclear.
+                    </div>
+                </div>
+            </ImageFigure>
+        </div>
+    </div>
+    <div slot="read-more">
+        <h4 class="font-bold text-xl text-tertiary-900 my-4">
+            Agile-inspired Workflow
+        </h4>
+        <p class="mb-4">
+            I designed an agile-inspired workflow to rapidly develop the
+            material needed most by learners and stakholders.
+        </p>
+        <p class="mb-4">
+            Using this agile workflow, we launched the first learning activities
+            in just a few weeks. Testing and feedback guided improvements to
+            existing content and expantion to cover more of the needs and
+            objectives. Within a year, we saw a significant improvement in the
+            staff's overall ability to achive the program's goals in this area.
+        </p>
+        <ul
+            class="mb-8"
+            style="--icon-subject-color: var(--color-primary-700);"
+        >
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <NumberCircleOne
+                    class="text-primary-600 h-6 w-6 shrink-0 bg-primary-50/30 rounded-full"
+                    role="img"
+                    aria-label="Step 1"
+                />
+                <div>
+                    <span class="font-bold text-primary-700"
+                        >Booster Stage:</span
+                    > With stakeholders, we quickly defined a ‘learning domain’&mdash;a
+                    broad framework of learning needs&mdash; and found agreement
+                    on the most critial objectives to address first.
+                </div>
+            </li>
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <NumberCircleTwo
+                    class="text-primary-600 h-6 w-6 shrink-0 bg-primary-50/30 rounded-full"
+                    role="img"
+                    aria-label="Step 2"
+                />
+                <div>
+                    <span class="font-bold text-primary-700">Design Stage:</span
+                    > A team of instructional designers use the framework to create
+                    a minimum viable product (MVP) that addresses only the critical
+                    learning objectives defined in the previous Booster Stage.
+                </div>
+            </li>
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <NumberCircleThree
+                    class="text-primary-600 h-6 w-6 shrink-0 bg-primary-50/30 rounded-full"
+                    role="img"
+                    aria-label="Step 3"
+                />
+                <div>
+                    <span class="font-bold text-primary-700">Access Stage:</span
+                    > All material developed in the previous Design Phase is published
+                    to allow all learners to use the material. Instruments for collecting
+                    interaction data and learner feedback are included in materials.
+                </div>
+            </li>
+            <li class="flex flex-row items-start gap-2 mb-3">
+                <NumberCircleFour
+                    class="text-primary-600 h-6 w-6 shrink-0 bg-primary-50/30 rounded-full"
+                    role="img"
+                    aria-label="Step 4"
+                />
+                <div>
+                    <span class="font-bold text-primary-700"
+                        >Analysis Stage:</span
+                    > This phase collects all available data and feedback from the
+                    entire loop to determine the next most critical learning objectives
+                    to address. If the design team does not have enough information
+                    to confidently determine next steps, a new Booster Phase is added
+                    to consult with learners and stakholders about needs and priorities.
+                </div>
+            </li>
+        </ul>
+        <ImageFigure
+            figureImage={LeanCoffee}
+            alt="Lean Coffee: Online tool to facilitate a National Training Roundtable Meeting"
+            containerClassName="border border-neutral-200 p-4 mb-8"
+            buttonClassName="max-w-md"
+            imageClassName="border-neutral-400 border-2"
+            captionPosition="bottom"
+            ><div slot="caption">
+                <span class="font-bold"
+                    >National Training Roundtable during Booster Stage:</span
+                > One way I invited learning input during Booster Stages was holding
+                a National Training Roundtable Meeting. Everyone was welcome to attend
+                to discuss a specific topic related to one of the Learning Domains
+                under development. We used an online tool&mdash;Lean Coffee&mdash;to
+                facilitate a discussion that balanced staying focused on what atendees
+                think is important and hearing as many voices as possible.
+            </div>
+        </ImageFigure>
+
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+            Multi-Tiered Learning Structure
+        </h4>
+        <p class="mb-4">
+            The program provided a progressive curriculum designed to meet
+            learners at different levels of understanding:
+        </p>
+        <ul class="mb-4">
+            <li class="mb-2">
+                <span class="font-bold">Genetics 101:</span> A foundational training
+                for learners with no prior genetics background.
+            </li>
+            <li class="mb-2">
+                <span class="font-bold"
+                    >Genetics 102 - Testing, Research, and Privacy:</span
+                > Focused on privacy, ethics, and informed consent.
+            </li>
+            <li class="mb-2">
+                <span class="font-bold"
+                    >Genetics Education for Asian American, Native Haan, and and
+                    Pacific Islander (AANHPI) Communities:</span
+                > Developed in partnership with the Asian Health Coalition, addressing
+                cultural concerns and trust-building in research participation.
+            </li>
+            <li class="mb-2">
+                <span class="font-bold">Talking About Genetics:</span> Building confidence
+                and accuracy answering difficult questions about genetic data, insurance,
+                return of results, and genetic counseling services.
+            </li>
+        </ul>
+
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+            Leveraged Existing Public Resources
+        </h4>
+        <p class="mb-4">
+            To further accelerate the delivery of instructional material, I
+            designed the foundational curriculum&mdash;<span class="italic"
+                >Genetics 101</span
+            >&mdash;to leverage existing educational resources publicly
+            available online. Institutions like the Genetic Science Learning
+            Center and PBS have many accessible and accurate learning activities
+            on their websites. <span class="italic">Genetics 101</span>
+            organized the best of these activities into modules based on topics learners
+            would need to address.
+        </p>
+    </div>
+</ContentSection>

@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import PageSectionNav from '@components/PageSectionNav.astro';
+import Hero from '@components/content/agile-genetics-curriculum/Hero.astro';
+import Highlights from '@content/agile-genetics-curriculum/Highlights.astro';
+import DesignChallenge from '@components/content/agile-genetics-curriculum/DesignChallenge.astro';
+import DesignSolution from '@components/content/agile-genetics-curriculum/DesignSolution.astro';
+import Results from '@components/content/agile-genetics-curriculum/Results.astro';
+import Footer from '@components/Footer.astro';
+import Highlight from '@/components/Highlight.astro';
+---
+
+<Layout>
+    <Header />
+    <Hero />
+    <PageSectionNav
+        sections={[
+            {
+                id: 'highlights',
+                label: { short: 'Highlights', full: 'Project Highlights' },
+            },
+            {
+                id: 'challenge',
+                label: { short: 'Challenge', full: 'Design Challenge' },
+            },
+            {
+                id: 'solution',
+                label: { short: 'Solution', full: 'Design Solution' },
+            },
+            {
+                id: 'results',
+                label: { short: 'Results', full: 'Project Results' },
+            },
+        ]}
+    />
+    <section id="highlights" class="nav-section scroll-mt-24">
+        <Highlights />
+    </section>
+    <section id="challenge" class="nav-section scroll-mt-24">
+        <DesignChallenge />
+    </section>
+    <section id="solution" class="nav-section scroll-mt-24">
+        <DesignSolution />
+    </section>
+    <section id="results" class="nav-section scroll-mt-24">
+        <Results />
+    </section>
+    <Footer />
+</Layout>

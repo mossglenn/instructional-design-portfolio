@@ -525,14 +525,12 @@
 
 
   /* -- project card backgrounds -- */
-  .bg-gradient-ai {
-  @apply from-indigo-600 to-purple-500 bg-gradient-to-r;
-}
-.bg-gradient-data {
-  @apply bg-linear-to-t/oklab from-secondary-300 to-secondary-200;
-}
+
 .bg-gradient-ai {
   @apply bg-linear-to-t/oklab from-accent-800 to-tertiary-700;
+}
+.bg-gradient-agile {
+  @apply bg-linear-to-t/oklab from-secondary-800 to-accent-700;
 }
 .bg-gradient-digital {
   @apply bg-linear-to-t/oklab from-secondary-400 to-secondary-200;

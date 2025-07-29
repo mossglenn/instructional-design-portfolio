@@ -1,0 +1,70 @@
+---
+import Highlight from '@components/Highlight.astro';
+import AgileLoopIcon from '@assets/agile-loop-icon.svg';
+import ForkRoadIcon from '@assets/fork-road-flat.svg';
+import ScaleIcon from '@assets/scale-icon.svg';
+import BinaryDataIcon from '@assets/binary-data-icon.svg';
+---
+
+<!-- Highligts card  -->
+<div class="block pt-12 pb-14 lg:pb-18 px-4 shadow-md bg-card">
+    <h3
+        class="tracking-narrow text-center mb-12 lg:text-4xl lg:mb-16 text-4xl tracking-tight font-extrabold text-neutral-900"
+    >
+        Project Highlights
+    </h3>
+
+    <div
+        class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch max-w-screen-xl mx-auto"
+    >
+        <Highlight>
+            <div slot="icon">
+                <AgileLoopIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-primary-800);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Agile-inspired workflow</span
+            >
+            <span slot="highlight-description"
+                >Delivered genetics training in weeks—not months—by iterating on
+                real-time learner needs in high-priority subject areas.
+            </span>
+        </Highlight>
+        <Highlight>
+            <div slot="icon">
+                <ForkRoadIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Multi-tiered, self-directed learning</span
+            >
+            <span slot="highlight-description"
+                >Allowed staff to customize their own training based on their
+                level of expertise, their knowledge gaps, and topic priority in
+                their work.
+            </span>
+        </Highlight>
+
+        <Highlight>
+            <div slot="icon">
+                <ScaleIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Scalable & sustainable</span
+            >
+            <span slot="highlight-description"
+                >Integrated existing trusted public resources to deliver
+                immediate, vetted educational content that continuously expanded
+                content based on direct learner feedback or as the science
+                evolves.
+            </span>
+        </Highlight>
+    </div>
+</div>
