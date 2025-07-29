@@ -18,8 +18,7 @@ const ProjectAgileGenetics: Project = {
   },
 
   display: {
-    headlineHTML:
-      'Agile Design for Rapid, High-Impact Curriculum Development with Large Audiences',
+    headlineHTML: 'Agile Design for Rapid, High-Impact Curriculum Development',
     subheadingHTML:
       'Quickly delivering essential learning material for a complex, technical subjects by continuously iterating based on learner feedback.',
     leaderHTML:
