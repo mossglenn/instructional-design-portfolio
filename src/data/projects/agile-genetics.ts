@@ -6,7 +6,7 @@ import Featured from '@assets/featured/agile-iso.png';
  */
 const ProjectAgileGenetics: Project = {
   id: 'agile-genetics',
-  link: 'coming-soon',
+  link: 'agile-genetics-curriculum',
   order: 'aaa',
   featuredImagePath: 'agile-iso.png',
   featuredImage: Featured,
