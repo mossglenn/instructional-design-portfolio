@@ -7,6 +7,7 @@ export type TextBlock = {
 
 export type ProjectCategory =
   | 'ai'
+  | 'agile'
   | 'adaptive'
   | 'games'
   | 'compliance'

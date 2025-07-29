@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import ContentSection from '@components/ContentSection.astro';
+import DesignProblemIcon from '@assets/design-problem-flat.svg';
+import ImageFigure from '@/components/ImageFigure.astro';
+import EngageLogo from '@assets/engage-logo.png';
+import SelTest from '@assets/sel.png';
+---
+
+<ContentSection>
+    <DesignProblemIcon
+        slot="icon"
+        style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-secondary-500);"
+    />
+
+    <div slot="title" class="pb-8">Design Challenge</div>
+    <div slot="content">
+        <p class="mb-4 font-bold text-xl">
+            How can we deliver high-impact curriculum material <span
+                class="text-secondary-500"
+            >
+                without spending months on analysis and mapping?</span
+            >
+        </p>
+        <p class="mb-4">
+            The <span class="italic">All of Us</span> Research Program is advancing
+            genomic research to improve precision medicine. However, as genetics
+            became a core focus, the training needs analysis revealed a knowledge
+            gap: Many staff members lacked foundational genetics education, making
+            it difficult for them to discuss genetic research even when given “talking
+            points.” Completing a full analysis of the subject before beginning development
+            (as in the ADDIE model) would delay delivery indefinitely.
+        </p>
+    </div>
+
+    <div slot="read-more">
+        <p class="mb-4">
+            Genetics is a very challenging subject for training. Not only does
+            it include complex topic that require deep knowledge (e.g.,
+            inheritance), but those topics intersect with considerations that
+            require accuracy (e.g., health insurance regulation) and sensativity
+            (e.g., informed consent). Analyzing the curriculum and mapping a
+            complete set of learning objectives would have taken months, time
+            the program didn’t have.
+        </p>
+    </div>
+</ContentSection>

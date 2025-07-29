@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import AgileFeatured from '@assets/featured/agile-cycle-featured.png';
+---
+
+<div
+    class="heading-container mt-8 mb-6 items-center flex flex-col md:flex-row max-w-screen-xl mx-auto"
+>
+    <div
+        class="flex flex-col px-2 justify-center text-center md:text-center md:items-center"
+    >
+        <h1
+            class="text-4xl md:text-5xl xl:text-6xl mb-6 text-foreground font-display font-bold"
+        >
+            Agile Design for <span class="font-black"
+                >Rapid, High-Impact Curriculum</span
+            > Development
+        </h1>
+        <h2
+            class="text-xl/7.5 xl:text-2xl/9 mb-4 text-foreground tracking-normal md:text-center"
+        >
+            Quickly delivering essential learning material for a technical
+            subjects by <span
+                class="rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-primary-300 to-primary-700 tracking-wide"
+                style=" box-decoration-break: clone"
+                >continuously iterating based on learner feedback.</span
+            >
+        </h2>
+    </div>
+    <div class="w-full max-w-md xl:max-w-xl md:mx-auto px-4 py-4">
+        <Image
+            src={AgileFeatured}
+            alt="Agile featured image"
+            class="rounded-lg shadow-lg"
+            loading="lazy"
+            width={800}
+            height={450}
+        />
+    </div>
+</div>

@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+import ImageFigure from '@/components/ImageFigure.astro';
+import GeneticsChart from '@assets/portfolio/agile-genetics/chart-perspective-cropped.png';
+---
+
+<!-- results -->
+<section
+    class="project-results py-12 lg:pb-18 px-4 shadow-sm bg-neutral-cool-200"
+>
+    <div class="max-w-screen-xl mx-auto">
+        <h2
+            class="text-4xl tracking-tight font-extrabold text-neutral-900 mb-8"
+        >
+            Results
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+            <div>
+                <p class="mb-4">
+                    Regular Needs Assessment surveys were used to track progress
+                    in a number of areas of development. Each assessment ask
+                    learners to assess their level of confidence in different
+                    learning domains. At the same time, learners were encouraged
+                    to share all the difficult questions they encountered while
+                    in the field interacting with members of the public.
+                </p>
+                <p class="mb-4">
+                    In the year following the first Booster Stage launching the
+                    development of the new Genetics curriculum, The number of
+                    learners who felt very confident or confident discussing
+                    genetic-related topics increased by 11%. We considered this
+                    a successful launch of the foundational curriculum, but also
+                    indicated that cotinuing to expand the curriculum was
+                    important.
+                </p>
+                <div class="lg:hidden">
+                    <ImageFigure
+                        figureImage={GeneticsChart}
+                        alt="A screenshot of a game set in an alien world. A flying saucer sits on top of a launchpad constructed by the player."
+                        captionPosition="right"
+                        containerClassName="bg-neutral-300 mb-8 max-w-sm"
+                        captionClassName="px-3"
+                    >
+                        <div slot="caption">
+                            <span class="font-bold"
+                                >Genetics 101 Learning Results:</span
+                            > In one year, the number of learners who felt very confident
+                            discussing genetics increased by 11% and the number of
+                            genetics-related questions reported as difficult questions
+                            decreased by 19%.
+                        </div>
+                    </ImageFigure>
+                </div>
+
+                <p class="mb-4">
+                    When considering all of the difficult questions learners
+                    encountered in the field, the share of those questions
+                    related to genetics decreased by 19% in that first year.
+                    This indicated that the curriculum was successfully
+                    addressing the most critical needs of learners. The
+                    curriculum was also expanded to include more specific
+                    questions and topics commonly enountered.
+                </p>
+            </div>
+            <div class="hidden lg:block">
+                <ImageFigure
+                    figureImage={GeneticsChart}
+                    alt="A screenshot of a game set in an alien world. A flying saucer sits on top of a launchpad constructed by the player."
+                    captionPosition="right"
+                    containerClassName="bg-neutral-300 mb-8 max-w-sm"
+                    captionClassName="px-3"
+                >
+                    <div slot="caption">
+                        <span class="font-bold"
+                            >Genetics 101 Learning Results:</span
+                        > In one year, the number of learners who felt very confident
+                        discussing genetics increased by 11% and the number of genetics-related
+                        questions reported as difficult questions decreased by 19%.
+                    </div>
+                </ImageFigure>
+            </div>
+        </div>
+    </div>
+</section>
