@@ -1873,8 +1873,14 @@ else{WriteToDebug("Could not determine standard, Stand Alone is disabled in conf
 if(ConvertStringToBoolean(strShowInteractiveDebug)||(!(typeof(SHOW_DEBUG_ON_LAUNCH)=="undefined")&&SHOW_DEBUG_ON_LAUNCH===true)){WriteToDebug("Showing Interactive Debug Windows");ShowDebugWindow();}
 WriteToDebug("Calling Standard Initialize");if(strLMSStandard.toUpperCase()=="TCAPI"){loadScript("../tc-config.js",objLMS.Initialize);}else{objLMS.Initialize();}
 TouchCloud();return;}
-function InitializeExecuted(blnSuccess,strErrorMessage){WriteToDebug("In InitializeExecuted, blnSuccess="+blnSuccess+", strErrorMessage="+strErrorMessage);if(!blnSuccess){WriteToDebug("ERROR - LMS Initialize Failed");if(strErrorMessage==""){strErrorMessage="An Error Has Occurred";}
-blnLmsPresent=false;DisplayError(strErrorMessage);return;}
+function InitializeExecuted(blnSuccess,strErrorMessage){WriteToDebug("In InitializeExecuted, blnSuccess="+blnSuccess+", strErrorMessage="+strErrorMessage);if(!blnSuccess){
+  WriteToDebug('ERROR - LMS Initialize Failed');
+  if (strErrorMessage == '') {
+    strErrorMessage = 'An Error Has Occurred';
+  }
+  blnLmsPresent = false;
+  /*DisplayError(strErrorMessage);*/ return;
+}
 if(objLMS.Standard=='AICC'){AICC_InitializeExecuted();}
 blnLoaded=true;dtmStart=new Date();LoadContent();return;}
 function ExecFinish(ExitType){WriteToDebug("In ExecFinish, ExiType="+ExitType);ClearErrorInfo();if(blnLoaded&&!blnCalledFinish){WriteToDebug("Haven't called finish before, finishing");blnCalledFinish=true;if(blnReachedEnd&&(!EXIT_SUSPEND_IF_COMPLETED)){WriteToDebug("Reached End, overiding exit type to FINISH");ExitType=EXIT_TYPE_FINISH;}
