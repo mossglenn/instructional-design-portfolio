@@ -1,0 +1,68 @@
+---
+import Highlight from '@components/Highlight.astro';
+import AISparkleIcon from '@assets/ai-sparkle-icon.svg';
+import LLMIcon from '@assets/llm-icon.svg';
+import VectorsIcon from '@assets/parallel-vectors-icon.svg';
+---
+
+<!-- Highligts card  -->
+<div class="block pt-12 pb-14 lg:pb-18 px-4 shadow-md bg-card">
+    <h3
+        class="tracking-narrow text-center mb-12 lg:text-4xl lg:mb-16 text-4xl tracking-tight font-extrabold text-neutral-900"
+    >
+        Project Highlights
+    </h3>
+
+    <div
+        class="grid grid-flow-row auto-rows-fr sm:grid-cols-1 lg:grid-cols-3 gap-x-6 xl:gap-x-10 gap-y-12 items-stretch justify-items-stretch max-w-screen-xl mx-auto"
+    >
+        <Highlight>
+            <div slot="icon">
+                <AISparkleIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Helpful Gen-AI Feedback</span
+            >
+            <span slot="highlight-description"
+                >A LLM is used to generate feedback content that reliably
+                summarized the meaningful differences in the learner's answer.
+            </span>
+        </Highlight>
+        <Highlight>
+            <div slot="icon">
+                <LLMIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-field-color: var(--color-primary-800); --icon-subject-color: var(--color-accent-300); --icon-accent-color: var(--color-accent-300);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Semantic Evaluation</span
+            >
+            <span slot="highlight-description"
+                >Instead of checking for specific words, embeddings are useed to
+                measure semantic similarity (closeness in meaning). Cosine
+                similarity gives us a score that reflects a level of alignment.
+            </span>
+        </Highlight>
+
+        <Highlight>
+            <div slot="icon">
+                <VectorsIcon
+                    class="w-12 h-12 mx-auto -mt-8 mb-2"
+                    style="--icon-subject-color: var(--color-accent-300); --icon-field-color: var(--color-primary-800);"
+                />
+            </div>
+            <span slot="highlight-title" class="text-primary-700"
+                >Scalable Personalization</span
+            >
+            <span slot="highlight-description"
+                >With minimal resources, the system generates personalized
+                feedback instantly, allowing scalable practice without SME
+                bottlenecks.
+            </span>
+        </Highlight>
+    </div>
+</div>

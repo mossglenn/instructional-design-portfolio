@@ -1,0 +1,73 @@
+---
+import { Image } from 'astro:assets';
+import PlayIcon from '@assets/play-icon.svg';
+import HuggingFaceEmbed from '@components/HuggingFaceEmbed.astro';
+const gradioJs = 'https://gradio.s3-us-west-2.amazonaws.com/5.9.1/gradio.js';
+const spaceUrl = 'https://mossglenn-answering-questions-demo.hf.space';
+---
+
+<!-- results -->
+<section
+    class="project-results py-12 lg:pb-18 px-4 shadow-sm bg-neutral-cool-200"
+>
+    <div class="max-w-screen-xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <PlayIcon
+                        class="w-12 h-12"
+                        style="--icon-subject-color: var(--color-accent-300); --icon-field-color: var(--color-primary-800);"
+                    />
+                    <h2
+                        class="text-4xl tracking-tight font-extrabold text-primary-800"
+                    >
+                        Try it Yourself
+                    </h2>
+                </div>
+                <p class="mb-4">
+                    This proof-of-concept demonstrates that meaningful,
+                    individualized feedback could be automated responsibly,
+                    without sacrificing accuracy or lowering instructional
+                    quality. It provided a validated foundation for discussions
+                    within the research program about building a
+                    production-ready tool integrated directly into the training
+                    platform.
+                </p>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl text-secondary-500 mb-2">
+                    Demo Instructions
+                </h4>
+
+                <p class="mb-8">
+                    This interactive demo lets you try the proof-of-concept tool
+                    yourself.<br />
+                    <span class="font-bold"
+                        >Type a response to the sample question and submit it.</span
+                    > The system will compare your answer to the approved reference
+                    answer similar to the one used in production training. You’ll
+                    receive a score based on semantic similarity (not keyword matching)
+                    and suggestions for improvement. Further instructions for other
+                    features are within the demo itself.
+                </p>
+                <p class="mb-4">
+                    If the demo does not finish loading below (some browsers
+                    block embedded applications) you can
+                    <a
+                        href={spaceUrl}
+                        target="_blank"
+                        rel="noopener"
+                        class="text-secondary-800 underline"
+                        >open the demo on Hugging Face</a
+                    >.
+                </p>
+            </div>
+        </div>
+        <HuggingFaceEmbed
+            src={spaceUrl}
+            gradioScript={gradioJs}
+            title="Answering Questions – Hugging Face Space"
+            framed={true}
+        />
+    </div>
+</section>
