@@ -10,14 +10,14 @@ const ProjectHuggingFace: Project = {
   order: 'a',
   featuredImagePath: 'hugging-face-featured.png',
   featuredImage: Featured,
-  title: 'AI-enabled Practice Answering FAQs',
+  title: 'AI-Powered Learning Practice',
   owner: {
     content: 'Proof of Concept',
     url: 'https://huggingface.co/spaces/mossglenn/answering-questions-demo',
   },
 
   display: {
-    headlineHTML: 'Using AI to Practice Answering FAQs with Precision',
+    headlineHTML: 'Using AI to Learn with Precision and Confidence',
     subheadingHTML:
       'How to reach learners with low digital literacy skills though a national, scalable, online program to teach digital literacy skills.',
     leaderHTML:

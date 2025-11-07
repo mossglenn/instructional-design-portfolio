@@ -1,0 +1,281 @@
+---
+interface Props {
+    /** Your Space URL, e.g. "https://mossglenn-answering-questions-demo.hf.space" */
+    src: string;
+
+    /**
+     * URL for the matching Gradio JS for your Space’s Gradio version.
+     * Examples:
+     *   - "https://cdn.jsdelivr.net/npm/gradio@4.44.0/dist/gradio.js"
+     *   - "https://gradio.s3-us-west-2.amazonaws.com/3.41.2/gradio.js"
+     */
+    gradioScript: string;
+
+    /** Accessible title for the fallback iframe */
+    title?: string;
+
+    /** Milliseconds to wait for WebComponent to become available before falling back */
+    timeoutMs?: number;
+
+    /** Force iframe (skip WebComponent entirely) */
+    forceIframe?: boolean;
+
+    /** Optional fixed aspect ratio for the embed (e.g. "16/9", "4/3"); defaults to "16/9" */
+    aspectRatio?: string;
+
+    /** Optional: add a light border and rounded corners (Tailwind classes if you use Tailwind) */
+    framed?: boolean;
+}
+
+const {
+    src,
+    gradioScript,
+    title = 'Hugging Face Space',
+    timeoutMs = 6000,
+    forceIframe = false,
+    aspectRatio = '16/9',
+    framed = true,
+} = Astro.props;
+
+const containerId = `hf-embed-${crypto.randomUUID()}`;
+---
+
+<style>
+    /* Works with or without Tailwind. Keeps the box sized before content loads. */
+    .hf-embed {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .hf-embed.framed {
+        border: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+        border-radius: 14px;
+    }
+    .hf-embed > .hf-skeleton {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        font:
+            500 14px/1.4 system-ui,
+            -apple-system,
+            Segoe UI,
+            Roboto,
+            Ubuntu,
+            Cantarell,
+            'Helvetica Neue',
+            Arial;
+        opacity: 0.7;
+        user-select: none;
+    }
+    .hf-embed iframe,
+    .hf-embed gradio-app {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Simple keyframe shimmer for the skeleton */
+    @keyframes hfPulse {
+        0% {
+            opacity: 0.18;
+        }
+        50% {
+            opacity: 0.35;
+        }
+        100% {
+            opacity: 0.18;
+        }
+    }
+    .hf-embed .hf-shimmer {
+        width: 62%;
+        height: 36px;
+        border-radius: 9px;
+        background: currentColor;
+        opacity: 0.18;
+        animation: hfPulse 1.8s ease-in-out infinite;
+    }
+</style>
+
+<div
+    id={containerId}
+    class={`hf-embed ${framed ? 'framed' : ''}`}
+    style={`--hf-aspect: ${aspectRatio};`}
+    data-src={src}
+    data-gradio={gradioScript}
+    data-timeout={String(timeoutMs)}
+    data-force-iframe={forceIframe ? '1' : '0'}
+    data-title={title}
+>
+    <div class="hf-skeleton" aria-hidden="true">
+        <div class="hf-shimmer"></div>
+    </div>
+
+    <!-- No-JS fallback straight to iframe -->
+    <noscript>
+        <iframe
+            src={src}
+            title={title}
+            allow="clipboard-read; clipboard-write; fullscreen"></iframe>
+    </noscript>
+</div>
+
+<script is:inline define:vars={{ containerId }}>
+    (function () {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        const src = container.dataset.src;
+        const gradioScript = container.dataset.gradio;
+        const timeoutMs = Number(container.dataset.timeout || 6000);
+        const forceIframe = container.dataset.forceIframe === '1';
+
+        /** Append iframe fallback */
+        function mountIframe() {
+            if (container.querySelector('iframe')) return; // already mounted
+            const iframe = document.createElement('iframe');
+            iframe.src = src;
+            iframe.title = container.dataset.title || 'Hugging Face Space';
+            iframe.setAttribute(
+                'allow',
+                'clipboard-read; clipboard-write; fullscreen'
+            );
+            container.appendChild(iframe);
+            removeSkeleton();
+        }
+
+        /** Append gradio-app web component */
+        function mountGradioApp() {
+            if (container.querySelector('gradio-app')) return;
+            const el = document.createElement('gradio-app');
+            el.setAttribute('src', src);
+            container.appendChild(el);
+            removeSkeleton();
+        }
+
+        function removeSkeleton() {
+            const skel = container.querySelector('.hf-skeleton');
+            if (skel) skel.remove();
+        }
+
+        /** Load the gradio.js script once globally */
+        function ensureGradioScript(url) {
+            return new Promise((resolve, reject) => {
+                // If component already defined, we’re done
+                if (customElements.get('gradio-app')) return resolve(true);
+
+                // If a matching script tag exists and already loaded, wait for definition
+                const existing = /** @type {HTMLScriptElement|null} */ (
+                    document.querySelector(
+                        `script[data-hf-gradio="${CSS.escape(url)}"]`
+                    )
+                );
+                if (existing) {
+                    // If it’s already loaded, wait for custom element to register
+                    if (existing.dataset.state === 'loaded') {
+                        return customElements
+                            .whenDefined('gradio-app')
+                            .then(() => resolve(true))
+                            .catch(reject);
+                    }
+                    // Otherwise hook onto its onload
+                    existing.addEventListener(
+                        'load',
+                        () => {
+                            customElements
+                                .whenDefined('gradio-app')
+                                .then(() => resolve(true))
+                                .catch(reject);
+                        },
+                        { once: true }
+                    );
+                    existing.addEventListener(
+                        'error',
+                        () =>
+                            reject(
+                                new Error('Failed loading existing gradio.js')
+                            ),
+                        { once: true }
+                    );
+                    return;
+                }
+
+                // Create and load a new script
+                const s = document.createElement('script');
+                s.type = 'module';
+                s.defer = true;
+                s.src = url;
+                s.dataset.hfGradio = url;
+
+                s.addEventListener(
+                    'load',
+                    () => {
+                        s.dataset.state = 'loaded';
+                        customElements
+                            .whenDefined('gradio-app')
+                            .then(() => resolve(true))
+                            .catch(reject);
+                    },
+                    { once: true }
+                );
+                s.addEventListener(
+                    'error',
+                    () => reject(new Error('Failed to load gradio.js')),
+                    { once: true }
+                );
+
+                document.head.appendChild(s);
+            });
+        }
+
+        /** Main: lazy load on intersection */
+        function init() {
+            if (forceIframe) {
+                mountIframe();
+                return;
+            }
+
+            // IntersectionObserver for lazy loading
+            const io = new IntersectionObserver(
+                (entries) => {
+                    const seen = entries.some((e) => e.isIntersecting);
+                    if (!seen) return;
+
+                    io.disconnect();
+
+                    let timedOut = false;
+                    const timer = setTimeout(() => {
+                        timedOut = true;
+                        mountIframe();
+                    }, timeoutMs);
+
+                    ensureGradioScript(gradioScript)
+                        .then(() => {
+                            if (timedOut) return; // iframe already mounted
+                            clearTimeout(timer);
+                            mountGradioApp();
+                        })
+                        .catch(() => {
+                            clearTimeout(timer);
+                            mountIframe();
+                        });
+                },
+                { rootMargin: '200px 0px' }
+            ); // start a bit early
+
+            io.observe(container);
+        }
+
+        // In case the component is already within view on load
+        if (
+            document.readyState === 'complete' ||
+            document.readyState === 'interactive'
+        ) {
+            init();
+        } else {
+            addEventListener('DOMContentLoaded', init, { once: true });
+        }
+    })();
+</script>
