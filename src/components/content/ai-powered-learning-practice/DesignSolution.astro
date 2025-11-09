@@ -1,15 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import ImageFigure from '@/components/ImageFigure.astro';
+import HG1 from '@assets/portfolio/ai-powered/hfscreenshot1.png';
+import HFscore from '@assets/portfolio/ai-powered/hf-score.png';
+import HFfeedback from '@assets/portfolio/ai-powered/hf-feedback.png';
+import HFmain from '@assets/portfolio/ai-powered/hf-main.png';
 import ContentSection from '@/components/ContentSection.astro';
 import DesignSolutionIcon from '@assets/design-solution-flat.svg';
-import RumbleBlocks from '@assets/rumbleblocks-cropped.png';
-import BeanstalkMin from '@assets/beanstalk-minimal.png';
-import RumbleblocksMin from '@assets/rumbleblocks-minimal.png';
-import TeeterTotterMin from '@assets/teeter-totter-go-minimal.png';
-import LevelDesign from '@assets/portfolio/engage/balance-level-design.png';
-import LogBookDesign from '@assets/portfolio/engage/logbookdesign.png';
-import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png';
 ---
 
 <ContentSection class="bg-neutral-50">
@@ -31,6 +27,11 @@ import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png
             The interface was intentionally minimal (a question, a text field, and
             a feedback panel) to support a rapid learning loop.
         </p>
+        <Image
+            src={HG1}
+            class="my-8 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
         <h4 class="font-bold text-xl text-tertiary-900 mb-2">
             Using Available Gold-Standard Answers
         </h4>
@@ -49,6 +50,11 @@ import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png
         <h4 class="font-bold text-xl text-tertiary-900 mb-2">
             Semantic Similarity Scoring
         </h4>
+        <Image
+            src={HFscore}
+            class="m-auto max-w-96 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
         <p class="mb-4">
             The demo ran on Hugging Face Spaces and used an open embedding model
             to generate semantic vector representations of (1) the learner’s
@@ -61,7 +67,8 @@ import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png
             percentage scale and a qualitative label (e.g., “Low,” “Moderate,”
             “High”) to make the results meaningful to the learner.
         </p>
-        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2 mt-12">
             Generating Targeted, Actionable Feedback
         </h4>
         <p class="mb-4">
@@ -76,7 +83,12 @@ import TTGhypothesis from '@assets/portfolio/engage/teeter-totter-hypothesis.png
             <li>Why certain clarifications mattered</li>
             <li>Where simplification or re-wording could improve clarity</li>
         </ul>
-        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+        <Image
+            src={HFfeedback}
+            class="m-auto max-w-96 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2 mt-4">
             Reinforcing the Approved Language Framework
         </h4>
         <p class="mb-4">

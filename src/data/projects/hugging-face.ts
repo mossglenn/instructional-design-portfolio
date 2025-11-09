@@ -6,7 +6,7 @@ import Featured from '@assets/featured/hugging-face-iso.png';
  */
 const ProjectHuggingFace: Project = {
   id: 'hugging-face',
-  link: 'coming-soon',
+  link: 'ai-powered-learning-practice',
   order: 'a',
   featuredImagePath: 'hugging-face-featured.png',
   featuredImage: Featured,
@@ -18,10 +18,9 @@ const ProjectHuggingFace: Project = {
 
   display: {
     headlineHTML: 'Using AI to Learn with Precision and Confidence',
-    subheadingHTML:
-      'How to reach learners with low digital literacy skills though a national, scalable, online program to teach digital literacy skills.',
+    subheadingHTML: 'Scaling individualized feedback to help staff practice communicating complex information accurately and confidently.',
     leaderHTML:
-      "<span class='italic'>This proof of concept project was not been implemented.</span> It is essential for the staff of a biomedical research program to provide accurate and complete answers to difficult questions from the public. This Ai-enabled tool compares the learner's answer to an IRB-approved answer, scoring it based on semantic similarity of the two answers.",
+      "<span class='italic'>This proof of concept project was not been implemented.</span> Staff in biomedical research programs often field complex and sensitive questions from the public. To help them practice communicating clearly and accurately, this AI-enabled tool evaluates how closely their response aligns with an IRB-approved answer and offers feedback based on semantic similarity.",
   },
   metadata: {
     category: ['ai'],
