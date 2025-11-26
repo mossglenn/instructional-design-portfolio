@@ -1,0 +1,88 @@
+---
+import { Image } from 'astro:assets';
+import ContentSection from '@components/ContentSection.astro';
+import DesignProblemIcon from '@assets/design-problem-flat.svg';
+import ImageFigure from '@/components/ImageFigure.astro';
+import EngageLogo from '@assets/engage-logo.png';
+import SelTest from '@assets/sel.png';
+---
+
+<ContentSection>
+    <DesignProblemIcon
+        slot="icon"
+        style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-secondary-500);"
+    />
+
+    <div slot="title" class="pb-8">Design Challenge</div>
+    <div slot="content">
+        <p class="mb-4">
+            Staff working on this national biomedical research program are
+            regularly asked <span class="font-bold text-secondary-500"
+                >complex, highly technical questions</span
+            > by members of the public. These questions often touch on genetics,
+            data privacy, research ethics, and medical terminology. To respond accurately,
+            staff must not only remember the correct information, they must interpret
+            it, adapt it to context, and <span
+                class="font-bold text-secondary-500"
+                >explain it clearly at a wide range of literacy levels</span
+            >. The existing training approach relied almost entirely on written
+            resources, especially model respenses to frequently asked questions.
+        </p>
+        <div class="mx-2 my-4 leading-6.5">
+            <span
+                class="font-bold rounded-md py-1 px-1 text-foreground-light bg-linear-to-r from-secondary-500 to-primary-400 tracking-wide"
+                style=" box-decoration-break: clone"
+            >
+                There was no structured way for staff to practice forming
+                responses and receive meaningful feedback.
+            </span>
+        </div>
+
+        <div slot="read-more">
+            <p class="mb-4 break-inside-avoid-column">
+                When staff did practice, the feedback was often:
+                <ul class="list-disc list-inside my-3">
+                    <li>
+                        <span class="font-bold">Inconsistent</span>, depending
+                        on who reviewed it
+                    </li>
+                    <li>
+                        <span class="font-bold">Delayed</span>, arriving after
+                        the moment of need
+                    </li>
+                    <li>
+                        <span class="font-bold">Difficult to scale</span>,
+                        especially across distributed teams
+                    </li>
+                </ul>
+            </p>
+
+            <p class="mb-4">
+                <span class="font-bold text-secondary-500"
+                    >Yet the stakes were high.</span
+                > Responses must be:
+            </p>
+            <ul class="list-disc list-inside my-3">
+                <li>
+                    <span class="font-bold">Accurate and complete</span> to maintain
+                    public trust and comply with research guidelines
+                </li>
+                <li>
+                    <span class="font-bold">Consistent</span> across the nation-wide
+                    organization
+                </li>
+                <li>
+                    <span class="font-bold">Supportive and understandable</span
+                    >, regardless of the learner’s technical background
+                </li>
+            </ul>
+            <p class="mb-4">
+                In short, we needed a way to provide scalable, individualized
+                feedback that <span class="font-bold text-secondary-500"
+                    >helps staff learn to communicate complex information
+                    confidently and responsibly</span
+                >.
+            </p>
+        </div>
+    </div>
+</ContentSection>

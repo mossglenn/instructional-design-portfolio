@@ -1,15 +1,10 @@
 ---
-import ScientistIcon from '@assets/scientist-icon-color-frames.svg';
-import AccomplishedIcon from '@assets/accomplished-color-flat.svg';
-import RetakeIcon from '@assets/retake-icon-swoosh.svg';
-import Result from '@components/Result.astro';
-import EscapeRoomCover from '@assets/portfolio/escape-room/escape-room-1.png';
-import TreasureHuntCover from '@assets/portfolio/zoo-treasure/zoo-treasure-1.jpg';
-import PlayIcon from '@assets/play-icon.svg';
-import { Image } from 'astro:assets';
+import IframeLearningObject from '@components/IframeLearningObject.astro';
+import { learningObjects } from '@/data/learningObjects';
+
+const defaultOpenId = learningObjects.find(lo => lo.defaultOpen)?.id ?? null;
 ---
 
-<!-- results -->
 <section class="project-results py-12 lg:pb-18 px-4 shadow-sm bg-neutral-200">
     <div class="max-w-screen-xl mx-auto">
         <h3
@@ -163,3 +158,104 @@ import { Image } from 'astro:assets';
         </div>
     </div>
 </section>
+
+<script>
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest?.("[data-lo-toggle]");
+    if (!btn) return;
+    e.preventDefault();
+
+    const targetSel = btn.getAttribute("data-target");
+    if (!targetSel) return;
+
+    const panel = document.querySelector(targetSel);
+    if (!panel) return;
+
+    // helper: update all buttons that control this panel
+    const setControlsFor = (targetSelector, isOpen) => {
+      document.querySelectorAll(`[data-lo-toggle][data-target="${targetSelector}"]`).forEach((ctrl) => {
+        ctrl.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        const label = ctrl.querySelector(".btn-label");
+        if (label) label.textContent = isOpen ? "Hide" : "Start";
+      });
+    };
+
+    const willOpen = panel.hasAttribute("hidden");
+
+    // Close any other open embeds
+    document.querySelectorAll(".lo-embed.is-open").forEach((open) => {
+      if (open !== panel) {
+        open.setAttribute("hidden", "true");
+        open.classList.remove("is-open");
+        const ctrl = document.querySelector(`[data-lo-toggle][data-target="#${open.id}"]`);
+        if (ctrl) {
+          ctrl.setAttribute("aria-expanded", "false");
+          const lbl = ctrl.querySelector(".btn-label");
+          if (lbl) lbl.textContent = "Start";
+        }
+      }
+    });
+
+    if (willOpen) {
+      panel.removeAttribute("hidden");
+      panel.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      setControlsFor(targetSel, true);
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      panel.querySelector("iframe")?.focus?.();
+    } else {
+      panel.setAttribute("hidden", "true");
+      panel.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+      setControlsFor(targetSel, false);
+    }
+  });
+</script>
+
+<style>
+
+  .lo-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+  .lo-item { border: 1px solid hsl(0 0% 90%); border-radius: .75rem; padding: 1rem; }
+
+  /* Grid with optional thumbnail column */
+  .lo-row {
+    display: grid;
+    grid-template-columns: 260px 1fr auto;
+    gap: 1rem;
+    align-items: start;
+  }
+  .lo-row.no-thumb {
+    grid-template-columns: 1fr auto;
+  }
+
+  .lo-thumb { width: 100%; max-width: 260px; }
+  .lo-thumb__btn {
+    display:block; width:100%; background:none; border:none; padding:0; cursor:pointer;
+    border-radius:.25rem; overflow:hidden;
+  }
+  .lo-thumb img {
+    width: 100%;
+    height: 100%;
+  aspect-ratio: 4 / 3;       /* changed from 16 / 9 */
+    object-fit: cover;
+    display: block;
+  }
+
+  .lo-meta { min-width: 0; }
+  .lo-name { margin: 0; font-size: 1.05rem; }
+  .lo-desc { margin: .35rem 0 0; color: hsl(0 0% 35%); font-size: .95rem; }
+
+  .lo-actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+  .btn {
+    appearance: none; border: 1px solid hsl(0 0% 80%);
+    padding: .5rem .75rem; border-radius: .5rem; background: hsl(0 0% 98%);
+    text-decoration: none; font-size: .9rem; line-height: 1;
+  }
+  .btn:hover { background: hsl(0 0% 94%); }
+  .btn-secondary { background: hsl(0 0% 99%); }
+
+  .lo-embed { margin-top: .75rem; }
+  .lo-hide { margin-top: .5rem; }
+  .link-like { background: none; border: none; padding: 0; text-decoration: underline; cursor: pointer; font-size: .9rem; }
+</style>

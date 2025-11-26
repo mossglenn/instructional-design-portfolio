@@ -1,0 +1,131 @@
+---
+import { Image } from 'astro:assets';
+import HG1 from '@assets/portfolio/ai-powered/hfscreenshot1.png';
+import HFscore from '@assets/portfolio/ai-powered/hf-score.png';
+import HFfeedback from '@assets/portfolio/ai-powered/hf-feedback.png';
+import HFmain from '@assets/portfolio/ai-powered/hf-main.png';
+import ContentSection from '@/components/ContentSection.astro';
+import DesignSolutionIcon from '@assets/design-solution-flat.svg';
+---
+
+<ContentSection class="bg-neutral-50">
+    <DesignSolutionIcon
+        slot="icon"
+        style="--icon-subject-color: var(--color-neutral-100); --icon-field-color: var(--color-tertiary-500);"
+    />
+    <div slot="title" class="pb-8">Instructional Design Solutions</div>
+    <div slot="content">
+        <p class="mb-4">
+            Because this project addressed a high-stakes communication skill, I
+            began with a <span class="font-bold text-secondary-500"
+                >proof-of-concept</span
+            >
+            to demonstrate that scalable, feedback-driven practice could work before
+            investing in a full production build with a development team. The proof-of-concept
+            was built entirely in Python using free, open-source tools: no licenses,
+            custom infrastructure, or developer time were required at this stage.
+            The interface was intentionally minimal (a question, a text field, and
+            a feedback panel) to support a rapid learning loop.
+        </p>
+        <Image
+            src={HG1}
+            class="my-8 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+            Using Available Gold-Standard Answers
+        </h4>
+        <p class="mb-4">
+            In the production training environment, staff learn to respond using
+            IRB-approved model answers. These internal answers are not public,
+            but the <span class="italic">All of Us</span> website publishes public-facing
+            FAQs based on the same source guidance. These public FAQs are accurate,
+            written in plain language, and aligned in tone and intent with the internal
+            training materials. For the proof-of-concept, I adapted these public
+            FAQs as
+            <span class="italic">gold-standard benchmark answers</span> for comparison.
+            This ensured the demo respected IRB boundaries while still reflecting
+            the communication approach expected in training.
+        </p>
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2">
+            Semantic Similarity Scoring
+        </h4>
+        <Image
+            src={HFscore}
+            class="m-auto max-w-96 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
+        <p class="mb-4">
+            The demo ran on Hugging Face Spaces and used an open embedding model
+            to generate semantic vector representations of (1) the learner’s
+            written response and (2) the benchmark answer. The tool calculated
+            <span class="font-bold">cosine similarity</span> between these vectors
+            to assess how closely the meaning of the learner’s response aligned with
+            the meaning of the approved content. This approach evaluates <strong
+                >conceptual accuracy</strong
+            >, not keyword overlap. The similarity score was then mapped to a
+            percentage scale and a qualitative label (e.g., “Low,” “Moderate,”
+            “High”) to make the results meaningful to the learner.
+        </p>
+
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2 mt-12">
+            Generating Targeted, Actionable Feedback
+        </h4>
+        <p class="mb-4">
+            In addition to scoring similarity, the tool used a lightweight
+            language model to compare the learner’s response to the benchmark
+            answer and to to identify differences in meaning. The tool then
+            generated feedback text highlighting ways the learner's answer could
+            be improved:
+        </p>
+        <ul class="list-disc list-inside mb-4">
+            <li>Which key ideas were present or missing</li>
+            <li>Why certain clarifications mattered</li>
+            <li>Where simplification or re-wording could improve clarity</li>
+        </ul>
+        <Image
+            src={HFfeedback}
+            class="m-auto max-w-96 border-2 border-neutral-300"
+            alt="Full tool screenshot"
+        />
+        <h4 class="font-bold text-xl text-tertiary-900 mb-2 mt-4">
+            Reinforcing the Approved Language Framework
+        </h4>
+        <p class="mb-4">
+            The training program also uses an <strong
+                >Approved Language Framework</strong
+            > to help staff communicate in ways that are accurate, welcoming, and
+            aligned with the values of the research program. Some commonly used phrases
+            can unintentionally imply incorrect assumptions, introduce ambiguity,
+            or make community members feel excluded. To support this, the prototype
+            included a rule-based layer that scanned the learner's responses for
+            a representative subset of these phrases using regular-expression matching.
+            If a flagged phrase appeared in the learner’s response, the tool provided
+            brief, pre-written guidance explaining the reasons for avoiding the phrase
+            and alternative wording.
+        </p>
+
+        <h4 class="font-bold text-xl text-secondary-500 mb-2">My Role</h4>
+        <p class="mb-4">
+            <span class="font-bold text-secondary-500"
+                >I led the end-to-end design and development of this
+                proof-of-concept.</span
+            > I identified the instructional problem, evaluated solution approaches,
+            and designed the learning experience around applied practice with timely,
+            meaningful feedback. I selected the semantic similarity approach, adapted
+            the benchmark responses from publicly available IRB-approved FAQs, and
+            authored the feedback prompts and scoring logic to ensure the system
+            reinforced clarity, accuracy, and trust.
+        </p>
+        <p class="mb-4">
+            I built the prototype interface and scoring pipeline using Python
+            and free, open-source models running on Hugging Face Spaces,
+            allowing the solution to be tested without custom infrastructure or
+            engineering support. I also designed the rule-based layer that
+            checked for phrases addressed in the program’s Approved Language
+            Framework, and drafted the explanatory guidance used to redirect
+            learners toward clearer and more inclusive alternatives.
+        </p>
+    </div>
+    <div slot="read-more"></div>
+</ContentSection>

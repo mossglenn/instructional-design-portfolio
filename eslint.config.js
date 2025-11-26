@@ -6,7 +6,15 @@ import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
-    ignores: ['**/._portfolio-site-resources/**'], // 👈 add this line
+    ignores: [
+      '**/._portfolio-site-resources/**',
+      'public/learning-objects/**',
+      'dist/**',
+      'node_modules/**',
+      '_scripts/**',
+      '.astro/**',
+      '.vscode/**',
+    ],
   },
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
