@@ -9,6 +9,7 @@ import path from 'path';
 import showTailwindcssBreakpoint from 'astro-show-tailwindcss-breakpoint';
 
 export default defineConfig({
+  site: 'https://amosglenn.com',
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {

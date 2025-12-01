@@ -1,0 +1,68 @@
+---
+import type { WritingPost } from '@utilities/writing';
+import { formatDate } from '@utilities/writing';
+import Tag from '@components/Tag.astro';
+
+interface Props {
+  posts: WritingPost[];
+}
+
+const { posts } = Astro.props;
+
+if (posts.length === 0) {
+  return null;
+}
+---
+
+<aside class="mt-12 border-t border-gray-200 dark:border-gray-700 pt-8">
+  <h2 class="text-2xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+    Related Writing
+  </h2>
+  
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {posts.map((post) => (
+      <article class="group">
+        <a
+          href={`/writing/${post.slug}`}
+          class="block rounded-lg border border-gray-200 dark:border-gray-700 p-4
+            hover:border-primary-500 dark:hover:border-primary-400
+            hover:shadow-md transition-all duration-200"
+        >
+          <!-- Type badge -->
+          <span            class={`inline-block mb-2 text-xs font-medium px-2 py-1 rounded
+              ${post.data.type === 'essay'
+                ? 'bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200'
+                : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+              }`}
+          >
+            {post.data.type === 'essay' ? 'Essay' : 'Note'}
+          </span>
+
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+            {post.data.title}
+          </h3>
+          
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-2">
+            {post.data.description}
+          </p>
+
+          <time
+            datetime={post.data.publishDate.toISOString()}
+            class="text-xs text-gray-500 dark:text-gray-500"
+          >
+            {formatDate(post.data.publishDate)}
+          </time>
+
+          <!-- Tags preview -->
+          {post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-1 mt-3">
+              {post.data.tags.slice(0, 3).map((tag) => (
+                <Tag label={tag} size="sm" />
+              ))}
+            </div>
+          )}
+        </a>
+      </article>
+    ))}
+  </div>
+</aside>

@@ -1,0 +1,10 @@
+# Type: feat|fix|refactor|style|docs|config|test|chore
+# Scope: content|writing|portfolio|layout|components|types|config|data
+# 
+# <type>(<scope>): <short summary (50 chars or less)>
+#
+# <optional body - wrap at 72 chars>
+# - What was changed
+# - Why it was changed
+# - Any side effects or notable details
+#

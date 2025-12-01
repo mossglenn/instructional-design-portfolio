@@ -48,7 +48,45 @@ let isOpen = false;
                     </a>
                 </li>
 
-                <!-- About -->
+                <!-- Portfolio -->
+                <li>
+                    <a
+                        href="/portfolio"
+                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M3 7h18M3 12h18M3 17h18"></path>
+                        </svg>
+                        <span>Portfolio</span>
+                    </a>
+                </li>
+
+                <!-- Writing -->
+                <li>
+                    <a
+                        href="/writing"
+                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
+                    >
+                        <svg
+                            class="w-4 h-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                        </svg>
+                        <span>Writing</span>
+                    </a>
+                </li>
+
+                <!-- Contact -->
                 <li>
                     <a
                         href="/contact"
@@ -68,25 +106,6 @@ let isOpen = false;
                         Contact
                     </a>
                 </li>
-
-                <!-- Portfolio -->
-                <li>
-                    <a
-                        href="/portfolio"
-                        class="bg-background/100 shadow-md px-4 py-2 rounded-lg transition text-neutral-700 border-b-2 border-neutral-300 hover:text-primary-600 hover:border-primary-600 hover:shadow-md hover:shadow-primary-300 inline-flex items-center gap-2"
-                    >
-                        <svg
-                            class="w-4 h-4"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            viewBox="0 0 24 24"
-                        >
-                            <path d="M3 7h18M3 12h18M3 17h18"></path>
-                        </svg>
-                        <span>Portfolio</span>
-                    </a>
-                </li>
             </ul>
 
             <!-- Mobile Menu -->
@@ -100,14 +119,19 @@ let isOpen = false;
                     >Home</a
                 >
                 <a
-                    href="/about"
-                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
-                    >About</a
-                >
-                <a
                     href="/portfolio"
                     class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
                     >Portfolio</a
+                >
+                <a
+                    href="/writing"
+                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
+                    >Writing</a
+                >
+                <a
+                    href="/contact"
+                    class="block py-2 pl-2 font-semibold rounded-l-lg text-neutral-700 hover:text-primary-600 bg-neutral-50/70 transition shadow-md"
+                    >Contact</a
                 >
             </div>
             <!-- Mobile Hamburger -->

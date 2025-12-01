@@ -1,0 +1,88 @@
+---
+import type { WritingPost } from '@utilities/writing';
+import { formatDate } from '@utilities/writing';
+import Tag from '@components/Tag.astro';
+
+interface Props {
+  post: WritingPost;
+  featured?: boolean;
+}
+
+const { post, featured = false } = Astro.props;
+const { title, description, publishDate, type, tags } = post.data;
+
+// Type-specific styling
+const typeStyles = {
+  essay: 'border-primary-600 dark:border-primary-400',
+  note: 'border-gray-300 dark:border-gray-600'
+};
+
+const typeLabels = {
+  essay: 'Essay',
+  note: 'Note'
+};
+---
+
+<article
+  class={`group relative overflow-hidden rounded-lg border-l-4 ${typeStyles[type]} bg-white dark:bg-gray-800 shadow-md hover:shadow-xl transition-all duration-300`}
+>
+  <a href={`/writing/${post.slug}`} class="block p-6">
+    <!-- Type Badge -->
+    <div class="mb-3 flex items-center gap-2">
+      <span
+        class={`inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
+          ${type === 'essay'
+            ? 'bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200'
+            : 'bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300'
+          }`}
+      >
+        {typeLabels[type]}
+      </span>
+      <time
+        datetime={publishDate.toISOString()}
+        class="text-sm text-gray-600 dark:text-gray-400"
+      >
+        {formatDate(publishDate)}
+      </time>
+    </div>
+
+    <!-- Title -->    <h2
+      class={`mb-2 font-bold leading-tight group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors
+        ${featured ? 'text-3xl' : 'text-2xl'}`}
+    >
+      {title}
+    </h2>
+
+    <!-- Description -->
+    <p class="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+      {description}
+    </p>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2" onclick="event.stopPropagation()">
+        {tags.map((tag) => (
+          <Tag label={tag} href={`/writing/tags/${tag}`} />
+        ))}
+      </div>
+    )}
+
+    <!-- Read More Indicator -->
+    <div class="mt-4 flex items-center text-primary-600 dark:text-primary-400 font-medium">
+      <span>Read {type === 'essay' ? 'essay' : 'note'}</span>
+      <svg
+        class="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
+      </svg>
+    </div>
+  </a>
+</article>
