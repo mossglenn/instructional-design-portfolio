@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayfair Cosmic Encounter - Complete Reference Guide</title>
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-nav: #282E3A;
+            --text-primary: #04173c;
+            --text-secondary: #233e76;
+            --border-color: #dddddd;
+            --link-color: #3498db;
+            --link-hover: #2980b9;
+            --accent-color: #F5823B;
+        }
+        
+        [data-theme="dark"] {
+            --bg-primary: #282E3A;
+            --bg-secondary: #2f3238;
+            --bg-nav: #08090b;
+            --text-primary: #e5e5e5;
+            --text-secondary: #a0a0a0;
+            --border-color: #404040;
+            --link-color: #60a5fa;
+            --link-hover: #93c5fd;
+            --accent-color: #F5823B;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            padding-top: 60px;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-nav);
+            color: white;
+            padding: 0 2rem;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .theme-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        nav {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 250px;
+            height: calc(100vh - 60px);
+            background-color: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            overflow-y: auto;
+            padding: 1.5rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            padding: 0.5rem 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.2s;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            background-color: var(--bg-primary);
+            color: var(--link-color);
+        }
+        
+        nav .nav-section {
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-secondary);
+        }
+        
+        nav .nav-subsection {
+            padding-left: 2.5rem;
+            font-size: 0.9rem;
+        }
+        
+        main {
+            margin-left: 250px;
+            padding: 2rem 3rem;
+            max-width: 1200px;
+        }
+        
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.75rem 0;
+            color: var(--text-primary);
+        }
+        
+        h4 {
+            font-size: 1.1rem;
+            margin: 1rem 0 0.5rem 0;
+            color: var(--text-primary);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+            color: var(--text-secondary);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .note-box {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--link-color);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background-color: var(--bg-secondary);
+            border-left: 4px solid var(--accent-color);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .stage-box {
+            background-color: var(--bg-secondary);
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+        
+        .stage-box h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+        }
+        
+        strong {
+            color: var(--text-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block !important;
+            }
+            
+            nav {
+                transform: translateX(-250px);
+                transition: transform 0.3s;
+                z-index: 999;
+            }
+            
+            nav.open {
+                transform: translateX(0);
+            }
+            
+            main {
+                margin-left: 0;
+                padding: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="menu-toggle" onclick="toggleMenu()" style="display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 0.5rem;">☰</button>
+        <h1>Mayfair Cosmic Encounter</h1>
+        <div class="header-controls">
+            <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+        </div>
+    </header>
+    
+    <nav>
+        <div style="padding: 1rem 1.5rem;">
+            <input type="text" id="searchInput" placeholder="Search guide..." style="width: 100%; padding: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-primary); color: var(--text-primary);">
+            <div id="searchResults" style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);"></div>
+        </div>
+        
+        <ul>
+            <li class="nav-section">Getting Started</li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#components">Components List</a></li>
+            <li><a href="#setup">Game Setup</a></li>
+            <li><a href="#objective">How to Win</a></li>
+            
+            <li class="nav-section">Core Rules</li>
+            <li><a href="#alien-powers">Alien Powers</a></li>
+            <li><a href="#icons">Phase Icons</a></li>
+            <li><a href="#cards">Cards & Hand Management</a></li>
+            <li><a href="#warp">The Warp</a></li>
+            
+            <li class="nav-section">Playing the Game</li>
+            <li><a href="#overview">Turn Overview</a></li>
+            <li><a href="#pre-challenge">Pre-Challenge Phase</a></li>
+            <li><a href="#challenge">Challenge Phase</a></li>
+            
+            <li class="nav-section">Challenge Stages</li>
+            <li><a href="#stage1">1. Retrieve Token</a></li>
+            <li><a href="#stage2">2. Draw Destiny</a></li>
+            <li><a href="#stage3">3. Place Ships</a></li>
+            <li><a href="#stage4">4. Offense Invites</a></li>
+            <li><a href="#stage5">5. Defense Invites</a></li>
+            <li><a href="#stage6">6. Allies Respond</a></li>
+            <li><a href="#stage7">7. Play Cards</a></li>
+            <li><a href="#stage8">8. Reveal & Resolve</a></li>
+            <li><a href="#stage9">9. Discard</a></li>
+            <li><a href="#stage10">10. End Challenge</a></li>
+            
+            <li class="nav-section">Special Rules</li>
+            <li><a href="#destiny-types">Destiny Card Types</a></li>
+            <li><a href="#flares-edicts">Flares & Edicts</a></li>
+            <li><a href="#reverse-cone">Reverse Cone</a></li>
+            <li><a href="#timing">Timing Conflicts</a></li>
+            <li><a href="#power-loss">Losing Powers</a></li>
+            <li><a href="#reverse-hex">Reverse Hex Rules</a></li>
+            
+            <li class="nav-section">Reference</li>
+            <li><a href="#clarifications">Rules Clarifications</a></li>
+            <li><a href="#alien-clarifications">Alien Powers & Interactions</a></li>
+            <li><a href="#quick-reference">Quick Reference</a></li>
+            <li><a href="#deal-making">Deal-Making Guide</a></li>
+            <li><a href="#common-mistakes">Common Mistakes</a></li>
+            <li><a href="#teaching-guide">Teaching New Players</a></li>
+            <li><a href="#house-rules">Suggested House Rules</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section id="intro">
+            <h2>Introduction</h2>
+            
+            <div style="background: #f5c3a4; border-left: 4px solid #F3833F; padding: 1rem; margin-bottom: 1.5rem;">
+                <h3 style="margin-top: 0; color: #F3833F;">About This Guide</h3>
+                <p style="margin-bottom: 0.5rem;"><strong>Important:</strong> This guide was created without access to an official copy of the Mayfair Cosmic Encounter rulebook. All rules content is based on a community transcription available online.</p>
+                
+                <h4 style="margin-top: 1rem; margin-bottom: 0.5rem;">Primary Sources:</h4>
+                <ul style="margin: 0;">
+                    <li><strong>Rules transcription:</strong> <a href="https://daveola.com/CosmicEncounter/Rules/Mayfair.html" target="_blank">daveola.com/CosmicEncounter/Rules/Mayfair.html</a> - Community transcription of the Mayfair rulebook</li>
+                    <li><strong>Components list:</strong> <a href="https://daveola.com/CosmicEncounter/Components/Mayfair.html" target="_blank">daveola.com/CosmicEncounter/Components/Mayfair.html</a></li>
+                    <li><strong>Card distributions:</strong> <a href="http://redamedia.com/warp/index.php3" target="_blank">redamedia.com/warp/index.php3</a> - Definitive card lists and edict descriptions</li>
+                    <li><strong>Cross-edition reference:</strong> Fantasy Flight Games FAQ for alien interactions and clarifications</li>
+                </ul>
+                
+                <p style="margin-top: 1rem; margin-bottom: 0;"><strong>Accuracy note:</strong> While this guide has been verified against available online sources, minor differences from the original printed rulebook may exist. When in doubt, defer to your physical game materials if available.</p>
+            </div>
+            
+            <h3>Game Overview</h3>
+            <p>Cosmic Encounter is a highly social, science fiction game for two or more players. Three factors set this game apart from others: intense interaction among the players, different strategies for each player, and frequent surprises.</p>
+            
+            <p>In Cosmic Encounter, each player represents a different race of alien beings seeking to gain control of the universe. As a Cosmic Encounter Player, you must try to defend your native planetary system while sending your forces through hyperspace to encounter alien beings from other worlds.</p>
+            
+            <p>You may make alliances with other players, sharing the risks in hopes of greater gains, or you may choose to go it alone. Aiding you in your hopes for cosmic supremacy is a special power which is unique to your race that may give you an edge. But beware, your opponents have powers of their own, making them equally dangerous and unpredictable.</p>
+        </section>
+        
+        <section id="components">
+            <h2>Components List - Base Game</h2>
+            <p>The original Mayfair Cosmic Encounter (1991) includes the following components:</p>
+            
+            <h3>Alien Powers</h3>
+            <div class="note-box">
+                <p><strong>48 Alien Power Cards:</strong></p>
+                <p>Amoeba, Anti-Matter, Assassin, Aura, Cavalry, Changeling, Chosen, Chronos, Clone, Connoisseur, Deuce, Empath, Filch, Filth, Fungus, Gambler, Healer, Insect, Laser, Loser, Macron, Magnet, Mind, Mirror, Mutant, Oracle, Pacifist, Parasite, Pentaform, Phantom, Philanthropist, Reincarnator, Seeker, Sniveler, Sorcerer, Subversive, Symbiote, Terrorist, Trader, Vacuum, Vampire, Visionary, Void, Vulch, Will, Worm, Wrack, Zombie</p>
+            </div>
+            
+            <h3>Cards (142 Total)</h3>
+            
+            <h4>Challenge Cards (72 total)</h4>
+            <ul>
+                <li><strong>Compromise Cards:</strong> 17</li>
+                <li><strong>Attack Cards:</strong> 1 (×1), 4 (×2), 5 (×2), 6 (×8), 7 (×4), 8 (×8), 9 (×2), 10 (×6), 11 (×2), 12 (×5), 13 (×1), 14 (×2), 15 (×4), 16 (×1), 17 (×1), 18 (×1), 19 (×1), 20 (×2), 30 (×1), 40 (×1)</li>
+            </ul>
+            <p class="note-box"><strong>Source:</strong> Card distribution verified from <a href="http://redamedia.com/warp/dist.php3" target="_blank">redamedia.com/warp/dist.php3</a></p>
+            
+            <h4>Edict Cards (22 total)</h4>
+            <p>Special effect cards that can be played by any player during specific phases:</p>
+            <ul>
+                <li><strong>Cosmic Zap (×3):</strong> Stop one player from using their power for one challenge</li>
+                <li><strong>Flare Zap (×2):</strong> Cancel any flare as it's being played</li>
+                <li><strong>Mobius Tubes (×2):</strong> Free all tokens from the warp or praw at start of your challenge</li>
+                <li><strong>Edict Zap (×1):</strong> Cancel any edict as it's being played</li>
+                <li><strong>Emotion Control (×1):</strong> After cards revealed, change both to Compromise (must deal)</li>
+                <li><strong>Finder (×1):</strong> Name and search for a specific card in a player's hand</li>
+                <li><strong>Force Field (×1):</strong> Cancel any or all alliances before cards are played</li>
+                <li><strong>Hand Zap (×1):</strong> Force a player to discard their hand just as they attempt to use it</li>
+                <li><strong>Keeper (×1):</strong> When drawing new hand, keep all non-challenge cards</li>
+                <li><strong>Plague (×1):</strong> Force a player to lose 3 tokens, 1 lucre, and one of each card type</li>
+                <li><strong>Rebirth (×1):</strong> Regain a base in your home system</li>
+                <li><strong>Sanity (×1):</strong> No powers, cards (except challenge cards), or modifiers this challenge</li>
+                <li><strong>Space Junk (×1):</strong> Take the top card from the discard pile</li>
+                <li><strong>Stellar Gas (×1):</strong> No consolation may be drawn this challenge</li>
+                <li><strong>Time Gash (×1):</strong> Make a challenge anywhere between challenges</li>
+                <li><strong>Un Zap (×1):</strong> Cancel any zap</li>
+                <li><strong>Victory Boon (×1):</strong> Defensive main player receives rewards as if they were a defensive ally</li>
+                <li><strong>Warp Break (×1):</strong> Free all tokens of ONE player from warp or praw at start of challenge</li>
+            </ul>
+            <p class="note-box"><strong>Source:</strong> Complete edict list verified from <a href="http://redamedia.com/warp/mayedict.php3" target="_blank">redamedia.com/warp/mayedict.php3</a></p>
+            
+            <h4>Flare Cards (48 total)</h4>
+            <p>One flare card for each alien power in the game. Each flare has both a "Wild" effect (usable by anyone) and a "Super" effect (usable only by the alien whose power matches the flare).</p>
+            
+            <h3>Destiny Cards (26 total)</h3>
+            <p>Used to determine which player's system you attack. Includes color cards (regular and reverse) and wild cards.</p>
+            <p class="note-box"><strong>Note:</strong> Comets and Instructional destiny cards are from expansions, not the base game.</p>
+            
+            <h3>Physical Components</h3>
+            <ul>
+                <li><strong>6 Planetary System Hexes:</strong> One for each player color</li>
+                <li><strong>1 Warp Hex:</strong> Central hex where lost tokens are placed</li>
+                <li><strong>1 Hyperspace Cone:</strong> Used to hold attacking and defending tokens during encounters (reversible)</li>
+                <li><strong>120 Tokens (6 sets of 20):</strong> Red, Blue, Yellow, Purple, Light Blue, Orange</li>
+            </ul>
+            
+            <h3>More Cosmic Encounter Expansion (1992)</h3>
+            <div class="note-box">
+                <p><strong>If you have the expansion, it adds:</strong></p>
+                <ul>
+                    <li><strong>54 Additional Alien Powers:</strong> Anomaly, Aristocrat, Assessor, Berserker, Boomerang, Bully, Busybody, Butler, Calculator, Crystal, Delegator, Demon, Dictator, Diplomat, Disease, Doppelganger, Dragon, Entrepreneur, Ethic, Extortionist, Force, Ghost, Gnome, Gorgon, Grief, Grudge, Hurtz, Industrialist, Judge, Lloyd, Machine, Mesmer, Miser, Negator, Obverse, Pavlov, Pirate, Plant, Prolong, Prophet, Queue, Reserve, Schizoid, Serpent, Silencer, Siren, Skeptic, Spiff, Sting, Virus, Warpish, Warrior, Witch, Wraith</li>
+                    <li><strong>142 Additional Cards:</strong> 54 Challenge cards (including negative attack cards: -8, -6, -5, -4, -1), 9 Kicker cards, 10 Edicts, 15 Reinforcements, 54 Flares</li>
+                    <li><strong>10 Destiny Cards</strong></li>
+                    <li><strong>16 Comets:</strong> Special destiny cards that modify encounter rules</li>
+                    <li><strong>100 Moon Tokens:</strong> Special locations with unique abilities</li>
+                    <li><strong>100 Lucre Counters:</strong> Currency for buying cards and tokens</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="setup">
+            <h2>Game Setup</h2>
+            
+            <ol>
+                <li><strong>Place the Warp:</strong> Place the warp hex in the center of the table.</li>
+                
+                <li><strong>Attach Planetary Systems:</strong> Attach the planetary system hexes to the warp. Take the 20 tokens of each color and place four of these tokens on each of the five planets of the corresponding planetary system hex. A planet is one of the five colored circles in a planetary system hex.</li>
+                
+                <li><strong>Choose Colors:</strong> Each player now chooses a color to play.</li>
+                
+                <li><strong>Prepare Destiny Deck:</strong> Separate the Destiny Cards from the Challenge Deck. <strong>Remove destiny cards for colors not in the game:</strong> If playing with fewer than 6 players, remove all destiny cards showing the colors that are not being played. For example, in a 4-player game using Red, Blue, Yellow, and Purple, remove all Orange and Light Blue destiny cards. <strong>Keep all Wild destiny cards regardless of player count.</strong> Shuffle the remaining destiny cards and place them face down as the destiny pile.</li>
+                
+                <li><strong>Deal Alien Powers:</strong> Shuffle the Alien Power Cards and give one at random to each player. After reading your Alien Power Card, stand it up behind your planetary system hex, with the picture facing the warp and the description facing you. Before play begins, you should describe to the other players what your Alien Power does.</li>
+                
+                <li><strong>Deal Challenge Deck:</strong> The rest of the cards make up the Challenge Deck. Shuffle these cards and deal 7 cards to each player.</li>
+                
+                <li><strong>Determine First Player:</strong> Cut the Destiny pile. The color that comes up determines who plays first. If a wild destiny card comes up, cut the destiny pile again. Play proceeds clockwise around the warp.</li>
+            </ol>
+        </section>
+        
+        <section id="objective">
+            <h2>How to Win</h2>
+            <p>The object of the game is to establish <strong>bases on other players' planets</strong>, called <strong>external bases</strong>. A base consists of one or more of your tokens on a planet.</p>
+            
+            <p>You win by being the first player to have <strong>five bases outside your own planetary system</strong>. If two or more players gain a fifth external base simultaneously, then a joint win is declared for those players that have five external bases.</p>
+        </section>
+        
+        <section id="alien-powers">
+            <h2>Alien Powers</h2>
+            <p>Each player takes the role of an alien race determined to gain control of the universe. The Alien Power Card describes the unique power that each race possesses. Players can use the unique power of their race to break certain rules in the game.</p>
+            
+            <div class="note-box">
+                <p><strong>Important:</strong> Exactly how and when the alien powers can be used is described on each of the Alien Power Cards. These powers may contradict existing rules. That's OK; <strong>the text of the Alien Power Card takes precedence over the rulebook.</strong></p>
+            </div>
+            
+            <p>Some powers are <strong>automatic</strong> and are triggered by specific situations. Other powers are <strong>optional</strong> allowing their player to decide when they should be used. Optional powers say "may" or "can" to indicate that their use is at the player's discretion.</p>
+        </section>
+        
+        <section id="icons">
+            <h2>Phase Icons</h2>
+            <p>To make it clear when the many different actions and powers may be used during the game, each is assigned one or more icons. These icons correspond to specific game phases or stages. These icons appear on Flare, Edict, and Alien Power Cards indicating when those cards or abilities can be used.</p>
+            
+            <p>There are two icons found on some Alien Power, Edict, and Flare Cards that are not linked to a specific phase or stage of a challenge:</p>
+            <ul>
+                <li><strong>Infinity symbol (∞):</strong> Indicates that the card or power can be used at any time</li>
+                <li><strong>Planetary system hex:</strong> Indicates that your power is used during the setup at the beginning of the game</li>
+            </ul>
+        </section>
+        
+        <section id="cards">
+            <h2>Cards & Hand Management</h2>
+            <p>You can have an <strong>unlimited number of cards</strong> in your hand. You may not discard cards unless specifically required to.</p>
+        </section>
+        
+        <section id="warp">
+            <h2>The Warp</h2>
+            <p>The black space in the central hexagon is called the <strong>warp</strong>. Whenever tokens are lost, they are placed in the warp.</p>
+            
+            <p>Tokens in the warp <strong>cannot be used in challenges</strong>. These tokens are out of the game until you retrieve them and return them to your bases.</p>
+        </section>
+        
+        <section id="overview">
+            <h2>Turn Overview</h2>
+            <p>A player's turn consists of two phases:</p>
+            <ol>
+                <li><strong>Pre-Challenge Phase</strong></li>
+                <li><strong>Challenge Phase</strong> (may consist of one or two challenges)</li>
+            </ol>
+            
+            <p>A challenge consists of several stages which include retrieving tokens from the warp, determining your opponent, asking for allies, and playing Challenge Cards.</p>
+        </section>
+        
+        <section id="pre-challenge">
+            <h2>Pre-Challenge Phase</h2>
+            <p>On your turn, you are the <strong>offensive main player</strong>. During the pre-challenge phase, all players may play any pre-challenge phase cards that they want. Cards that say "at the start of a challenge" can be used during this phase.</p>
+            
+            <p>Then examine your hand:</p>
+            <ul>
+                <li>If you have <strong>one or more Challenge Cards</strong> (Attack or Compromise Cards), you begin the challenge phase.</li>
+                <li>If you have <strong>no Challenge Cards</strong> in your hand, discard your hand, draw seven new cards and return to the beginning of the pre-challenge phase.</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>Important:</strong> You may not draw a new hand except during the pre-challenge phase. If you run out of Challenge Cards prior to playing a Challenge Card in Challenge Stage 7, your turn ends immediately with all tokens on the hyperspace cone returning to their owners' bases, and play passing to the left.</p>
+            </div>
+        </section>
+        
+        <section id="challenge">
+            <h2>Challenge Phase - Ten Stages</h2>
+            <p>Each challenge proceeds through ten distinct stages:</p>
+        </section>
+        
+        <section id="stage1">
+            <div class="stage-box">
+                <h4>Stage 1: Retrieve a Token from the Warp</h4>
+                <p>At the start of each challenge, retrieve one of your tokens from the warp (if you have any there) and place it on any of your bases.</p>
+            </div>
+        </section>
+        
+        <section id="stage2">
+            <div class="stage-box">
+                <h4>Stage 2: Determine Who the Offensive Main Player Will Challenge</h4>
+                <p>Draw a card from the top of the Destiny pile to determine which planetary system you will attack.</p>
+            </div>
+            
+            <h3>Types of Destiny Cards</h3>
+            
+            <h4>Regular Destiny Card</h4>
+            <p>A Regular Destiny Card displays a single color. This color indicates both the player and the planetary system in which the offensive main player must make a challenge.</p>
+            
+            <p><strong>Example:</strong> If you are Red, and you draw a Yellow Destiny Card, you must make a challenge against the Yellow player somewhere in the Yellow player's planetary system. You can either challenge a Yellow player's base directly, challenge an empty planet in the Yellow system, or challenge a planet that contains other players' tokens but none of Yellow's tokens. Yellow would always be the defensive player, simply defending with zero tokens if there are no Yellow tokens there.</p>
+            
+            <div class="note-box">
+                <p><strong>Own Color:</strong> If you turn up your own color from the Destiny pile, you have a choice:</p>
+                <ul>
+                    <li>Turn over the next destiny card and ignore this one</li>
+                    <li>Attempt to regain a base in your own planetary system</li>
+                    <li>Attempt to eliminate another player's base in your system where you have a base</li>
+                </ul>
+                <p>To regain one of your lost bases, you must challenge another player's base in your system where you do not have a base. If you chose to challenge a player in your system, announce who you are attacking, and that player becomes the defensive player.</p>
+                
+                <p><strong>Empty Home Planet:</strong> If you draw your own color and one of your home planets has no tokens of any color on it, you can regain a base simply by placing one or more of your tokens on the planet. This counts as one of the two challenges for your turn and is considered a successful challenge. Go directly to Challenge Stage 10 at this point.</p>
+            </div>
+            
+            <h4>Reverse Destiny Card</h4>
+            <p>The Reverse Destiny Card has a black picture of the hyperspace cone on it with the color of the player to be challenged on the outside.</p>
+            
+            <p>If this card is drawn, <strong>turn over the hyperspace cone</strong> so that the reverse side is up. This will reverse the rewards that allies receive for being involved in a challenge. Offensive allies will receive rewards as if they were defensive allies and defensive allies will receive rewards as if they were offensive allies. The main players will get the same benefits for winning as with the regular hyperspace cone.</p>
+            
+            <h4>Wild Destiny Card</h4>
+            <p>Two of the Destiny Cards are Wild Destiny cards which contain all four colors and do not have the name of a color written on them. These cards allow the offensive main player to <strong>select any planetary system to attack</strong>, as if that color had appeared on the destiny card. There is a Regular and a Reverse Wild Destiny Card.</p>
+            
+            <h3>Defensive Main Player</h3>
+            <p>If you have been chosen as the defensive main player, you must determine whether or not you have any Challenge Cards. If you have no Challenge Cards (either Attack or Compromise Cards), play any legal cards that you want, and then discard your hand and draw seven new cards. As the defensive main player, you continue to play, discard and draw a new hand until you have one or more Challenge Cards.</p>
+        </section>
+        
+        <section id="stage3">
+            <div class="stage-box">
+                <h4>Stage 3: Place Tokens on the Hyperspace Cone and Select the Planet to be Challenged</h4>
+                <p>The offensive main player places between 1 and 4 tokens from their bases onto the oval end of the hyperspace cone and announces which planet in the defensive player's system they are attacking.</p>
+            </div>
+        </section>
+        
+        <section id="stage4">
+            <div class="stage-box">
+                <h4>Stage 4: Offensive Main Player Asks for Allies</h4>
+                <p>The offensive main player may now invite other players to become allies. While it may seem as though you would always want allies, you may want to exclude one or more players or may want no allies at all. This is because allies stand to gain for their support. A winning offensive ally gains a base along with the winning offensive main player.</p>
+                
+                <p>You can specify which players you are inviting to become your allies. The players respond to this invitation in Challenge Stage 6.</p>
+            </div>
+        </section>
+        
+        <section id="stage5">
+            <div class="stage-box">
+                <h4>Stage 5: Defensive Main Player Asks for Allies</h4>
+                <p>The defensive main player may now invite other players to become defensive allies, following the same process as the offensive player.</p>
+            </div>
+        </section>
+        
+        <section id="stage6">
+            <div class="stage-box">
+                <h4>Stage 6: Players Accept or Decline Alliance Invitations</h4>
+                <p>Players who have been invited decide whether to join as allies. If joining, they place 1-4 tokens from their bases onto the ring of the hyperspace cone on the appropriate side (offense or defense).</p>
+            </div>
+        </section>
+        
+        <section id="stage7">
+            <div class="stage-box">
+                <h4>Stage 7: Main Players Play Challenge Cards Face Down</h4>
+                <p>Only Attack and Compromise Challenge cards are played face down in a challenge. Edicts and Flares are never played face down during a challenge.</p>
+                
+                <div class="warning-box">
+                    <p><strong>If you are the defensive main player</strong> and do not have a Challenge Card at the beginning of this stage, play any legal cards that you want, discard your hand, and draw seven new cards. Repeat this procedure until you have a Challenge Card.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="stage8">
+            <div class="stage-box">
+                <h4>Stage 8: Reveal Challenge Cards Simultaneously, Resolve the Challenge, and Apply Results</h4>
+                <p>Both main players reveal their Challenge Cards simultaneously. The outcome depends on which cards were played:</p>
+            </div>
+            
+            <h3>Situation A: Both Main Players Played Attack Cards</h3>
+            <p>If both main players played Attack Cards, you each add the number on your Attack card to the number of tokens on your side (your own plus your allies'). The player with the higher total wins (in case of a tie, the Defending player wins).</p>
+            
+            <p>At this time, players may play Flares and Edicts which may affect the results. The challenge is resolved and the winner determined only after all players have finished playing Flares and Edicts.</p>
+            
+            <h4>If the Offense Wins:</h4>
+            <p>Move all tokens from the oval end of the cone to the planet, establishing a base for yourself and for each of your allies. Defensive tokens on the planet and defensive allies' tokens on the cone's ring go to the warp.</p>
+            
+            <h4>If the Defense Wins:</h4>
+            <p>Keep your tokens (if any) on the planet. All the tokens on the oval end of the cone go to the warp. Defensive allies return their tokens from the cone to any of their bases. The defensive allies receive one card from the Challenge Deck or one token from the warp for each token committed to the challenge. The reward can be a combination of cards and tokens. Any tokens retrieved from the warp must be placed on one of the player's bases.</p>
+            
+            <h3>Situation B: One Player Plays Compromise and the Other Plays Attack</h3>
+            <p>If one player plays an Attack Card and the other player plays a Compromise Card, the player who played the Attack Card wins, with all the same effects as if both players had played Attack Cards. All of the losing side's tokens still go to the warp.</p>
+            
+            <p>If you played the Compromise Card and were willing to compromise you get <strong>consolation</strong> because your opponent attacked you while you attempted to deal.</p>
+            
+            <div class="note-box">
+                <p><strong>Consolation:</strong> Draw one card from your opponent's hand for each of your tokens lost in the challenge, not counting your allies' tokens. (Zombie receives consolation for each Zombie token involved in the challenge). The allies get nothing. If your opponent does not have enough cards for full consolation, you get your opponent's entire hand.</p>
+            </div>
+            
+            <h3>Situation C: Both Players Play Compromise Cards</h3>
+            <p>If both players play Compromise Cards, they have <strong>one minute to make a deal</strong>. All tokens on the cone return to their owner's bases before the deal is made.</p>
+            
+            <p><strong>What you can trade:</strong></p>
+            <ul>
+                <li>Cards (specific or by type)</li>
+                <li>Bases (to give your opponent a base, you allow your opponent to move tokens to a planet where you already have a base)</li>
+                <li>Promises to perform any action (these are not binding)</li>
+            </ul>
+            
+            <div class="note-box">
+                <p><strong>Deal Requirements:</strong> You can never gain more than one base as part of a deal. At least one player must receive something beyond the promise to perform an action. The deal need not be equitable; one player could gain nothing.</p>
+            </div>
+            
+            <p><strong>If no deal is reached:</strong> If the players cannot reach an agreement within one minute, each of the main players loses three tokens of their choice to the warp. The reverse cone has no effect on a deal, and allies are not affected by any deal.</p>
+        </section>
+        
+        <section id="stage9">
+            <div class="stage-box">
+                <h4>Stage 9: Discard the Challenge Cards that Were Played</h4>
+                <p>All Challenge Cards used in the encounter are discarded.</p>
+            </div>
+        </section>
+        
+        <section id="stage10">
+            <div class="stage-box">
+                <h4>Stage 10: End of Challenge</h4>
+                <p>If you win an attack or successfully make a deal on the first challenge of your turn, you may choose to make a second challenge or you may pass.</p>
+                
+                <p>If you have no more Challenge Cards, you may not draw a new hand, you may not make a second challenge, and your turn ends.</p>
+                
+                <p>If you still have Challenge Cards and want to make a second challenge, you start the second challenge at Challenge Stage 1 and remove a token from the warp.</p>
+                
+                <p>When you, as the offensive main player, lose your initial challenge, fail to make a deal, or complete your second challenge, your turn ends. The player to your left becomes the next offensive main player and that player's turn begins with the pre-challenge phase.</p>
+            </div>
+        </section>
+        
+        <section id="destiny-types">
+            <h2>Destiny Card Types Reference</h2>
+            <ul>
+                <li><strong>Regular:</strong> Single color - attack that player's system</li>
+                <li><strong>Reverse:</strong> Single color with black cone - attack that system with reversed ally rewards</li>
+                <li><strong>Wild:</strong> All colors - choose any system to attack</li>
+                <li><strong>Reverse Wild:</strong> All colors with black cone - choose any system with reversed rewards</li>
+            </ul>
+        </section>
+        
+        <section id="flares-edicts">
+            <h2>Flares & Edicts</h2>
+            <p>Flares and Edicts are cards found in the Challenge Deck. They can be used by any player (not just the players involved in the challenge) unless otherwise specified. Flares and Edicts can be played anytime during the phase or stage represented by the icons on the card. They are played face up and take effect immediately. Discard Flares and Edicts after they are played.</p>
+            
+            <h3>Flares</h3>
+            <p>Flares are cards that correspond to the Alien Powers found in the game.</p>
+            <ul>
+                <li><strong>Wild:</strong> If you have a Flare Card that is different from your Alien Power or you have lost the use of your Alien Power, you can use the effect described under "Wild"</li>
+                <li><strong>Super:</strong> If you have the Flare Card that corresponds to your Alien Power, you can use the effect described under "Super"</li>
+            </ul>
+            
+            <h3>Edicts</h3>
+            <p>Edict cards are played like Flares, but do not correspond to an Alien Power. Each Edict card indicates when and how it can be played.</p>
+        </section>
+        
+        <section id="reverse-cone">
+            <h2>Reverse Cone</h2>
+            <p>When the reverse cone is face up, determine the winner of the challenge in the normal way. The main players get the same benefits for winning, but their allies' rewards are reversed:</p>
+            
+            <ul>
+                <li><strong>If the defensive main player wins:</strong> Defensive allies get a base on the defensive main player's planet</li>
+                <li><strong>If the offensive main player wins:</strong> Offensive allies return their tokens to their bases and receive rewards of cards or tokens from the warp for each token committed to the challenge</li>
+            </ul>
+            
+            <p>All losing allies still go to the warp.</p>
+        </section>
+        
+        <section id="timing">
+            <h2>Timing Conflicts</h2>
+            <p>In all cases of timing conflicts (when two players invoke contradictory special effects simultaneously) between Alien Powers, Flares, Edicts, or so on, resolution takes place as follows:</p>
+            
+            <ol>
+                <li>Any players who are not main players go first, starting with the player to the left of the offensive main player and proceeding clockwise</li>
+                <li>Then the offensive main player</li>
+                <li>Finally the defensive main player, if one exists at that time</li>
+            </ol>
+        </section>
+        
+        <section id="power-loss">
+            <h2>Loss of an Alien Power</h2>
+            <p>If you have <strong>fewer than three bases in your own planetary system</strong>, you can no longer use your Alien Power.</p>
+            
+            <p>If you lose the use of your Alien Power, you must turn your Alien Power Card face down and continue to play in the normal manner but cannot use your power, even if its use is otherwise automatic.</p>
+            
+            <p>If you later re-establish a base and thus have at least three bases in your own planetary system, you regain the use of your Alien Power, and may stand the card up.</p>
+        </section>
+        
+        <section id="reverse-hex">
+            <h2>Reverse Hex Rules (Special Planetary Systems)</h2>
+            <p>Each planetary system hex has a reverse side with special rules. These optional variants add strategic complexity to the game:</p>
+            
+            <h3>Binary (Two Powers)</h3>
+            <div class="note-box">
+                <p><strong>Setup:</strong> When setting up at the beginning of the game, the Binary player distributes their tokens among their five planets however they wish.</p>
+                
+                <p><strong>Powers:</strong> When determining alien Powers, the Binary player draws <strong>two Flare Cards</strong>, assigning one power to each star. From this point on, the Binary player can use <strong>either power, but not both on the same challenge</strong>.</p>
+                
+                <p><strong>Power Loss:</strong> If the Binary player loses two bases, they lose the use of one power, but the other is unaffected. For the Binary player to lose both powers, they would have to be reduced to two bases.</p>
+                
+                <p><strong>Variant - Two Suns, Eight Planets:</strong> Binary player has eight planets instead of five. When challenged, must use the power(s) of the base attacked. If Binary loses three bases in either system, they lose the corresponding power. To lose both powers, must be reduced to one base or no base on each system.</p>
+            </div>
+            
+            <h3>Rosette (Adjacent Planets Help)</h3>
+            <div class="note-box">
+                <p><strong>Setup:</strong> Place your 20 tokens on the planets in any combination.</p>
+                
+                <p><strong>When Defending:</strong> The Rosette player can use tokens on the two adjacent planets to compute the outcome of the challenge. These tokens are <strong>not at risk</strong>, and they are added in after cards are revealed and after all other effects are computed.</p>
+                
+                <p><strong>Restrictions:</strong></p>
+                <ul>
+                    <li>Cannot use an adjacent planet if you don't have a base there</li>
+                    <li>Do not have to add tokens from adjacent planets (useful against Anti-Matter)</li>
+                    <li>Can evacuate tokens from the challenged planet to an adjacent planet (if you have a base there)</li>
+                </ul>
+                
+                <p><strong>Regaining Home Planets:</strong> When trying to regain a planet in your own system, can use tokens on planets adjacent to the one you're challenging to compute the winner. As when defending, these tokens are not put at risk.</p>
+            </div>
+            
+            <h3>Worldships (Destiny Control)</h3>
+            <div class="note-box">
+                <p><strong>Setup:</strong> After shuffling the Destiny pile, deal <strong>three Destiny Cards</strong> to the Worldships player, who keeps them as a separate hand, immune from consolation or other incursions.</p>
+                
+                <p><strong>Power:</strong> The Worldships player can use one of these cards to <strong>override a card turned up from the Destiny pile</strong> to:</p>
+                <ul>
+                    <li>Divert an attack from themselves</li>
+                    <li>Redirect their own attack</li>
+                </ul>
+                
+                <p><strong>Wild Cards:</strong> If it is a wild card, the Worldships player decides the color.</p>
+                
+                <p><strong>Discard:</strong> Both Destiny Cards (the drawn one and the override) then go to the discard pile.</p>
+                
+                <p><strong>Refresh:</strong> When the Destiny Pile is exhausted, the Worldships player discards any unused Destiny Cards and draws three new ones from the reshuffled deck.</p>
+                
+                <p><strong>Limitation:</strong> The Worldships player has no effect on the Will (alien power).</p>
+            </div>
+            
+            <h3>Rings (Defensive Bonuses)</h3>
+            <div class="note-box">
+                <p><strong>Setup:</strong> The central planet and each of its <strong>four rings count as separate planets</strong> (5 total). When setting up, distribute your tokens however you wish among the rings and central planet.</p>
+                
+                <p><strong>Defensive Characteristics:</strong> The rings and central planet have special defensive bonuses that are added (or subtracted) to the defender's total:</p>
+                <ul>
+                    <li><strong>Outer ring (Ring 1):</strong> +2 to defense</li>
+                    <li><strong>Second outer ring (Ring 2):</strong> +4 to defense</li>
+                    <li><strong>Second from planet (Ring 3):</strong> +6 to defense</li>
+                    <li><strong>Inner ring (Ring 4):</strong> +8 to defense</li>
+                    <li><strong>Central planet:</strong> +10 to defense</li>
+                </ul>
+                
+                <p><strong>Strategic Choice:</strong> The Rings player can <strong>subtract these values instead of adding them</strong> at their option. This is useful when:</p>
+                <ul>
+                    <li>Facing Anti-Matter or other aliens where lower totals win</li>
+                    <li>Trying to lose intentionally to gain consolation</li>
+                    <li>Wanting to avoid eliminating an ally's ships</li>
+                </ul>
+                
+                <p><strong>Key Strategy:</strong> The inner rings and central planet are extremely defensible (+8 and +10), making them excellent for protecting critical bases. The outer rings are more vulnerable but still provide meaningful bonuses.</p>
+            </div>
+            
+            <h3>Space Dust (No Planets, Star Discs)</h3>
+            <div class="note-box">
+                <p><strong>Setup:</strong> Place all 20 tokens and <strong>three of your four Star Discs</strong> on your Planet Hex. The fourth Star Disc (with "reverse cone" sticker) goes into the Destiny Pile.</p>
+                
+                <p><strong>Bases Without Planets:</strong> Each token and Star Disc on your hex <strong>counts as a separate planet base</strong>, even though there are no actual planets. If you remove a token or Star Disc, that base disappears. Tokens and Star Discs move on/off your hex normally (as if it were one big planet).</p>
+                
+                <p><strong>Power Loss:</strong></p>
+                <ul>
+                    <li>If you have <strong>no home bases</strong> (neither tokens nor Star Discs on your hex), you <strong>lose your Alien Power</strong></li>
+                    <li>If you have no home bases, you cannot place a new token onto your hex when released from the Warp, returning from alliance, etc.</li>
+                </ul>
+                
+                <p><strong>When Defending:</strong> The offensive player picks <strong>one of your tokens or Star Discs</strong> to challenge (as if it were a planet). Your defending token value is 1, unless a <strong>Star Disc is challenged (value 10)</strong>. If you have no tokens on your hex, you may be challenged as though you had a planet base with no tokens.</p>
+                
+                <p><strong>Establishing Bases on Space Dust:</strong> When another player establishes a base on your hex (won attack, made deal, etc.), they stack their tokens and place them on your hex as a base. Each stack counts as a separate base.</p>
+                
+                <p><strong>Star Disc Special Rules:</strong></p>
+                <ul>
+                    <li><strong>Combat Value:</strong> Worth 10 in attacks (not 1), even if you're Macron (but 20 with Mini Mac Moon)</li>
+                    <li><strong>Movement Limit:</strong> May only move one Star Disc into a challenge</li>
+                    <li><strong>Instead of Warp:</strong> Star Discs that would go to Warp go to <strong>Destiny Pile discard stack</strong> instead, shuffled into new pile when deck is exhausted</li>
+                    <li><strong>Permanent Foreign Bases:</strong> When you establish a base on another player's hex with a Star Disc, it may not be moved again (except to Destiny Pile in lieu of Warp)</li>
+                    <li><strong>Items on Star Discs:</strong> Lucre, "Assessed" tokens, etc. are kept just off the hex (treated as if on Star Disc)</li>
+                </ul>
+                
+                <p><strong>Special Interactions:</strong></p>
+                <ul>
+                    <li><strong>Amoeba:</strong> May ooze to defend but must disperse "dust to dust" after challenge</li>
+                    <li><strong>Moon Boon:</strong> Cannot be used by Space Dust player</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="clarifications">
+            <h2>Rules Clarifications & Common Questions</h2>
+            <p>These clarifications address common questions and important differences specific to the Mayfair edition:</p>
+            
+            <h3>Flare Usage - Single Use Only</h3>
+            <div class="warning-box">
+                <p><strong>Critical Mayfair Rule:</strong> In the Mayfair edition, <strong>Flares and Edicts are discarded after one use</strong>. This is different from the Eon edition where most flares could be reused multiple times.</p>
+                <p>Once you play a Flare or Edict, it goes to the discard pile immediately after resolving its effect. You cannot use the same flare card again unless you somehow retrieve it from the discard pile.</p>
+            </div>
+            
+            <h3>Drawing a New Hand</h3>
+            <p><strong>When can you draw a new hand?</strong></p>
+            <ul>
+                <li><strong>Offensive main player:</strong> Only during the pre-challenge phase if you have no Challenge Cards (Attack or Compromise)</li>
+                <li><strong>Defensive main player:</strong> Anytime you need to play a Challenge Card but don't have one (can happen multiple times in one challenge)</li>
+            </ul>
+            
+            <p><strong>What happens when you draw?</strong></p>
+            <ul>
+                <li>You may play any legal cards before discarding (if their timing allows)</li>
+                <li>Discard your entire hand</li>
+                <li>Draw 7 new cards from the Challenge Deck</li>
+                <li>All discarded cards (including Flares) are gone - they don't come back with your new hand</li>
+            </ul>
+            
+            <h3>Empty Planet Defense</h3>
+            <p>If the defense has no ships on a planet during an encounter, they still:</p>
+            <ul>
+                <li>Play encounter cards normally</li>
+                <li>Can receive help from allies</li>
+                <li>Defend their planet as normal</li>
+                <li>Their own ship value is zero when determining totals</li>
+            </ul>
+            
+            <h3>Own Color Destiny</h3>
+            <p>When you draw your own color from the Destiny pile, you have THREE options:</p>
+            <ol>
+                <li><strong>Draw next destiny card:</strong> Ignore this one and draw again</li>
+                <li><strong>Regain a lost base:</strong> Challenge another player's base in your home system where you DON'T have a base</li>
+                <li><strong>Eliminate another player:</strong> Challenge another player's base in your system where you DO have a base</li>
+            </ol>
+            
+            <div class="note-box">
+                <p><strong>Empty Home Planet Shortcut:</strong> If you draw your own color and one of your home planets is completely empty (no tokens of any color), you can immediately place 1-4 of your tokens on it to regain the base. This counts as a successful challenge and you go directly to Challenge Stage 10.</p>
+            </div>
+            
+            <h3>Timing of Effects</h3>
+            <p><strong>When multiple effects happen "at the same time":</strong></p>
+            <ol>
+                <li>Non-main players resolve their effects first (starting left of offense, going clockwise)</li>
+                <li>Offensive main player goes next</li>
+                <li>Defensive main player goes last</li>
+            </ol>
+            
+            <h3>Defensive Ally Rewards</h3>
+            <p>When the defense wins and defensive allies are present:</p>
+            <ul>
+                <li>Each defensive ally gets <strong>one card OR one token from the warp</strong> per token they committed</li>
+                <li>Rewards can be mixed (some cards, some tokens)</li>
+                <li>You must declare all reward sources before taking any rewards</li>
+                <li>Tokens retrieved from the warp must be placed on one of your bases</li>
+            </ul>
+            
+            <h3>Consolation Rules</h3>
+            <p>When one player plays Compromise and the other plays Attack:</p>
+            <ul>
+                <li>The Compromise player gets consolation</li>
+                <li>Draw one card from opponent's hand for each of <strong>your main player tokens</strong> lost</li>
+                <li><strong>Do not count ally tokens</strong> for consolation</li>
+                <li><strong>Exception - Zombie:</strong> Zombie receives consolation for each Zombie token involved in the challenge</li>
+                <li>If opponent doesn't have enough cards, you get their entire hand</li>
+                <li>Allies get nothing</li>
+            </ul>
+            
+            <h3>Failed Deals</h3>
+            <p>When both players play Compromise cards but fail to reach a deal within one minute:</p>
+            <ul>
+                <li>Each main player loses 3 tokens of their choice to the warp</li>
+                <li>Allies are not affected</li>
+                <li>The reverse cone has no effect on deal outcomes</li>
+            </ul>
+            
+            <h3>Cards and Tokens on the Hyperspace Cone</h3>
+            <ul>
+                <li><strong>Offensive tokens:</strong> Placed on the oval end of the cone</li>
+                <li><strong>Defensive allied tokens:</strong> Placed on the ring of the cone</li>
+                <li><strong>Number of tokens:</strong> Both main players and allies can commit 1-4 tokens</li>
+            </ul>
+            
+            <h3>Key Mayfair vs. Eon Differences</h3>
+            <div class="note-box">
+                <p><strong>If you've played other editions:</strong></p>
+                <ul>
+                    <li><strong>Flares:</strong> Single-use in Mayfair (discarded after play); reusable in Eon</li>
+                    <li><strong>Lucre:</strong> In Eon, Lucre adds to encounter totals. In Mayfair base game, Lucre is only in the "More Cosmic Encounter" expansion</li>
+                    <li><strong>Card backs:</strong> Mayfair kept the Eon card back design for compatibility</li>
+                    <li><strong>Terminology:</strong> Mayfair uses "tokens" and "bases" where FFG uses "ships" and "colonies"</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="alien-clarifications">
+            <h2>Alien Power Clarifications & Interactions</h2>
+            <p>These clarifications apply to aliens found in the Mayfair version and cover common questions, interactions, and insights from across all editions of Cosmic Encounter:</p>
+            
+            <h3>Zombie - Ships Never Go to Warp</h3>
+            <div class="note-box">
+                <p><strong>Power:</strong> Whenever Zombie's ships would be lost to the warp, they instead return to any of Zombie's colonies.</p>
+                
+                <p><strong>Key Clarification - The Zombie Exception:</strong></p>
+                <p>When you play Compromise and lose to an Attack card, you normally receive <strong>consolation</strong> - drawing one card from your opponent's hand for each of your tokens that went to the warp (main player's tokens only, not allies).</p>
+                
+                <p><strong>The Problem:</strong> Since Zombie's tokens never go to the warp, by the normal rule Zombie would receive NO consolation.</p>
+                
+                <p><strong>The Exception:</strong> The Mayfair rules explicitly state that <strong>Zombie receives consolation for each Zombie token involved in the challenge</strong> - meaning Zombie gets consolation AS IF the tokens had gone to the warp, even though they didn't. This maintains game balance and prevents Zombie from being overly penalized for its power.</p>
+                
+                <p><strong>Strategic Implications:</strong></p>
+                <ul>
+                    <li><strong>Reckless Play Advantage:</strong> Zombie can intentionally lose encounters with 4 ships to eliminate allies' ships without any personal cost - the ships just return to Zombie's bases</li>
+                    <li><strong>Always Max Ships:</strong> Zombie should generally commit 4 ships as main player and 4 as ally since there's no downside to losing them</li>
+                    <li><strong>Card Quality Issue:</strong> Since Zombie never loses ships permanently, Zombie can't retrieve them from the warp and may struggle to maintain a strong hand over time</li>
+                </ul>
+            </div>
+            
+            <h3>Void - Ships Removed from Game</h3>
+            <div class="warning-box">
+                <p><strong>Power:</strong> As a main player, when Void wins an encounter, losing ships are removed from the game rather than sent to the warp.</p>
+                
+                <p><strong>Key Clarifications:</strong></p>
+                <ul>
+                    <li><strong>No Consolation:</strong> Playing Compromise against Void gives NO consolation because ships don't go to the warp (they're removed from the game)</li>
+                    <li><strong>Safety Limit:</strong> In FFG edition (and recommended for Mayfair), Void cannot reduce a player below the number of foreign colonies needed to win. Excess ships go to warp instead</li>
+                    <li><strong>Permanent Loss:</strong> Eradicated ships are gone forever (unless Healer is in the game)</li>
+                </ul>
+            </div>
+            
+            <h3>Zombie vs. Void Interaction</h3>
+            <div class="warning-box">
+                <p><strong>The Classic Problem:</strong> When Zombie loses to Void, what happens?</p>
+                
+                <p><strong>Official FFG Ruling (Recommended for Mayfair):</strong></p>
+                <p>Void's power takes precedence. Zombie's ships are eradicated (removed from game) because Void causes ships to never go to the warp in the first place. Since Zombie's power only triggers when ships "should go to the warp," and Void prevents that entirely, Zombie cannot save the ships.</p>
+                
+                <p><strong>Alternative House Rule:</strong> Some groups use timing conflict resolution (offense first, then defense) to determine which power activates first. This creates a rock-paper-scissors relationship: Zombie beats most aliens, Void beats Zombie, Healer beats Void.</p>
+            </div>
+            
+            <h3>Healer - Revives Ships from Warp</h3>
+            <div class="note-box">
+                <p><strong>Power:</strong> Whenever any player (including opponents) loses ships to the warp, Healer may immediately revive all those ships to any of that player's colonies. Healer draws one card for each ship healed.</p>
+                
+                <p><strong>Key Clarifications:</strong></p>
+                <ul>
+                    <li><strong>Cannot Heal Zombie:</strong> Zombie's ships never reach the warp, so Healer cannot revive them</li>
+                    <li><strong>Cannot Heal Voided Ships:</strong> Ships removed by Void don't go to warp, so Healer cannot revive them (unless using house rule below)</li>
+                    <li><strong>Consolation Still Works:</strong> Healer healing ships doesn't prevent the losing player from receiving consolation - the ships still "went to the warp" for that purpose</li>
+                    <li><strong>Use It Liberally:</strong> Cards are powerful - heal often even if it helps opponents</li>
+                </ul>
+                
+                <p><strong>Recommended House Rules (from Cosmodex):</strong></p>
+                <ul>
+                    <li>Healer cannot heal ships being removed from the game by Void</li>
+                    <li>The healed player may choose to leave any or all healed ships in the warp (Healer still draws cards)</li>
+                </ul>
+            </div>
+            
+            <h3>Macron - Each Ship Worth 4</h3>
+            <div class="note-box">
+                <p><strong>Power (Official Mayfair Text):</strong> "You have the power of mass. Each of your tokens has a value of four. You may bring only one token in an offensive challenge or as an ally, but it counts as four toward your side's total. <strong>When collecting consolation or rewards, your token counts as one, just as any other player's.</strong>"</p>
+                
+                <p><strong>Key Clarifications:</strong></p>
+                <ul>
+                    <li><strong>Limited to 1 Ship:</strong> Macron can only send 1 ship when main player on offense OR as an ally</li>
+                    <li><strong>Worth 4 in Combat:</strong> That 1 ship adds 4 to the encounter total</li>
+                    <li><strong>Worth 1 for Consolation/Rewards:</strong> When collecting consolation (Compromise vs Attack) or defensive ally rewards, Macron's ship counts as only 1, not 4</li>
+                    <li><strong>Can Defend Normally:</strong> When defending as main player, Macron can use 1-4 ships (no restriction), each worth 4</li>
+                    <li><strong>Vulnerable to Anti-Matter:</strong> High totals become a liability against aliens where lower total wins</li>
+                    <li><strong>Prime Target:</strong> Opponents with ship-destroying powers will target Macron's valuable ships</li>
+                    <li><strong>Zapping Timing:</strong> If zapped before placing ships, must send 1-4 ships worth 1 each; if zapped after cards revealed, stuck with 1 ship worth 1</li>
+                </ul>
+            </div>
+            
+            <h3>Virus - Multiplies Attack Card</h3>
+            <div class="note-box">
+                <p><strong>Power:</strong> As a main player, Virus multiplies their attack card value by the number of ships they have in the encounter.</p>
+                
+                <p><strong>Key Clarifications:</strong></p>
+                <ul>
+                    <li><strong>Vulnerable to Anti-Matter/Loser:</strong> High totals backfire when lower wins</li>
+                    <li><strong>No Effect on Compromise:</strong> Virus power only works with attack cards</li>
+                    <li><strong>Calculation:</strong> (Attack Card × Number of Ships) + allies' ships = Total</li>
+                </ul>
+            </div>
+            
+            <h3>Oracle - Peeks at Opponent's Card</h3>
+            <div class="note-box">
+                <p><strong>Power:</strong> As a main player, before playing encounter cards, Oracle may force their opponent to show them what card they will play.</p>
+                
+                <p><strong>Key Clarifications:</strong></p>
+                <ul>
+                    <li><strong>Opponent Can Change:</strong> After showing Oracle, the opponent may still change their card before both players lock in</li>
+                    <li><strong>Mind Games:</strong> Creates psychological warfare - Oracle knows their intent even if they switch</li>
+                </ul>
+            </div>
+            
+            <h3>Problematic Alien Combinations</h3>
+            <div class="warning-box">
+                <p><strong>Do Not Use Together (Recommended Restrictions):</strong></p>
+                <ul>
+                    <li><strong>Zombie + Healer:</strong> Makes Healer's power nearly useless</li>
+                    <li><strong>Void + Healer:</strong> Conflicts over whether Healer can revive voided ships (use house rule above)</li>
+                    <li><strong>Zombie + Void:</strong> Classic timing conflict (see ruling above)</li>
+                    <li><strong>Macron + Amoeba</strong> (if using multiple powers): Notoriously overpowered combination</li>
+                </ul>
+                
+                <p>These combinations either create unresolvable conflicts or make one alien's power completely ineffective. Consider banning or house-ruling these pairings.</p>
+            </div>
+            
+            <h3>Cross-Edition Differences to Note</h3>
+            <div class="note-box">
+                <p><strong>Mayfair aliens may work differently in other editions:</strong></p>
+                <ul>
+                    <li><strong>Terminology:</strong> Mayfair uses "tokens" and "bases"; FFG uses "ships" and "colonies"</li>
+                    <li><strong>Flare Usage:</strong> Mayfair flares are single-use (discarded after play); Eon flares are reusable; FFG flares stay in hand after use</li>
+                    <li><strong>Timing Indicators:</strong> Later editions added explicit phase icons on cards; Mayfair has them too</li>
+                    <li><strong>Lucre Mechanics:</strong> Eon and Mayfair handle Lucre differently; FFG modified it significantly</li>
+                </ul>
+            </div>
+            
+            <h3>General Alien Strategy Tips</h3>
+            <ul>
+                <li><strong>Know Your Matchups:</strong> Some aliens hard-counter others (Anti-Matter beats Virus/Macron; Healer beats Void)</li>
+                <li><strong>Diplomatic Immunity:</strong> Aliens with powerful abilities often become targets - build alliances early</li>
+                <li><strong>Card Management:</strong> Aliens like Zombie that don't get consolation (from playing Compromise and losing) struggle with card quality</li>
+                <li><strong>Timing is Everything:</strong> When two powers conflict, use the timing resolution rules (non-main players → offense → defense)</li>
+                <li><strong>Zapping Priorities:</strong> Save Cosmic Zaps for game-breaking powers, not minor inconveniences</li>
+            </ul>
+        </section>
+        
+        <section id="quick-reference">
+            <h2>Quick Reference / Cheat Sheet</h2>
+            <p>Fast lookup for common gameplay questions and turn structure:</p>
+            
+            <h3>Turn Structure At-a-Glance</h3>
+            <div class="stage-box">
+                <h4>Pre-Challenge Phase</h4>
+                <ul>
+                    <li>Play any pre-challenge cards</li>
+                    <li>Check: Do you have Challenge Cards (Attack or Compromise)?</li>
+                    <li>If NO: Discard hand → Draw 7 new cards → Repeat check</li>
+                    <li>If YES: Proceed to Challenge Phase</li>
+                </ul>
+            </div>
+            
+            <div class="stage-box">
+                <h4>Challenge Phase (10 Stages)</h4>
+                <ol>
+                    <li><strong>Retrieve:</strong> Take 1 token from warp (if any)</li>
+                    <li><strong>Destiny:</strong> Draw destiny card → Determine opponent</li>
+                    <li><strong>Launch:</strong> Place 1-4 tokens on cone → Select target planet</li>
+                    <li><strong>Offense Allies:</strong> Invite specific players or "all"</li>
+                    <li><strong>Defense Allies:</strong> Invite specific players or "all"</li>
+                    <li><strong>Accept/Decline:</strong> Allies place 1-4 tokens on cone ring</li>
+                    <li><strong>Play Cards:</strong> Both main players play Challenge Card face down</li>
+                    <li><strong>Reveal & Resolve:</strong> Flip cards → Determine winner → Move tokens</li>
+                    <li><strong>Discard:</strong> Challenge Cards go to discard</li>
+                    <li><strong>End Challenge:</strong> Second challenge or pass</li>
+                </ol>
+            </div>
+            
+            <h3>Quick Decision Guide</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+                <tr style="background-color: var(--bg-secondary);">
+                    <th style="padding: 0.5rem; border: 1px solid var(--border-color); text-align: left;">Situation</th>
+                    <th style="padding: 0.5rem; border: 1px solid var(--border-color); text-align: left;">What Happens</th>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Attack vs. Attack</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Higher total wins (ties = defense wins)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Attack vs. Compromise</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Attack wins → Compromise gets consolation</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Compromise vs. Compromise</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">1 minute to deal → Fail = each loses 3 tokens</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Draw own color</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Draw next OR regain base OR eliminate player</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Out of Challenge Cards</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Discard hand → Draw 7 (offense: pre-challenge only; defense: anytime)</td>
+                </tr>
+                <tr>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">Lose power</td>
+                    <td style="padding: 0.5rem; border: 1px solid var(--border-color);">When you have fewer than 3 home bases</td>
+                </tr>
+            </table>
+            
+            <h3>Card Playing Timing</h3>
+            <div class="note-box">
+                <p><strong>Face Down:</strong> Only Attack and Compromise cards (Challenge Cards)</p>
+                <p><strong>Face Up:</strong> Flares and Edicts (never face down)</p>
+                <p><strong>When to Play:</strong> Check the phase icons on each card</p>
+            </div>
+            
+            <h3>Token Math Quick Reference</h3>
+            <ul>
+                <li><strong>Start of game:</strong> 20 tokens per player (4 on each of 5 planets)</li>
+                <li><strong>Commit to encounter:</strong> 1-4 tokens (main player or ally)</li>
+                <li><strong>Retrieve from warp:</strong> 1 token per challenge</li>
+                <li><strong>Win condition:</strong> 5 external bases (bases outside your home system)</li>
+                <li><strong>Power loss:</strong> Fewer than 3 home bases</li>
+            </ul>
+            
+            <h3>Most Commonly Forgotten Rules</h3>
+            <div class="warning-box">
+                <ul>
+                    <li>Retrieve 1 token from warp at START of each challenge (Stage 1)</li>
+                    <li>Flares and Edicts are single-use in Mayfair (discard after playing)</li>
+                    <li>Defense can draw new hand multiple times in one encounter if needed</li>
+                    <li>Allies return to bases before deals are negotiated</li>
+                    <li>Defensive allies get rewards ONLY if defense wins</li>
+                    <li>Can only have second challenge if you WIN or successfully DEAL on first</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="deal-making">
+            <h2>Deal-Making Guidelines</h2>
+            <p>When both players play Compromise cards, you have one minute to make a deal:</p>
+            
+            <h3>What Can Be Traded</h3>
+            <div class="note-box">
+                <p><strong>Cards:</strong></p>
+                <ul>
+                    <li>Specific cards: "I'll give you my Attack 20"</li>
+                    <li>Card types: "Give me an Attack card higher than 12"</li>
+                    <li>Any number of cards in either direction</li>
+                </ul>
+                
+                <p><strong>Bases (Colonies):</strong></p>
+                <ul>
+                    <li>You can give opponent a base by letting them place tokens on a planet where you already have a base</li>
+                    <li>Maximum one base per deal</li>
+                    <li>Cannot gain more than one base in a single deal</li>
+                </ul>
+                
+                <p><strong>Promises (Non-Binding):</strong></p>
+                <ul>
+                    <li>"I won't attack you next turn"</li>
+                    <li>"I'll invite you as an ally"</li>
+                    <li>"I'll help you against [player]"</li>
+                    <li><strong>Important:</strong> Promises are NOT binding - you can break them</li>
+                </ul>
+            </div>
+            
+            <h3>Deal Requirements</h3>
+            <div class="warning-box">
+                <p><strong>Must Include:</strong> At least one player must receive something beyond just a promise to perform an action</p>
+                <p><strong>Does NOT Need:</strong> To be equal or fair - one player can gain everything, the other nothing</p>
+            </div>
+            
+            <h3>Sample Deals</h3>
+            <div class="note-box">
+                <h4>Balanced Trade</h4>
+                <p>"I'll give you 3 cards from my hand, you give me a base on your yellow planet"</p>
+                
+                <h4>Unequal but Valid</h4>
+                <p>"Give me a base and I'll promise not to attack you" (Promise alone wouldn't work, but base + promise is valid)</p>
+                
+                <h4>One-Sided</h4>
+                <p>"I'll give you a base for nothing" (Valid - one player receives something tangible)</p>
+                
+                <h4>Complex Deal</h4>
+                <p>"Give me your highest Attack card and one Flare. In return, I'll give you a base and promise to ally with you against Blue next turn"</p>
+                
+                <h4>Invalid Deal</h4>
+                <p>"We both promise not to attack each other" (Only promises, nothing tangible)</p>
+            </div>
+            
+            <h3>Deal Negotiation Tips</h3>
+            <ul>
+                <li><strong>Start High:</strong> Ask for more than you expect to get</li>
+                <li><strong>Know Card Values:</strong> High attacks (15+) and Compromise cards are premium</li>
+                <li><strong>Count Bases:</strong> Know who's close to winning (needs 5 external bases)</li>
+                <li><strong>Time Pressure:</strong> Use the 1-minute limit strategically</li>
+                <li><strong>Kingmaking:</strong> Giving a base to someone with 4 external bases wins them the game</li>
+                <li><strong>Future Favors:</strong> Build alliances through generous deals early</li>
+                <li><strong>Reputation Matters:</strong> Breaking promises affects future negotiations</li>
+            </ul>
+            
+            <h3>Failed Deal Penalty</h3>
+            <div class="warning-box">
+                <p>If no deal is reached within one minute:</p>
+                <ul>
+                    <li>Each main player loses 3 tokens of their choice to the warp</li>
+                    <li>Allies are NOT affected</li>
+                    <li>Reverse cone has NO effect on deals</li>
+                </ul>
+            </div>
+            
+            <h3>Advanced Deal Tactics</h3>
+            <div class="note-box">
+                <p><strong>Stalling:</strong> If you need the other player to fail (to weaken them), negotiate slowly and reject offers</p>
+                <p><strong>Quick Deal:</strong> If both players desperately need the deal, make it simple and fast</p>
+                <p><strong>Public Negotiation:</strong> Other players hear your deals - use this to build or break alliances</p>
+                <p><strong>The No-Deal Threat:</strong> Threaten to walk away to get better terms</p>
+            </div>
+        </section>
+        
+        <section id="common-mistakes">
+            <h2>Common Mistakes & How to Avoid Them</h2>
+            <p>Learn from the most frequent errors new (and experienced) players make:</p>
+            
+            <h3>Setup & Beginning Game</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Forgetting to remove Destiny Cards for colors not in play</p>
+                <p><strong>Fix:</strong> Before shuffling Destiny deck, remove all cards matching unused player colors</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Not describing alien powers before first turn</p>
+                <p><strong>Fix:</strong> Each player should explain their power out loud during setup</p>
+            </div>
+            
+            <h3>During Encounters</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Forgetting to retrieve from the warp (Stage 1)</p>
+                <p><strong>Fix:</strong> Make it a ritual - "Start of my turn: retrieve 1 from warp"</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Playing Flares or Edicts face down</p>
+                <p><strong>Fix:</strong> Remember: ONLY Challenge Cards (Attack/Compromise) go face down</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Offense trying to draw new hand after pre-challenge phase</p>
+                <p><strong>Fix:</strong> Offense can ONLY draw during pre-challenge. If you run out mid-turn, your turn ends</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Defense not drawing new hand when they need Challenge Cards</p>
+                <p><strong>Fix:</strong> Defense can (and must) draw whenever they don't have a Challenge Card to play</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Forgetting allies lose ships too when they lose</p>
+                <p><strong>Fix:</strong> All losing tokens (main player + allies) go to warp (or wherever the power specifies)</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Thinking defensive allies get rewards when defense loses</p>
+                <p><strong>Fix:</strong> Defensive allies ONLY get rewards when defense WINS</p>
+            </div>
+            
+            <h3>Card Management</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Voluntarily discarding cards you don't want</p>
+                <p><strong>Fix:</strong> You can have unlimited cards - never discard unless required</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Thinking you can reuse Flares</p>
+                <p><strong>Fix:</strong> In Mayfair, Flares are SINGLE-USE - they're discarded after playing</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Counting ally tokens for consolation</p>
+                <p><strong>Fix:</strong> Consolation = 1 card per MAIN PLAYER token lost (exception: Zombie counts all Zombie tokens)</p>
+            </div>
+            
+            <h3>Power & Timing Issues</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Using alien power after losing it (fewer than 3 home bases)</p>
+                <p><strong>Fix:</strong> Turn power card face down when below 3 home bases - cannot use even if mandatory</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Not following timing conflict resolution rules</p>
+                <p><strong>Fix:</strong> When two powers conflict: Non-main players → Offense → Defense</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Playing cards outside their allowed phase</p>
+                <p><strong>Fix:</strong> Check the phase icons on every card before playing</p>
+            </div>
+            
+            <h3>Deals & Negotiations</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Making deals that violate the rules</p>
+                <p><strong>Fix:</strong> Remember: Maximum 1 base per deal, at least one tangible item must change hands</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Negotiating before allies have returned their ships</p>
+                <p><strong>Fix:</strong> When both play Compromise: allies return ships FIRST, then negotiate</p>
+            </div>
+            
+            <h3>Victory Conditions</h3>
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Counting home bases toward the 5 needed to win</p>
+                <p><strong>Fix:</strong> You need 5 EXTERNAL bases (bases outside your home system)</p>
+            </div>
+            
+            <div class="warning-box">
+                <p><strong>Mistake:</strong> Not recognizing joint victories</p>
+                <p><strong>Fix:</strong> If multiple players reach 5 external bases simultaneously, they ALL win together</p>
+            </div>
+            
+            <h3>Strategic Errors</h3>
+            <div class="note-box">
+                <p><strong>Mistake:</strong> Always sending 4 ships as ally</p>
+                <p><strong>Better:</strong> Consider the risk - you might lose all 4. Sometimes 1-2 ships is smarter</p>
+            </div>
+            
+            <div class="note-box">
+                <p><strong>Mistake:</strong> Never playing Compromise</p>
+                <p><strong>Better:</strong> Compromise is powerful when you need cards or bases through deals</p>
+            </div>
+            
+            <div class="note-box">
+                <p><strong>Mistake:</strong> Ignoring the player close to winning</p>
+                <p><strong>Better:</strong> If someone has 4 external bases, gang up on them or they'll win next turn</p>
+            </div>
+        </section>
+        
+        <section id="teaching-guide">
+            <h2>Teaching New Players</h2>
+            <p>How to introduce Cosmic Encounter to first-time players:</p>
+            
+            <h3>Before Setup: The 2-Minute Pitch</h3>
+            <div class="note-box">
+                <p>"Cosmic Encounter is a game where you're an alien race trying to conquer the galaxy. The twist? Every alien breaks the rules in a unique way. You'll be making deals, forming temporary alliances, and occasionally backstabbing each other. First person to 5 bases outside their home system wins."</p>
+            </div>
+            
+            <h3>Setup Walkthrough</h3>
+            <ol>
+                <li><strong>Give everyone a color</strong> and show them their home system (5 planets with 4 tokens each)</li>
+                <li><strong>Explain the warp</strong> - "When you lose, your ships go here temporarily"</li>
+                <li><strong>Deal alien powers</strong> - Have each player read theirs aloud and explain to the group</li>
+                <li><strong>Deal 7 cards to each player</strong> - Quickly show the card types (Attack, Compromise, Flares, Edicts)</li>
+                <li><strong>Set up destiny deck</strong> - "This determines who you attack each turn"</li>
+            </ol>
+            
+            <h3>First Turn: Walk Through Together</h3>
+            <div class="note-box">
+                <p><strong>Best Teaching Method:</strong> Do the first player's entire turn as a group, explaining each step:</p>
+                
+                <ol>
+                    <li><strong>"Check for Challenge Cards"</strong> - Everyone look at their hand</li>
+                    <li><strong>"Draw Destiny"</strong> - Flip the card: "This means you attack [color] player"</li>
+                    <li><strong>"Load the cone"</strong> - "Put 1-4 ships on the cone. More ships = stronger but riskier"</li>
+                    <li><strong>"Pick a planet"</strong> - Point at one of the defender's planets</li>
+                    <li><strong>"Ask for allies"</strong> - "Who wants to help me? You can gain a base if I win!"</li>
+                    <li><strong>"Defender asks for allies"</strong> - Same thing for defense</li>
+                    <li><strong>"Play cards face down"</strong> - Both main players choose Attack or Compromise</li>
+                    <li><strong>"Reveal and resolve"</strong> - Add up totals, determine winner, move ships</li>
+                </ol>
+            </div>
+            
+            <h3>Simplified First Game Rules</h3>
+            <div class="note-box">
+                <p><strong>For absolute beginners, consider simplifying:</strong></p>
+                <ul>
+                    <li>Skip Flares and Edicts for the first game (just Attack/Compromise cards)</li>
+                    <li>Play to 4 external bases instead of 5 (shorter game)</li>
+                    <li>Give everyone "friendly" alien powers (avoid complex or interactive powers)</li>
+                </ul>
+            </div>
+            
+            <h3>Recommended Aliens for Teaching Games</h3>
+            <div class="note-box">
+                <p><strong>Good for beginners (simple, straightforward):</strong></p>
+                <ul>
+                    <li><strong>Laser:</strong> Automatically plays highest Attack card</li>
+                    <li><strong>Philanthropist:</strong> Gives away cards to make friends</li>
+                    <li><strong>Oracle:</strong> Simple power - peeks at opponent's card</li>
+                </ul>
+                
+                <p><strong>Avoid for first game (too complex or confusing):</strong></p>
+                <ul>
+                    <li><strong>Zombie:</strong> Breaks fundamental rules about the warp</li>
+                    <li><strong>Void:</strong> Permanently removes ships (harsh for learning)</li>
+                    <li><strong>Macron:</strong> Different ship counting confuses new players</li>
+                    <li><strong>Virus:</strong> Multiplication math slows down new players</li>
+                </ul>
+            </div>
+            
+            <h3>Key Concepts to Emphasize</h3>
+            <div class="warning-box">
+                <p><strong>Make sure new players understand:</strong></p>
+                <ul>
+                    <li><strong>Allies can be anyone</strong> - You can help the attacker against yourself being attacked (weird but legal)</li>
+                    <li><strong>Deals are binding only for cards/bases</strong> - Promises can be broken</li>
+                    <li><strong>The game is social</strong> - Talking, negotiating, and politicking is expected</li>
+                    <li><strong>Losing is temporary</strong> - Ships come back from the warp gradually</li>
+                    <li><strong>Powers > Rules</strong> - When your alien power contradicts the rulebook, the power wins</li>
+                </ul>
+            </div>
+            
+            <h3>Common New Player Questions</h3>
+            <div class="note-box">
+                <p><strong>Q: "Can I attack the person who just attacked me?"</strong></p>
+                <p>A: Not immediately (it's not your turn), but you might draw their color on your next turn</p>
+                
+                <p><strong>Q: "Do I have to help someone as an ally?"</strong></p>
+                <p>A: No, it's always optional. You can decline or send fewer ships</p>
+                
+                <p><strong>Q: "What if I draw my own color?"</strong></p>
+                <p>A: You have 3 choices: draw again, regain a lost base, or attack another player in your system</p>
+                
+                <p><strong>Q: "Can I look through the discard pile?"</strong></p>
+                <p>A: Yes, all discards are public information</p>
+                
+                <p><strong>Q: "When exactly does my power work?"</strong></p>
+                <p>A: Check the icons on your power card - they show which phase(s)</p>
+            </div>
+            
+            <h3>Teaching Timeline</h3>
+            <ul>
+                <li><strong>0-5 min:</strong> Explain concept and victory condition</li>
+                <li><strong>5-15 min:</strong> Setup and alien power reveals</li>
+                <li><strong>15-30 min:</strong> First turn walkthrough as a group</li>
+                <li><strong>30+ min:</strong> Let them play, answer questions as they arise</li>
+                <li><strong>After first game:</strong> Add Flares/Edicts and discuss more complex aliens</li>
+            </ul>
+            
+            <h3>Dealing with Analysis Paralysis</h3>
+            <div class="note-box">
+                <p>New players can overthink. Help them along:</p>
+                <ul>
+                    <li><strong>Limit think time:</strong> "Pick a card in 30 seconds"</li>
+                    <li><strong>Simplify choices:</strong> "Do you want to attack or make a deal?"</li>
+                    <li><strong>Encourage risk:</strong> "It's a learning game, just try it!"</li>
+                    <li><strong>Remind them:</strong> "You can't plan too far ahead - everyone's power changes the game"</li>
+                </ul>
+            </div>
+            
+            <h3>Post-Game Debrief</h3>
+            <p>After the first game, discuss:</p>
+            <ul>
+                <li>What alien powers were most fun/confusing?</li>
+                <li>Did anyone make a memorable deal or betrayal?</li>
+                <li>What would you do differently next game?</li>
+                <li>Ready to try Flares and Edicts next time?</li>
+            </ul>
+        </section>
+        
+        <section id="house-rules">
+            <h2>Suggested House Rules</h2>
+            <p>Optional rules to enhance gameplay or address edge cases not covered in the official rulebook:</p>
+            
+            <h3>Card Information Restrictions</h3>
+            <div class="note-box">
+                <p><strong>Rule:</strong> Players may not view other players' cards except when allowed explicitly by game effects (for example, the Aura and Vulch powers).</p>
+                
+                <p><strong>Discussing Cards:</strong> Players may say (truthfully or not) what cards they have <strong>only as part of within-game dealmaking</strong>.</p>
+                
+                <p><strong>Allowed:</strong></p>
+                <ul>
+                    <li>"If you invite me to ally with you, you will win" (general statement)</li>
+                    <li>"You should Magnet me onto that player's side" (general suggestion)</li>
+                    <li>"I have high cards" (vague claims during dealmaking)</li>
+                </ul>
+                
+                <p><strong>Not Allowed:</strong></p>
+                <ul>
+                    <li>"If you invite me to ally with you, I'll play my Filch flare card" (specific card outside dealmaking)</li>
+                    <li>"You should Magnet me onto that player's side so I can play XYZ card to make him lose" (tactical card discussion)</li>
+                    <li>Showing cards to other players without a game effect allowing it</li>
+                </ul>
+                
+                <p><strong>Why this works:</strong> Prevents excessive table talk and "quarterbacking" while maintaining the social negotiation aspect that makes Cosmic Encounter unique. Information asymmetry creates tension and surprise.</p>
+            </div>
+            
+            <h3>Acquiring Illegal Powers Mid-Game</h3>
+            <div class="note-box">
+                <p><strong>Rule:</strong> If a player acquires an illegal power after the start of the game (e.g., one that conflicts with a power already in the game), <strong>replace that power with one drawn at random from the unused flare deck</strong>.</p>
+                
+                <p><strong>Examples of illegal powers:</strong></p>
+                <ul>
+                    <li>Zombie when Healer is in play (conflict)</li>
+                    <li>Void when Healer is in play (conflict)</li>
+                    <li>A duplicate of a power already in play</li>
+                    <li>Any power marked as incompatible with specific game elements</li>
+                </ul>
+                
+                <p><strong>Process:</strong> Discard the illegal power → Draw random flare from unused pile → Use that alien power → Add the flare to the deck (if playing with flares)</p>
+            </div>
+            
+            <h3>Acquiring Setup Powers Mid-Game</h3>
+            <div class="note-box">
+                <p><strong>Rule:</strong> If a player acquires a power with setup effects after the start of the game, <strong>replace that power with one drawn at random from the unused flare deck</strong>.</p>
+                
+                <p><strong>Examples of setup powers:</strong></p>
+                <ul>
+                    <li>Powers that modify initial token placement</li>
+                    <li>Powers that affect destiny deck construction</li>
+                    <li>Powers that grant special components at game start</li>
+                    <li>Any power with the setup icon (miniature planetary system hex)</li>
+                </ul>
+                
+                <p><strong>Why this works:</strong> Setup powers cannot be retroactively applied mid-game without creating imbalance or confusion. Drawing a new power maintains fairness.</p>
+            </div>
+            
+            <h3>Resolving Unclear Situations</h3>
+            <div class="note-box">
+                <p><strong>Rule:</strong> Problems not covered by the rules or house rules should be decided by the following process:</p>
+                
+                <ol>
+                    <li><strong>Consensus:</strong> Try to reach agreement through discussion, with some deference to experienced players and the game's owner</li>
+                    <li><strong>Majority Vote:</strong> If consensus is not possible, determine by majority vote</li>
+                    <li><strong>Break Ties:</strong> If vote is tied, decide randomly (e.g., by rolling a die, flipping a coin)</li>
+                </ol>
+                
+                <p><strong>Best Practice:</strong> After resolving an unclear situation, write down the ruling so your group handles it consistently in future games. You can add it to your personal house rules.</p>
+            </div>
+            
+            <h3>Flare Variant: Choose Your Alien</h3>
+            <div class="note-box">
+                <p><strong>Alternative Setup Method:</strong> Instead of dealing one random alien power to each player, use this variant for more player agency:</p>
+                
+                <ol>
+                    <li><strong>During Setup:</strong> Deal <strong>two alien flare cards</strong> to each player</li>
+                    <li><strong>Choice:</strong> Each player chooses one alien to play</li>
+                    <li><strong>Add to Deck:</strong> Both flare cards (the chosen alien's flare and the rejected alien's flare) are shuffled into the Challenge Deck</li>
+                    <li><strong>Minimum Flares:</strong> If playing with fewer than five people, add random flare cards to the deck to make a total of <strong>10 flare cards in the deck</strong></li>
+                </ol>
+                
+                <p><strong>Benefits:</strong></p>
+                <ul>
+                    <li>Players get some control over their alien power choice</li>
+                    <li>Reduces chance of getting an alien you strongly dislike</li>
+                    <li>Ensures flares are present for both chosen and rejected aliens</li>
+                    <li>Maintains adequate flare density in smaller games</li>
+                </ul>
+                
+                <p><strong>Trade-off:</strong> Slightly reduces the "random chaos" element that some players enjoy. Choose based on your group's preferences.</p>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+        
+        function toggleMenu() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('open');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const mainContent = document.querySelector('main');
+            
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase().trim();
+                
+                if (query.length < 2) {
+                    searchResults.innerHTML = '';
+                    clearHighlights();
+                    return;
+                }
+                
+                // Clear previous highlights
+                clearHighlights();
+                
+                // Search through all sections
+                const sections = mainContent.querySelectorAll('section');
+                const results = [];
+                
+                sections.forEach(section => {
+                    const sectionId = section.id;
+                    const sectionTitle = section.querySelector('h2')?.textContent || '';
+                    const sectionText = section.textContent.toLowerCase();
+                    
+                    if (sectionText.includes(query)) {
+                        // Find specific paragraphs/elements containing the query
+                        const elements = section.querySelectorAll('p, li, h3, h4, .note-box, .warning-box');
+                        elements.forEach(el => {
+                            if (el.textContent.toLowerCase().includes(query)) {
+                                results.push({
+                                    id: sectionId,
+                                    title: sectionTitle,
+                                    text: el.textContent.substring(0, 150),
+                                    element: el
+                                });
+                            }
+                        });
+                    }
+                });
+                
+                // Display results
+                if (results.length > 0) {
+                    const limitedResults = results.slice(0, 10);
+                    searchResults.innerHTML = `
+                        <div style="padding: 0.5rem 0; border-top: 1px solid var(--border-color);">
+                            Found ${results.length} result${results.length === 1 ? '' : 's'}
+                        </div>
+                    `;
+                    
+                    limitedResults.forEach((result, index) => {
+                        const resultDiv = document.createElement('div');
+                        resultDiv.style.cssText = 'padding: 0.5rem; margin: 0.25rem 0; cursor: pointer; border-radius: 4px;';
+                        resultDiv.innerHTML = `<strong>${result.title}</strong><br><small>${result.text.substring(0, 80)}...</small>`;
+                        
+                        resultDiv.addEventListener('mouseenter', () => {
+                            resultDiv.style.background = 'var(--bg-primary)';
+                        });
+                        resultDiv.addEventListener('mouseleave', () => {
+                            resultDiv.style.background = 'transparent';
+                        });
+                        
+                        resultDiv.addEventListener('click', () => {
+                            // Scroll to result
+                            result.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            
+                            // Highlight the element temporarily
+                            result.element.style.backgroundColor = 'var(--accent-color)';
+                            result.element.style.color = 'white';
+                            result.element.style.transition = 'all 0.3s';
+                            
+                            setTimeout(() => {
+                                result.element.style.backgroundColor = '';
+                                result.element.style.color = '';
+                            }, 2000);
+                        });
+                        
+                        searchResults.appendChild(resultDiv);
+                    });
+                } else {
+                    searchResults.innerHTML = '<div style="padding: 0.5rem 0; color: var(--text-secondary);">No results found</div>';
+                }
+            });
+            
+            function clearHighlights() {
+                const highlighted = mainContent.querySelectorAll('[style*="background-color"]');
+                highlighted.forEach(el => {
+                    el.style.backgroundColor = '';
+                    el.style.color = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
