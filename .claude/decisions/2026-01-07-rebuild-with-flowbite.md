@@ -26,7 +26,6 @@ git checkout -b rebuild-with-flowbite
 Document current content:
 bash# Inventory what needs to migrate
 ls -R src/pages/
-ls -R src/content/
 Phase 1: New Layout Foundation (2-3 hours)
 Goal: Working layout with proper navigation
 1. Install/verify Flowbite:
