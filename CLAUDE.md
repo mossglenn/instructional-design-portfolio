@@ -6,6 +6,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This is an instructional design portfolio website built with Astro 5.x, React 19, Tailwind CSS 4.x, and Flowbite. It showcases educational projects and interactive learning objects.
 
+### Current Project Status
+
+Understand the current project statis by reading .claude/current-project-status.md
+
 ## Development Commands
 
 **Start development server:**

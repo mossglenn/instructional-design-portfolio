@@ -4,7 +4,10 @@
 
 ## Rebuilding with Flowbite Project Tracker
 
-### Phase 0: Prep
+Information about theme preferences and plans are at: .claude/inspiration/THEME-ANALYSIS.md
+
+
+### Phase 1: Prep
 
 - [x] Create migration branch
 - [x] Document current content
