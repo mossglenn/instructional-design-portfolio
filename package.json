@@ -23,7 +23,7 @@
     "astro-show-tailwindcss-breakpoint": "^1.0.9",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
-    "flowbite": "^3.1.2",
+    "flowbite": "^4.0.1",
     "framer-motion": "^12.11.3",
     "motion": "^12.11.3",
     "react": "^19.1.0",
