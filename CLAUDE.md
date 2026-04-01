@@ -90,15 +90,15 @@ Learning objects are defined in `src/data/learningObjects.ts` with:
 The project uses path aliases configured in both `astro.config.mjs` and `tsconfig.json`:
 
 ```typescript
-@/          → ./src/
-@components → ./src/components/
-@content    → ./src/components/content/
-@layouts    → ./src/layouts/
-@pages      → ./src/pages/
-@styles     → ./src/styles/
-@assets     → ./src/assets/
-@public     → ./public/
-@utilities  → ./src/utilities/
+@/                 → ./src/
+@components        → ./src/components/
+@contentComponents → ./src/components/content/
+@layouts           → ./src/layouts/
+@pages             → ./src/pages/
+@styles            → ./src/styles/
+@assets            → ./src/assets/
+@public            → ./public/
+@utilities         → ./src/utilities/
 ```
 
 Always use these aliases when importing to maintain consistency.

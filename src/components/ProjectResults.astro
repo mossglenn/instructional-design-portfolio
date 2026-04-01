@@ -1,0 +1,93 @@
+---
+/**
+ * ProjectResults - Simplified results section for learning objects
+ *
+ * Displays learning objects as cards with thumbnails and "Open" buttons.
+ * Each learning object opens in a new tab (no inline iframe toggle).
+ */
+
+import { getEntry } from 'astro:content';
+
+interface Props {
+  learningObjectIds: string[];
+}
+
+const { learningObjectIds } = Astro.props;
+
+// Fetch learning objects from the data collection
+const learningObjects = await Promise.all(
+  learningObjectIds.map(async (id) => {
+    const entry = await getEntry('learning-objects', id);
+    return entry;
+  })
+);
+
+// Filter out any null entries (in case of invalid IDs)
+const validLearningObjects = learningObjects.filter(Boolean);
+---
+
+<section class="project-results py-12 lg:pb-18 px-4 shadow-sm bg-neutral-200">
+  <div class="max-w-screen-xl mx-auto">
+    <h3
+      class="pb-8 text-4xl tracking-tight font-extrabold text-neutral-900 text-center lg:text-left"
+    >
+      Try it Yourself
+    </h3>
+
+    {
+      validLearningObjects.length === 0 ? (
+        <p class="text-neutral-600 italic">
+          No learning objects configured for this project.
+        </p>
+      ) : (
+        <ul class="grid gap-6 md:grid-cols-2">
+          {validLearningObjects.map(
+            (lo) =>
+              lo && (
+                <li class="bg-white rounded-lg shadow-sm overflow-hidden">
+                  {lo.data.thumbnail && (
+                    <div class="aspect-video overflow-hidden">
+                      <img
+                        src={lo.data.thumbnail}
+                        alt={lo.data.thumbnailAlt || `${lo.data.title} preview`}
+                        class="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                  )}
+                  <div class="p-6">
+                    <h4 class="text-xl font-bold text-primary-500 mb-2">
+                      {lo.data.title}
+                    </h4>
+                    {lo.data.description && (
+                      <p class="text-neutral-600 mb-4 text-sm">
+                        {lo.data.description}
+                      </p>
+                    )}
+                    <a
+                      href={lo.data.path}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-2 px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+                    >
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z" />
+                      </svg>
+                      Open Activity
+                    </a>
+                  </div>
+                </li>
+              )
+          )}
+        </ul>
+      )
+    }
+  </div>
+</section>

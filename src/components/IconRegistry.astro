@@ -1,0 +1,111 @@
+---
+/**
+ * IconRegistry - Resolves icon names to SVG components
+ *
+ * This component maps string icon names (used in frontmatter) to actual SVG imports.
+ * To add a new icon:
+ * 1. Import the SVG file
+ * 2. Add it to the `icons` object with a key matching the frontmatter icon name
+ * 3. Add the key to the iconNameEnum in src/content.config.ts
+ */
+
+// Highlight icons (used in project highlights sections)
+import MotivationStar from '@assets/motivation-star.svg';
+import Xray from '@assets/xray.svg';
+import Brain from '@assets/brain.svg';
+import ForkRoad from '@assets/fork-road-flat.svg';
+import UserCentered from '@assets/user-centered-flat-clean.svg';
+import Minimalist from '@assets/minimalist-icon-small.svg';
+import StopHand from '@assets/stop-hand.svg';
+import Loop from '@assets/loop-circle.svg';
+import Bridge from '@assets/bridge.svg';
+import BookmarkIcon from '@assets/bookmark-icon-flat.svg';
+import PenCircle from '@assets/pen-circle.svg';
+import DesignProblem from '@assets/design-problem-flat.svg';
+import DesignSolution from '@assets/design-solution-flat.svg';
+import QuestionMark from '@assets/question-mark.svg';
+import AgileLoop from '@assets/agile-loop-icon.svg';
+import Scale from '@assets/scale-icon.svg';
+import AiSparkle from '@assets/ai-sparkle-icon.svg';
+import Llm from '@assets/llm-icon.svg';
+import ParallelVectors from '@assets/parallel-vectors-icon.svg';
+import Rocket from '@assets/rocket-transparent.svg';
+import Scientist from '@assets/scientist-icon-color-frames.svg';
+import Accomplished from '@assets/accomplished-color-flat.svg';
+import Retake from '@assets/retake-icon-swoosh.svg';
+import BinaryData from '@assets/binary-data-icon.svg';
+import Iceberg from '@assets/iceberg-perfect.svg';
+import StackingRings from '@assets/stacking-rings.svg';
+import Translator from '@assets/translator-icon.svg';
+
+// Map icon names to components
+const icons: Record<string, typeof MotivationStar> = {
+  MotivationStar,
+  Xray,
+  Brain,
+  ForkRoad,
+  UserCentered,
+  Minimalist,
+  StopHand,
+  Loop,
+  Bridge,
+  BookmarkIcon,
+  PenCircle,
+  DesignProblem,
+  DesignSolution,
+  QuestionMark,
+  AgileLoop,
+  Scale,
+  AiSparkle,
+  Llm,
+  ParallelVectors,
+  Rocket,
+  Scientist,
+  Accomplished,
+  Retake,
+  BinaryData,
+  Iceberg,
+  StackingRings,
+  Translator,
+};
+
+interface Props {
+  /** The name of the icon to render (must match a key in the icons object) */
+  name: string;
+  /** CSS classes to apply to the icon */
+  class?: string;
+  /** Inline styles to apply (useful for CSS variable theming) */
+  style?: string;
+}
+
+const { name, class: className = '', style = '' } = Astro.props;
+const IconComponent = icons[name];
+
+if (!IconComponent && import.meta.env.DEV) {
+  console.warn(`IconRegistry: Unknown icon "${name}". Available icons: ${Object.keys(icons).join(', ')}`);
+}
+---
+
+{IconComponent ? (
+  <IconComponent class={className} style={style} />
+) : (
+  <span class={`icon-placeholder ${className}`} style={style} title={`Missing icon: ${name}`}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v4M12 16h.01" />
+    </svg>
+  </span>
+)}
+
+<style>
+  .icon-placeholder {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    opacity: 0.5;
+  }
+  .icon-placeholder svg {
+    width: 100%;
+    height: 100%;
+  }
+</style>

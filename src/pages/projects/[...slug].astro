@@ -1,0 +1,43 @@
+---
+/**
+ * Dynamic route for project pages
+ *
+ * This generates a page for each project in the content collection.
+ * The slug is auto-generated from the folder name (e.g., gamified-statistics-tutor).
+ */
+
+import { getCollection } from 'astro:content';
+import ProjectLayout from '@layouts/ProjectLayout.astro';
+
+// MDX components available to all project content
+import Callout from '@components/mdx/Callout.astro';
+import Highlight from '@components/mdx/Highlight.astro';
+import ImageFigure from '@components/ImageFigure.astro';
+import ContentSection from '@components/ContentSection.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data }) => !data.draft);
+
+  return projects.map((project) => ({
+    // Use auto-generated slug from folder name, or custom permalink if provided
+    params: { slug: project.data.permalink || project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+// Render the MDX content with custom components
+const { Content } = await project.render();
+---
+
+<ProjectLayout project={project}>
+  <Content
+    components={{
+      Callout,
+      Highlight,
+      ImageFigure,
+      ContentSection,
+    }}
+  />
+</ProjectLayout>

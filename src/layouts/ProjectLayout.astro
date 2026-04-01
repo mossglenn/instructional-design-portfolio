@@ -1,0 +1,87 @@
+---
+/**
+ * ProjectLayout - Shared layout for all project pages
+ *
+ * This layout wraps the base Layout and provides the common structure
+ * for all portfolio project pages: Header, Hero, PageSectionNav, content,
+ * Results, and Footer.
+ */
+
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import PageSectionNav from '@components/PageSectionNav.astro';
+import ProjectHero from '@components/ProjectHero.astro';
+import ProjectHighlights from '@components/ProjectHighlights.astro';
+import ProjectResults from '@components/ProjectResults.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+
+// Build navigation sections based on layout config
+const sections = data.layout?.sections || [
+  'highlights',
+  'challenge',
+  'solution',
+  'results',
+];
+
+// Map section IDs to display labels
+const sectionLabels: Record<string, { short: string; full: string }> = {
+  highlights: { short: 'Highlights', full: 'Project Highlights' },
+  challenge: { short: 'Challenge', full: 'Design Challenge' },
+  solution: { short: 'Solution', full: 'Design Solution' },
+  narrative: { short: 'Narrative', full: 'Design Narrative' },
+  results: { short: 'Results', full: 'Results' },
+  details: { short: 'Details', full: 'Project Details' },
+};
+
+const navSections = sections.map((s) => ({
+  id: s,
+  label: sectionLabels[s] || { short: s, full: s },
+}));
+---
+
+<Layout title={data.title}>
+  <Header />
+  <ProjectHero hero={data.hero} />
+  <PageSectionNav sections={navSections} />
+
+  {
+    sections.includes('highlights') && data.highlights && (
+      <section id="highlights" class="nav-section scroll-mt-24">
+        <ProjectHighlights highlights={data.highlights} />
+      </section>
+    )
+  }
+
+  <!-- MDX content renders Challenge/Solution/Narrative sections -->
+  <article class="project-content">
+    <slot />
+  </article>
+
+  {
+    sections.includes('results') && data.learningObjects && (
+      <section id="results" class="nav-section scroll-mt-24">
+        <ProjectResults learningObjectIds={data.learningObjects} />
+      </section>
+    )
+  }
+
+  <Footer />
+</Layout>
+
+<style>
+  .project-content {
+    /* MDX content sections will have their own section wrappers */
+  }
+
+  .project-content :global(h2) {
+    /* Style for section headings from MDX */
+  }
+</style>

@@ -1,0 +1,9 @@
+{
+  "id": "hugging-face-demo",
+  "title": "AI-Powered Feedback Demo",
+  "path": "https://mossglenn-answering-questions-demo.hf.space",
+  "description": "Try the proof-of-concept tool yourself. Type a response to the sample question and submit it. The system will compare your answer to the approved reference answer and provide feedback based on semantic similarity.",
+  "thumbnail": "/assets/portfolio/ai-powered/hfscreenshot1.png",
+  "thumbnailAlt": "Screenshot of the AI-powered feedback demo interface",
+  "defaultOpen": false
+}

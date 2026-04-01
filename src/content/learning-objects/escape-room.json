@@ -1,0 +1,9 @@
+{
+  "id": "escape-room",
+  "title": "Escape Room",
+  "path": "/learning-objects/escape-room-learning-activity/index.html",
+  "description": "Practice and learn complex statistics calculations to uncover the secret code that unlocks the door.",
+  "thumbnail": "/learning-objects/escape-room-learning-activity/thumbnail.png",
+  "thumbnailAlt": "Escape Room Learning Activity Thumbnail",
+  "defaultOpen": false
+}

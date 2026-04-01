@@ -1,0 +1,109 @@
+---
+title: "AI-Powered Learning Practice"
+permalink: "ai-powered-learning-practice"
+order: "a"
+draft: false
+
+hero:
+  headline: "Using AI to Learn with Precision and Confidence"
+  subheading: "Scaling individualized feedback to help staff practice communicating complex information accurately and confidently."
+
+hook: "An AI-enabled tool evaluates how closely learner responses align with approved answers and offers feedback based on semantic similarity."
+
+owner:
+  name: "Proof of Concept"
+  url: "https://huggingface.co/spaces/mossglenn/answering-questions-demo"
+
+myRole: "Lead Designer & Developer"
+
+highlights:
+  - title: "Helpful Gen-AI Feedback"
+    description: "A LLM is used to generate feedback content that reliably summarizes the meaningful differences in the learner's answer."
+    icon: "AiSparkle"
+  - title: "Semantic Evaluation"
+    description: "Instead of checking for specific words, embeddings are used to measure semantic similarity (closeness in meaning). Cosine similarity gives us a score that reflects a level of alignment."
+    icon: "Llm"
+  - title: "Scalable Personalization"
+    description: "With minimal resources, the system generates personalized feedback instantly, allowing scalable practice without SME bottlenecks."
+    icon: "ParallelVectors"
+
+layout:
+  sections:
+    - highlights
+    - challenge
+    - solution
+    - results
+
+learningObjects:
+  - hugging-face-demo
+
+category:
+  - ai
+tags:
+  - ai
+  - llm
+  - semantic-similarity
+  - feedback
+  - proof-of-concept
+  - python
+  - hugging-face
+---
+
+import { Image } from 'astro:assets';
+import HG1 from '@assets/portfolio/ai-powered/hfscreenshot1.png';
+import HFscore from '@assets/portfolio/ai-powered/hf-score.png';
+import HFfeedback from '@assets/portfolio/ai-powered/hf-feedback.png';
+
+## Design Challenge
+
+Staff working on this national biomedical research program are regularly asked **complex, highly technical questions** by members of the public. These questions often touch on genetics, data privacy, research ethics, and medical terminology. To respond accurately, staff must not only remember the correct information, they must interpret it, adapt it to context, and **explain it clearly at a wide range of literacy levels**. The existing training approach relied almost entirely on written resources, especially model responses to frequently asked questions.
+
+<Highlight>There was no structured way for staff to practice forming responses and receive meaningful feedback.</Highlight>
+
+When staff did practice, the feedback was often:
+- **Inconsistent**, depending on who reviewed it
+- **Delayed**, arriving after the moment of need
+- **Difficult to scale**, especially across distributed teams
+
+**Yet the stakes were high.** Responses must be:
+- **Accurate and complete** to maintain public trust and comply with research guidelines
+- **Consistent** across the nation-wide organization
+- **Supportive and understandable**, regardless of the learner's technical background
+
+In short, we needed a way to provide scalable, individualized feedback that **helps staff learn to communicate complex information confidently and responsibly**.
+
+## Design Solution
+
+Because this project addressed a high-stakes communication skill, I began with a **proof-of-concept** to demonstrate that scalable, feedback-driven practice could work before investing in a full production build with a development team. The proof-of-concept was built entirely in Python using free, open-source tools: no licenses, custom infrastructure, or developer time were required at this stage. The interface was intentionally minimal (a question, a text field, and a feedback panel) to support a rapid learning loop.
+
+<Image src={HG1} class="my-8 border-2 border-neutral-300" alt="Full tool screenshot showing the AI-powered feedback interface" />
+
+### Using Available Gold-Standard Answers
+
+In the production training environment, staff learn to respond using IRB-approved model answers. These internal answers are not public, but the *All of Us* website publishes public-facing FAQs based on the same source guidance. These public FAQs are accurate, written in plain language, and aligned in tone and intent with the internal training materials. For the proof-of-concept, I adapted these public FAQs as *gold-standard benchmark answers* for comparison. This ensured the demo respected IRB boundaries while still reflecting the communication approach expected in training.
+
+### Semantic Similarity Scoring
+
+<Image src={HFscore} class="m-auto max-w-96 border-2 border-neutral-300 my-4" alt="Score display showing semantic similarity percentage" />
+
+The demo ran on Hugging Face Spaces and used an open embedding model to generate semantic vector representations of (1) the learner's written response and (2) the benchmark answer. The tool calculated **cosine similarity** between these vectors to assess how closely the meaning of the learner's response aligned with the meaning of the approved content. This approach evaluates **conceptual accuracy**, not keyword overlap. The similarity score was then mapped to a percentage scale and a qualitative label (e.g., "Low," "Moderate," "High") to make the results meaningful to the learner.
+
+### Generating Targeted, Actionable Feedback
+
+In addition to scoring similarity, the tool used a lightweight language model to compare the learner's response to the benchmark answer and to identify differences in meaning. The tool then generated feedback text highlighting ways the learner's answer could be improved:
+
+- Which key ideas were present or missing
+- Why certain clarifications mattered
+- Where simplification or re-wording could improve clarity
+
+<Image src={HFfeedback} class="m-auto max-w-96 border-2 border-neutral-300 my-4" alt="Feedback panel showing AI-generated suggestions for improvement" />
+
+### Reinforcing the Approved Language Framework
+
+The training program also uses an **Approved Language Framework** to help staff communicate in ways that are accurate, welcoming, and aligned with the values of the research program. Some commonly used phrases can unintentionally imply incorrect assumptions, introduce ambiguity, or make community members feel excluded. To support this, the prototype included a rule-based layer that scanned the learner's responses for a representative subset of these phrases using regular-expression matching. If a flagged phrase appeared in the learner's response, the tool provided brief, pre-written guidance explaining the reasons for avoiding the phrase and alternative wording.
+
+### My Role
+
+**I led the end-to-end design and development of this proof-of-concept.** I identified the instructional problem, evaluated solution approaches, and designed the learning experience around applied practice with timely, meaningful feedback. I selected the semantic similarity approach, adapted the benchmark responses from publicly available IRB-approved FAQs, and authored the feedback prompts and scoring logic to ensure the system reinforced clarity, accuracy, and trust.
+
+I built the prototype interface and scoring pipeline using Python and free, open-source models running on Hugging Face Spaces, allowing the solution to be tested without custom infrastructure or engineering support. I also designed the rule-based layer that checked for phrases addressed in the program's Approved Language Framework, and drafted the explanatory guidance used to redirect learners toward clearer and more inclusive alternatives.

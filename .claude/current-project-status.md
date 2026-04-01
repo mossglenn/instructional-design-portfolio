@@ -6,7 +6,6 @@
 
 Information about theme preferences and plans are at: .claude/inspiration/THEME-ANALYSIS.md
 
-
 ### Phase 1: Prep
 
 - [x] Create migration branch

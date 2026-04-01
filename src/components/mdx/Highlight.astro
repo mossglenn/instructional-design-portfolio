@@ -1,0 +1,29 @@
+---
+/**
+ * Highlight - Inline highlighted text span with gradient background
+ *
+ * Usage in MDX:
+ * <Highlight>This text will be highlighted</Highlight>
+ * <Highlight color="secondary">Different color</Highlight>
+ */
+
+interface Props {
+  /** Color scheme: primary, secondary, or tertiary */
+  color?: 'primary' | 'secondary' | 'tertiary';
+}
+
+const { color = 'secondary' } = Astro.props;
+
+const colorStyles = {
+  primary: 'from-primary-300 to-primary-700',
+  secondary: 'from-secondary-300 to-secondary-700',
+  tertiary: 'from-tertiary-500 to-tertiary-800',
+};
+---
+
+<span
+  class={`rounded-md py-0.5 px-1.5 text-foreground-light bg-linear-to-r ${colorStyles[color]} tracking-wide`}
+  style="box-decoration-break: clone"
+>
+  <slot />
+</span>
