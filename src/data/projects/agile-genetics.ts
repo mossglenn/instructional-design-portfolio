@@ -1,7 +1,7 @@
 import type { Project } from '@/types/project';
 import Featured from '@assets/featured/agile-iso.png';
 /**
- * Project metadata for: My Project Name
+ * Project metadata for: Agile Genetics Curriculum
  * Used in the Course Details table and other structured components.
  */
 const ProjectAgileGenetics: Project = {
@@ -20,7 +20,7 @@ const ProjectAgileGenetics: Project = {
   display: {
     headlineHTML: 'Agile Design for Rapid, High-Impact Curriculum Development',
     subheadingHTML:
-      'Quickly delivering essential learning material for a complex, technical subjects by continuously iterating based on learner feedback.',
+      'Quickly delivering essential learning material for complex, technical subjects by continuously iterating based on learner feedback.',
     leaderHTML:
       'Learning material for a large and complex topic (Genetics) was needed right away. Since a waterfall approach (like ADDIE) would have taken months to analyze, I used an agile-inspired, collaborative approach launching an MVP curriculum in weeks, and refining it based on real-time learner feedback.',
   },

@@ -34,7 +34,7 @@ export const RcrMetadata: Project = {
     subheadingHTML:
       "Compliance training focused on supporting learner's aspirations not on thwarting villian's plans.",
     hookHTML:
-      'How can we turn compliance training into a meaningful, thought-provoking experience—one that encourages researchers to reflect on their role in ethical research, not just memorize rules and poplicies?',
+      'How can we turn compliance training into a meaningful, thought-provoking experience—one that encourages researchers to reflect on their role in ethical research, not just memorize rules and policies?',
     leaderHTML:
       "This training was designed to shift a researcher's focus from checking off compliance-boxes to maintaining strategies and guardrails that protect the integrity of their work and the privacy of research participants.",
     relatedCourseTitle: 'Responsible Conduct of Research',

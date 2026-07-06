@@ -2,7 +2,7 @@ import type { Project } from '@/types/project';
 import HandBookCover from '@assets/featured/handbook-iso.png';
 
 /**
- * Project metadata for: My Project Name
+ * Project metadata for: Instruction Based on Adaptive Learning Technologies
  * Used in the Course Details table and other structured components.
  */
 const ProjectHandbook: Project = {
@@ -11,7 +11,7 @@ const ProjectHandbook: Project = {
   order: 'c',
   featuredImagePath: 'handbook-2-cover.png',
   featuredImage: HandBookCover,
-  title: ' Instruction Based on Adaptive Learning Technologies',
+  title: 'Instruction Based on Adaptive Learning Technologies',
   partners: [
     {
       content:
@@ -25,14 +25,14 @@ const ProjectHandbook: Project = {
     subheadingHTML:
       'Co-author of Chapter 24: Instruction Based on Adaptive Learning Technologies',
     hookHTML:
-      'Which learner charactaristics should we adapt to? Wwhich loops are effective at adapting to available data?',
+      'Which learner characteristics should we adapt to? Which loops are effective at adapting to available data?',
     leaderHTML:
-      "Recent advances in adaptive learning sciences are transforming a designer's ability to personalize instruction. In this chapter I discuss:<br /><span class='italic'>•Which learner charactaristics should we adapt to?<br />•Which loops are effective at adapting to available data?'</span>",
+      "Recent advances in adaptive learning sciences are transforming a designer's ability to personalize instruction. In this chapter I discuss:<br /><span class='italic'>•Which learner characteristics should we adapt to?<br />•Which loops are effective at adapting to available data?</span>",
     audience:
       'graduate students, researchers, and practitioners interested in an evidence-based approach to learning and instruction',
-    myRole: 'Coauthor',
+    myRole: 'Co-author',
     summaryHTML:
-      " Recent advances in adaptive learning sciences (such as machine learning, natural language processing, and Bayesian knowledge tracing) are transforming a designer's ability to personalize instruction. For this reason a new chapter was added to the second edition of The Handbook on Learning and Instruction discussing the current state of the science and how practitioners can apply it effectively .",
+      "Recent advances in adaptive learning sciences (such as machine learning, natural language processing, and Bayesian knowledge tracing) are transforming a designer's ability to personalize instruction. For this reason a new chapter was added to the second edition of The Handbook on Learning and Instruction discussing the current state of the science and how practitioners can apply it effectively.",
   },
   metadata: {
     category: ['research'],

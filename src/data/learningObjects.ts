@@ -25,7 +25,7 @@ export const learningObjects: LearningObject[] = [
     title: 'Zoo Treasure Hunt',
     path: '/learning-objects/stats-zoo-learning-activity/index.html',
     description:
-      ' Practice and learn probability calculations by searching for a treasure hidden somewhere in the zoo.',
+      'Practice and learn probability calculations by searching for a treasure hidden somewhere in the zoo.',
     thumbnail: '/learning-objects/stats-zoo-learning-activity/thumbnail.jpg',
     thumbnailAlt: 'Zoo Treasure Hunt Learning Activity Thumbnail',
     defaultOpen: false,

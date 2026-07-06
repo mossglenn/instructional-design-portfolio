@@ -1,7 +1,7 @@
 import type { Project } from '@/types/project';
 import Featured from '@assets/featured/digital-literacy-iso.png';
 /**
- * Project metadata for: My Project Name
+ * Project metadata for: Digital Literacy Microlearning
  * Used in the Course Details table and other structured components.
  */
 const ProjectDigitalLiteracy: Project = {
@@ -20,9 +20,9 @@ const ProjectDigitalLiteracy: Project = {
   display: {
     headlineHTML: 'A Digital Bridge over the Digital Divide',
     subheadingHTML:
-      'How to reach learners with low digital literacy skills though a national, scalable, online program to teach digital literacy skills.',
+      'How to reach learners with low digital literacy skills through a national, scalable, online program to teach digital literacy skills.',
     leaderHTML:
-      'Digital learning platforms are essential to a national-level learning program. <span class="font-bold">But how can we leverage the scalability of digital learning platforms if the primary audience does not have all the skills and knowledge to ineract in digital spaces efficiently and safely?</span>',
+      'Digital learning platforms are essential to a national-level learning program. <span class="font-bold">But how can we leverage the scalability of digital learning platforms if the primary audience does not have all the skills and knowledge to interact in digital spaces efficiently and safely?</span>',
   },
   metadata: {
     category: ['digital'],

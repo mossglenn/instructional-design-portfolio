@@ -1,7 +1,7 @@
 import type { Project } from '@/types/project';
 import EngageFeatured from '@assets/featured/engage-iso.png';
 /**
- * Project metadata for: My Project Name
+ * Project metadata for: Game-Based Learning Design (ENGAGE)
  * Used in the Course Details table and other structured components.
  */
 const ProjectEngage: Project = {
@@ -22,9 +22,9 @@ const ProjectEngage: Project = {
     subheadingHTML:
       'Bridging the learning sciences and game development to help players grasp abstract concepts through inquiry',
     hookHTML:
-      'How can we optimize learning and keep learners engaged while practicing a complex, multi-step skill? ',
+      'How can we optimize learning and keep learners engaged while practicing a complex, multi-step skill?',
     leaderHTML:
-      'As part of the interdisciplanary ENAGE team, I designed and developed games for young learners that use instructional strategies, interactive problem-solving, and scaffolded learning mechanics to teach STEM subjects plus scientific inquiry and critical thinking skills.',
+      'As part of the interdisciplinary ENGAGE team, I designed and developed games for young learners that use instructional strategies, interactive problem-solving, and scaffolded learning mechanics to teach STEM subjects plus scientific inquiry and critical thinking skills.',
   },
   metadata: {
     category: ['games'],

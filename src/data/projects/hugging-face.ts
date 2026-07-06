@@ -1,7 +1,7 @@
 import type { Project } from '@/types/project';
 import Featured from '@assets/featured/hugging-face-iso.png';
 /**
- * Project metadata for: My Project Name
+ * Project metadata for: AI-Powered Learning Practice
  * Used in the Course Details table and other structured components.
  */
 const ProjectHuggingFace: Project = {
@@ -20,7 +20,7 @@ const ProjectHuggingFace: Project = {
     headlineHTML: 'Using AI to Learn with Precision and Confidence',
     subheadingHTML: 'Scaling individualized feedback to help staff practice communicating complex information accurately and confidently.',
     leaderHTML:
-      "<span class='italic'>This proof of concept project was not been implemented.</span> Staff in biomedical research programs often field complex and sensitive questions from the public. To help them practice communicating clearly and accurately, this AI-enabled tool evaluates how closely their response aligns with an IRB-approved answer and offers feedback based on semantic similarity.",
+      "<span class='italic'>This proof-of-concept project has not been implemented.</span> Staff in biomedical research programs often field complex and sensitive questions from the public. To help them practice communicating clearly and accurately, this AI-enabled tool evaluates how closely their response aligns with an IRB-approved answer and offers feedback based on semantic similarity.",
   },
   metadata: {
     category: ['ai'],
